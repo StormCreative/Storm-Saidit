@@ -40,6 +40,10 @@ Why not <a href="<?php echo DIRECTORY; ?>post/add">create one?</a>
 </section>
 <?php include "assets/includes/aside.php"; ?>
 <script> 
+    <?php if(!!$posts_list): ?>
     var total_items = <?php echo count($posts_list); ?>;
+    <?php endif; ?>
+    <?php if($to_scroll): ?>
     var scroll = <?php echo $to_scroll; ?>;
+    <?php endif; ?>
 </script>

@@ -18,7 +18,8 @@ function decryptData($value){
    return trim($decrypttext); 
 }
 
-
+/*
+// As the server doesn't support DateTime class can not use it
 function tidy_time_posted($date)
 {
     // Create two new DateTime-objects...
@@ -36,6 +37,12 @@ function tidy_time_posted($date)
     $time .= ($diff->h <= 1 ? 'less than ' : '' ) . $diff->h . ' hour'.($diff->h > 1 ? 's' : "");
 
     return $time;
+}
+*/
+
+function tidy_time_posted($date)
+{
+    return date('d/m/Y H:i', strtotime($date));
 }
 
 function get_website_first_image($img)

@@ -46,14 +46,19 @@ class home extends c_controller
                 $posts->order('create_date');
                 $posts->where('DATE('.DB_SUFFIX.'_posts.create_date) = CURDATE()', null, true);
             } elseif( !isset($_GET['all']) ) {
-                $posts->where('posts.rating >= 1');
-                $posts->limit(10);
+                $posts->where('posts.status = 0');
+                //w$posts->limit(10);
+            } elseif( !!$_GET['status'] ) {
+                $posts->where('posts.status = :status');
+                $binds['status'] = $_GET['status'];
             } else {
 
                 $to_scroll = false;
             }
 
-            $posts_list = $posts->all($binds);    
+            $posts_list = $posts->all($binds);  
+
+
         }
 
         $this->addTag('to_scroll', $to_scroll);

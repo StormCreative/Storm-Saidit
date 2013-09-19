@@ -75,3 +75,4 @@
 19-09-2013 15:48:17 Core/Routing/Router: Threw exception: Could not find controller "storm-saidit" to load
 19-09-2013 15:48:27 Core/Routing/Router: Threw exception: Could not find controller "storm-saidit" to load
 19-09-2013 15:48:27 Core/Routing/Router: Threw exception: Could not find controller "storm-saidit" to load
+19-09-2013 17:51:14 Core/Routing/Router: Threw exception: Could not find controller "test" to load

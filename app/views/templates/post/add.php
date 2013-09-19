@@ -12,13 +12,11 @@
 
         <p><?php echo Form::textfield('title'); ?></p>
         <p><?php echo Form::textfield('link'); ?></p>
-
+        <p><?php echo Form::textarea('notes'); ?></p>
         <p>Category:</p>
-        <label for="design">Design:</label><input type="checkbox" id="design" name="posts[category][]" value="design">
-        <label for="web">Web:</label><input type="checkbox" id="web" name="posts[category][]" value="web">
-        <label for="web">Inspiration:</label><input type="checkbox" id="inspiration" name="posts[category][]" value="inspiration">
-        <label for="misc">Misc:</label><input type="checkbox" id="misc" name="posts[category][]" value="misc">
-        <label for="funny">Funny:</label><input type="checkbox" id="funny" name="posts[category][]" value="funny">
+        <?php foreach(Posts::$tags as $key => $value): ?>
+        <label for="<?php echo $key; ?>"><?php echo $value; ?>:</label><input type="checkbox" id="<?php echo $key; ?>" name="posts[category][]" value="<?php echo $key; ?>">
+        <?php endforeach; ?>
 
         <p><?php echo Form::submit('submit', 'Post', 'form__submit action-grad'); ?></p>
 
