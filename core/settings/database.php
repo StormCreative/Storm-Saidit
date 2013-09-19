@@ -2,12 +2,12 @@
 
 if (!LIVE) {
     $settings[ 'DB_HOST' ] = 'localhost';
-    $settings[ 'DB_NAME' ] = 'saidit';
+    $settings[ 'DB_NAME' ] = 'gileswilson_saidit';
     $settings[ 'DB_USER' ] = 'root';
     $settings[ 'DB_PASS' ] = 'root';
 } else {
     $settings[ 'DB_HOST' ] = 'localhost';
-    $settings[ 'DB_NAME' ] = 'saidit';
+    $settings[ 'DB_NAME' ] = 'gileswilson_saidit';
     $settings[ 'DB_USER' ] = 'root';
     $settings[ 'DB_PASS' ] = 'root';
 }

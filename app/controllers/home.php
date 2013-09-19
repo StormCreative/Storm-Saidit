@@ -46,7 +46,7 @@ class home extends c_controller
                 $posts->order('create_date');
                 $posts->where('DATE('.DB_SUFFIX.'_posts.create_date) = CURDATE()', null, true);
             } elseif( !isset($_GET['all']) ) {
-                $posts->where('posts.rating >= 1');
+                //$posts->where('posts.rating >= 1');
                 $posts->limit(10);
             } else {
 

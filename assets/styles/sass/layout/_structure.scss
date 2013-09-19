@@ -1,9 +1,9 @@
 * {
-    font-family: Helvetica, Arial, Verdana, sans-serif;
+    font-family: 'TTRegular';
 }
 
 body {
-    font-family: Arial;
+    font-family: 'TTRegular';
     width: 100%;
     margin: 0;
 }
@@ -22,7 +22,6 @@ a:hover {
 
 .header {
     background: black;
-    
     padding-top: 1px;
     padding-left: 10px;
     position: relative;
@@ -43,11 +42,7 @@ a:hover {
     color: white;
 }
 
-.header__login {
-    float: right;
-    margin-top: -50px;
-    margin-right: 40px;
-}
+
 
 /** Controls within the header **/
 
@@ -81,8 +76,11 @@ a:hover {
 }
 
 .wrapper {
-    margin-left: 10px;
 }
+
+@import "components/filter-bar";
+@import "Fonts/fonts";
+@import "Fonts/font-awesome";
 
 /**** Side Menu ***/
 
@@ -91,7 +89,7 @@ a:hover {
     border-top-left-radius: 5px 5px;
     border-top-right-radius: 5px 5px;
     float: right;
-    width: 15%;
+    width: 285px;
     margin-right: 20px;
 }
 
@@ -264,4 +262,13 @@ a:hover {
     padding: 3px 6px;
     font-size: 14px;
     margin-top: 10px;
+}
+
+
+/* switch icon */
+
+.switch_icon {
+    background: url(../images/switch_bg.png) no-repeat;
+    height: 25px;
+    width: 21px;
 }

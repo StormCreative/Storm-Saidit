@@ -1,6 +1,13 @@
 <?php include('assets/includes/search-form.php'); ?>
 <section class="main">
-<p><a href="<?php echo DIRECTORY; ?>" <?php if(!$_GET && !$_POST): ?>class="active"<?php endif; ?>>Most Rated</a> | <a href="<?php echo DIRECTORY; ?>?today=true" <?php if(isset($_GET['today'])): ?>class="active"<?php endif; ?>>Today</a> | <a href="<?php echo DIRECTORY; ?>?all=true" <?php if(isset($_GET['all'])): ?>class="active"<?php endif; ?>>All</a></p>
+<p>
+    <a href="<?php echo DIRECTORY; ?>" <?php if(!$_GET && !$_POST): ?>class="active"<?php endif; ?>>Recent Suggestions</a> 
+    | <a href="<?php echo DIRECTORY; ?>?posts=1" <?php if(isset($_GET['today'])): ?>class="active"<?php endif; ?>>Pending</a> 
+    | <a href="<?php echo DIRECTORY; ?>?posts=2" <?php if(isset($_GET['today'])): ?>class="active"<?php endif; ?>>Unused</a> 
+    | <a href="<?php echo DIRECTORY; ?>?posts=3" <?php if(isset($_GET['all'])): ?>class="active"<?php endif; ?>>Previously Used</a>
+    | <a href="<?php echo DIRECTORY; ?>?posts=4" <?php if(isset($_GET['today'])): ?>class="active"<?php endif; ?>>Approved and Unused</a> 
+</p>
+<p class="switch_icon"></p>
 <?php if($posts_list != false): ?>
     <div class="js-infi-scroll">
     <?php if( !$to_scroll ): ?>
@@ -17,9 +24,13 @@
                 </div>
             </div>
             <div class="post__rate" data-rating="<?php echo $post['rating']; ?>" data-post-id="<?php echo $post['id']; ?>">
-                <div class="arrow-up js-rating" data-action="up"></div>
+                <ul class="rating_system">
+                    <li><i class="icon-thumbs-up"></i> 0</li>
+                    <li><i class="icon-thumbs-down"></i> 0</li>
+                </ul>
+                <!--<div class="arrow-up js-rating" data-action="up"></div>
                 <span class="post__rate--number js-rating-total" id="js-post-rating-<?php echo $post['id']; ?>"><?php echo $post['rating']; ?></span>
-                <div class="arrow-down js-rating" data-action="down"></div>
+                <div class="arrow-down js-rating" data-action="down"></div>-->
             </div>
         </article>
         <?php endforeach; ?>
@@ -36,5 +47,4 @@ Why not <a href="<?php echo DIRECTORY; ?>post/add">create one?</a>
 <script> 
     var total_items = <?php echo count($posts_list); ?>;
     var scroll = <?php echo $to_scroll; ?>;
-
 </script>
