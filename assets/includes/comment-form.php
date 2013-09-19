@@ -1,0 +1,13 @@
+<?php if( !!$_SESSION['user']['id'] ): ?> 
+<div class="comment-form">
+    <!-- Render comment form -->
+    <?php echo Form::start_form('comments', '', 'POST', 'form'); ?>
+    <p><?php echo Form::textarea('body', 'js-comment'); ?></p>
+    <p><?php echo Form::submit('submit', 'Post Comment', 'form__submit action-grad'); ?></p>
+    <div class="auto-suggest js-auto-suggest"></div>
+    <?php echo Form::end_form(); ?>
+    <!-- End form -->
+</div>
+<?php else: ?>
+    <p class="error">To make a comment, you need to be logged in.</p>
+<?php endif; ?>

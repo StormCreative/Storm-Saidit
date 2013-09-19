@@ -1,0 +1,90 @@
+@import "layout/structure";
+
+.intro {
+    border: 1px solid #ccc;
+    padding: 10px 10px;
+    margin-bottom: 15px;
+    
+
+
+    h2 {
+        margin-bottom: 0;
+    }
+
+    p {
+        color: #AAAAAA;
+        font-size: 12px;
+    }
+}
+
+.image {
+    border: 1px solid #ccc;
+    float: left;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.description {
+    margin-top: -20px;
+}
+
+.comments {
+    border: 1px solid #ccc;
+    padding: 10px 10px;
+}
+
+.comments__list {
+    
+    width: 60%;
+    margin-left: 2%;
+
+    .comments__list--author {
+        color: #AAAAAA;
+        font-style: italic;
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .comments__list--comment {
+        font-size: 14px;
+        margin-bottom: 15px;
+        word-wrap:break-word;
+    }
+}
+
+/** Notifications **/
+
+.notification {
+    
+}
+
+.notification__new {
+    color: red;
+}
+
+.comment-form {
+    position: relative;
+    width:100%;
+}
+
+.auto-suggest {
+    border: 1px solid #ccc;
+    height: auto;
+    background: white;
+    width: 31%;
+    position: absolute;
+    top: 65%;
+    display: none;
+
+    -webkit-box-shadow: 0 8px 6px -6px #ccc;
+       -moz-box-shadow: 0 8px 6px -6px #ccc;
+            box-shadow: 0 8px 6px -6px #ccc;
+
+    ul {
+
+        li {
+            margin-top: 8px;
+        }
+    }
+
+}

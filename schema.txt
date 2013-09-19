@@ -1,0 +1,94 @@
+-- phpMyAdmin SQL Dump
+-- version 3.5.7
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Jun 21, 2013 at 05:23 PM
+-- Server version: 5.5.29
+-- PHP Version: 5.4.10
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `saidit`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `saidit_authors`
+--
+
+CREATE TABLE `saidit_authors` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `saidit_authors`
+--
+
+INSERT INTO `saidit_authors` (`id`, `name`, `create_date`) VALUES
+(2, 'Ashley Banks', '2013-06-20 13:31:57');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `saidit_comments`
+--
+
+CREATE TABLE `saidit_comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `body` text NOT NULL,
+  `posts_id` int(11) NOT NULL,
+  `authors_id` int(11) NOT NULL,
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `saidit_posts`
+--
+
+CREATE TABLE `saidit_posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text NOT NULL,
+  `image_id` int(11) NOT NULL,
+  `authors_id` int(11) DEFAULT NULL,
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `link` varchar(250) NOT NULL,
+  `rating` int(11) NOT NULL,
+  `category` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `saidit_posts`
+--
+
+INSERT INTO `saidit_posts` (`id`, `title`, `image_id`, `authors_id`, `create_date`, `link`, `rating`, `category`) VALUES
+(11, 'YouTube Rant...', 0, 2, '2013-06-20 16:10:40', 'http://www.quickmeme.com/meme/3ux82q/', 4, ''),
+(12, 'A very happy fucking Gecko', 0, 2, '2013-06-20 16:11:36', 'http://i.imgur.com/gzM4d.jpg', 38, ''),
+(13, 'Motorcycle', 0, 2, '2013-06-21 11:32:15', 'http://www.quickmeme.com/meme/3uxp4f/', 2, ''),
+(14, 'IT truth', 0, 2, '2013-06-21 14:51:58', 'http://www.quickmeme.com/meme/3uxowc/', 0, 'design,web,misc');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `saidit_ratings`
+--
+
+CREATE TABLE `saidit_ratings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rating` int(11) NOT NULL,
+  `posts_id` int(11) NOT NULL,
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=62 ;
+
+

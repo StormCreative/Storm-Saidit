@@ -1,0 +1,267 @@
+* {
+    font-family: Helvetica, Arial, Verdana, sans-serif;
+}
+
+body {
+    font-family: Arial;
+    width: 100%;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: red;
+    cursor: hand;
+}
+
+/** Header styles **/
+
+.header {
+    background: black;
+    
+    padding-top: 1px;
+    padding-left: 10px;
+    position: relative;
+    color: white;
+    height: 80px;
+    margin-bottom: 10px;
+
+    a {
+        color: white;
+    }
+
+    a:hover {
+        color: red;
+    }
+}
+
+.header__logo {
+    color: white;
+}
+
+.header__login {
+    float: right;
+    margin-top: -50px;
+    margin-right: 40px;
+}
+
+/** Controls within the header **/
+
+.controls {
+    background-color: #ccc;
+    display: none;
+    height: auto;
+    position: absolute;
+    width: 180px;   
+    right: 0;
+    color: black;
+
+    li {
+        margin-bottom: 5px;
+    }
+}
+
+.notifications {
+    color: red;
+}
+
+/** Main container **/
+
+.main {
+    float: left;
+    width: 82%;
+}
+
+.active {
+    color: red;
+}
+
+.wrapper {
+    margin-left: 10px;
+}
+
+/**** Side Menu ***/
+
+.side-menu {
+    //border: 1px solid #ccc;
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    float: right;
+    width: 15%;
+    margin-right: 20px;
+}
+
+.widget {
+    margin: 8px 8px;
+    padding: 8px 8px;
+}
+
+.widget__intro {
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+
+.action {
+    
+}
+
+.action__btn {
+    
+    width: 100%;
+}
+
+.action-grad {
+    
+    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 6px;
+    
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-size: 12px;
+    height: 30px;
+    text-align: center;
+
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+
+    background: #00b7ea; /* Old browsers */
+    background: -moz-linear-gradient(top, #00b7ea 0%, #009ec3 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7ea), color-stop(100%,#009ec3)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #00b7ea 0%,#009ec3 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #00b7ea 0%,#009ec3 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #00b7ea 0%,#009ec3 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #00b7ea 0%,#009ec3 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 ); /* IE6-9 */
+}
+
+.action-grad:hover {
+    background: #258dc8; /* Old browsers */
+    background: -moz-linear-gradient(top, #258dc8 0%, #258dc8 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#258dc8), color-stop(100%,#258dc8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #258dc8 0%,#258dc8 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #258dc8 0%,#258dc8 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #258dc8 0%,#258dc8 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #258dc8 0%,#258dc8 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#258dc8', endColorstr='#258dc8',GradientType=0 ); /* IE6-9 */
+}
+
+.posters {
+    
+}
+
+.posters__list {
+    dd {
+        position: absolute;
+        margin-top: -45px;
+        margin-left: 80px;
+    }
+}
+
+.posters__item {
+    margin-bottom: 4px;
+
+    span {
+        font-weight: bold;
+        font-size: 30px;
+    }
+}
+
+.posters__image {
+    margin-top: 10px;
+}
+
+.activity {
+    padding: 0;
+}
+
+.activity__item {
+    font-size: 14px;
+    list-style-type: none;
+    margin-bottom: 10px;
+
+    a {
+        color: red;
+    }
+}
+
+/** Search Results **/
+
+.search {
+    font-size: 14px;
+    padding: 5px 5px;
+    margin-bottom: 5px;
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: 4px;
+        font-size: 16px;
+        font-weight: normal;
+    }
+}
+
+/** Form Styling **/
+
+.form {
+    padding: 5px 5px;
+
+    .form__text-label {
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    input[type=text], input[type=password] {
+        border: 1px solid #ccc;
+        font-size: 16px;
+        width: 30%;
+        height: 30px;
+        padding: 5px 5px;
+    }
+
+    textarea {
+        border: 1px solid #ccc;
+        height: 100px;
+        width: 30%;
+        font-size: 16px;
+        padding: 5px 5px;
+    }
+
+    .form__submit {
+        width: 31%;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+.error {
+    background: rgba(207,4,4,1);
+    border-radius: 3px;
+    width: 31%;
+    text-align: center;
+    padding: 5px 5px;
+    color: white;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+
+/*** Search Form ***/
+
+.search-form {
+        
+    label {
+        display: block;
+    }
+}
+
+.search-form__input {
+    width: 100%;
+    border: 1px solid #ccc;
+    height: 30px;
+    padding: 3px 6px;
+    font-size: 14px;
+    margin-top: 10px;
+}

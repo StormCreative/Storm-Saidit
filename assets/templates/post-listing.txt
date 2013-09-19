@@ -1,0 +1,21 @@
+{{#posts}}
+{{#title}}
+<article class="post">
+    {{#image_url}}
+    <img src="{{image_url}}" width="100" class="post__image">
+    {{/image_url}}
+    <div class="post__info">
+        <p class="post__title"><a target="_blank" href="{{link}}">{{title}}</a></p>
+        <p class="post__details"><span class="post__details--author">Submitted {{create_date}} ago by <a href="">{{authors_name}}</a></span></p>
+        <div class="post__comments">
+            <p><a href="{{directory}}post/view/{{id}}">{{comments}} Comments</a> | <a href="{{directory}}comments/add/{{id}}">Make comment</a></p>
+        </div>
+    </div>
+    <div class="post__rate" data-rating="{{rating}}" data-post-id="{{id}}">
+        <div class="arrow-up js-rating" data-action="up"></div>
+        <span class="post__rate--number js-rating-total" id="js-post-rating-{{id}}">{{rating}}</span>
+        <div class="arrow-down js-rating" data-action="down"></div>
+    </div>
+</article>
+{{/title}}
+{{/posts}}
