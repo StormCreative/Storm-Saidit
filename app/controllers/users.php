@@ -12,6 +12,7 @@ class Users extends C_Controller
                                                                     ));
 
             if( !!$result['id'] ) {
+                $_SESSION['user']['level'] = $result['level'];
                 $_SESSION['user']['id'] = $result['authors_id'];
                 header('location: '.DIRECTORY);
             } else {

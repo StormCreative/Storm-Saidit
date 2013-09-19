@@ -12,7 +12,7 @@ class router
         $uri = str_replace ( DIRECTORY, '', $_SERVER['REQUEST_URI'] );
 
         $uri = preg_split ( '[\\/]', $uri, -1, PREG_SPLIT_NO_EMPTY );
-
+        
         if ( count ( $uri ) > 0 )
             $this->uri = $uri;
     }
