@@ -13,9 +13,10 @@
         <p><?php echo Form::textfield('title'); ?></p>
         <p><?php echo Form::textfield('link'); ?></p>
         <p><?php echo Form::textarea('notes'); ?></p>
-        <p>Category:</p>
+        <p>Tags:</p>
         <?php foreach(Posts::$tags as $key => $value): ?>
-        <label for="<?php echo $key; ?>"><?php echo $value; ?>:</label><input type="checkbox" id="<?php echo $key; ?>" name="posts[category][]" value="<?php echo $key; ?>">
+        <label for="<?php echo $key; ?>"><?php echo $value; ?>:</label>
+        <input type="checkbox" id="<?php echo $key; ?>" name="posts[category][]" value="<?php echo $key; ?>">
         <?php endforeach; ?>
 
         <p><?php echo Form::submit('submit', 'Post', 'form__submit action-grad'); ?></p>
