@@ -56,7 +56,7 @@ class home extends c_controller
                 $to_scroll = false;
             }
 
-            $posts_list = $posts->all($binds);  
+            $posts_list = $posts->order('create_date')->all($binds);  
 
 
         }

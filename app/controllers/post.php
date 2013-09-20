@@ -14,7 +14,6 @@ class Post extends C_Controller
         Sessions::check_access();
 
         if( post_set() ) {
-
             // Arrange the addition post data that is not within the form
             $_POST['posts']['category'] = (!!$_POST['posts']['category']?implode(',', $_POST['posts']['category']):"");
             $_POST['posts']['authors_id'] = (!!$_SESSION['user']['id']?$_SESSION['user']['id']:2);

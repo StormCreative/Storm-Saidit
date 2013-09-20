@@ -42,7 +42,7 @@ function tidy_time_posted($date)
 
 function tidy_time_posted($date)
 {
-    return date('d/m/Y H:i', strtotime($date));
+    return date('d/m/Y', strtotime($date));
 }
 
 function get_website_first_image($img)

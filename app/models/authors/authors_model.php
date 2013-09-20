@@ -8,5 +8,13 @@ class Authors_model extends Activerecord
 
         $this->validates = array( array( "not_empty", "name" ) );
     }
+
+    public static function get_all()
+    {
+    	$authors = new Authors_model();
+    	$result = $authors->all();
+
+    	return $result;
+    }
 }
 ?>  

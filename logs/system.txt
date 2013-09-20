@@ -76,3 +76,14 @@
 19-09-2013 15:48:27 Core/Routing/Router: Threw exception: Could not find controller "storm-saidit" to load
 19-09-2013 15:48:27 Core/Routing/Router: Threw exception: Could not find controller "storm-saidit" to load
 19-09-2013 17:51:14 Core/Routing/Router: Threw exception: Could not find controller "test" to load
+20-09-2013 11:55:04 Core/Routing/Router: Threw exception: Could not find controller "assets" to load
+20-09-2013 11:56:17 Core/Routing/Router: Threw exception: Could not find controller "assets" to load
+20-09-2013 11:57:05 Core/Routing/Router: Threw exception: Could not find controller "assets" to load
+20-09-2013 11:57:19 Core/Routing/Router: Threw exception: Could not find controller "assets" to load
+20-09-2013 11:58:30 Core/Routing/Router: Threw exception: Could not find controller "assets" to load
+20-09-2013 11:58:31 Core/Routing/Router: Threw exception: Could not find controller "assets" to load
+20-09-2013 11:59:03 Core/Routing/Router: Threw exception: Could not find controller "assets" to load
+20-09-2013 11:59:03 Core/Routing/Router: Threw exception: Could not find controller "assets" to load
+20-09-2013 11:59:07 Core/Routing/Router: Threw exception: Could not find controller "assets" to load
+20-09-2013 11:59:15 Core/Routing/Router: Threw exception: Could not find controller "assets" to load
+20-09-2013 13:32:44 Core/Routing/Router: Threw exception: Could not find controller "asd" to load

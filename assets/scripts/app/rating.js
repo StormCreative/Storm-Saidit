@@ -6,25 +6,24 @@ define(['jquery', '../utils/api-caller'], function($, api){
 
         var elem = $(e.target);
         var action = elem.attr('data-action');
-        var parent = $(elem.parent());
+        var parent = $(elem.parent().parent().parent());
         var rating = parseInt(parent.attr('data-rating'));
-        var post_id = parent.attr('data-post-id');
+        var post_id = parent.attr('data-id');
+        var current_vote_elem = $('#js-'+action+'-amount-'+post_id);
+        var current_vote = current_vote_elem.text();
 
-        if( action == 'up' ) {
-            rating += 1;
-        } else {
-            rating -= 1;
-        }   
-
-        parent.attr('data-rating', rating);
-        $('#js-post-rating-'+post_id).html(rating);
+        var new_vote = parseInt(current_vote)+1;
 
         $.ajax({
             type: 'POST',
             url: window.site_path + "ratings/add",
-            data: {posts_id:post_id, rating:rating}
+            data: {posts_id:post_id, rating:(action=='up'?1:2)}
         }).done(function( data ) {
-            
+        
+            if (data == '201') {
+                current_vote_elem.text(new_vote);
+                elem.addClass((action=='up'?'green':'red')+'-thumb');    
+            }
         });
 
     });

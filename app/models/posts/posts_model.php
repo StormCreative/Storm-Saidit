@@ -58,6 +58,17 @@ class Posts_model extends Activerecord
             return false;
         }
     }
+
+    public static function get_posts_count($id)
+    {
+        $post = new Posts_model();
+
+        $posts = $post->column('count(*) as posts_total')
+                      ->where('posts.authors_id = :authors_id')
+                      ->find(array('authors_id' => $id));
+
+        return $posts->posts_total;
+    }
 }
 
 ?>

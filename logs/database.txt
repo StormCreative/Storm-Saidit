@@ -140,3 +140,16 @@
 18-09-2013 11:27:21 Core/Database/Query: GetAssoc error: SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION saidit.saidit_FIND_IN_SET does not exist
 18-09-2013 11:27:36 Core/Database/Query: GetAssoc error: SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION saidit.saidit_FIND_IN_SET does not exist
 18-09-2013 11:27:37 Core/Database/Query: GetAssoc error: SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION saidit.saidit_FIND_IN_SET does not exist
+20-09-2013 13:37:33 Core/Database/Query: GetAssoc error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'saidit_authors_id' in 'where clause'
+20-09-2013 13:37:43 Core/Database/Query: GetAssoc error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'saidit_authors_id' in 'where clause'
+20-09-2013 15:25:11 Core/Database/Query: GetObj error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ratings.posts_id' in 'where clause'
+20-09-2013 15:25:13 Core/Database/Query: GetObj error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ratings.posts_id' in 'where clause'
+20-09-2013 15:25:13 Core/Database/Query: GetObj error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ratings.posts_id' in 'where clause'
+20-09-2013 15:25:14 Core/Database/Query: GetObj error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ratings.posts_id' in 'where clause'
+20-09-2013 15:25:15 Core/Database/Query: GetObj error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ratings.posts_id' in 'where clause'
+20-09-2013 15:25:17 Core/Database/Query: GetObj error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ratings.posts_id' in 'where clause'
+20-09-2013 15:25:17 Core/Database/Query: GetObj error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ratings.posts_id' in 'where clause'
+20-09-2013 15:25:17 Core/Database/Query: GetObj error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ratings.posts_id' in 'where clause'
+20-09-2013 15:25:31 Core/Database/Query: GetObj error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ratings.posts_id' in 'where clause'
+20-09-2013 15:25:59 Core/Database/Query: GetObj error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'saidit_users_id' in 'where clause'
+20-09-2013 15:26:07 Core/Database/Query: GetObj error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ratings.posts_id' in 'where clause'

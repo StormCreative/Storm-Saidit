@@ -11,7 +11,7 @@
     <?php echo Form::start_form('posts', '', 'POST', 'form'); ?>
 
         <p><?php echo Form::textfield('title'); ?></p>
-        <p><?php echo Form::textfield('link'); ?></p>
+        <p><?php echo Form::textfield('link'); ?><small>Copy and paste a URL from the browser address bar</small></p>
         <p><?php echo Form::textarea('notes'); ?></p>
         <p>Tags:</p>
         <?php foreach(Posts::$tags as $key => $value): ?>
