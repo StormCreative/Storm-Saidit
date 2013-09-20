@@ -58,6 +58,7 @@ class Has_many extends Relationships
 
             $has_many = $model_table->table()->query->getAssoc($query, array('id' => $this->primary_key_value));
 
+
             // If theres a joint query we set it in the array
             if ( !!$has_many ) {
                 $this->associations_data[$_many] = $has_many;
@@ -79,7 +80,9 @@ class Has_many extends Relationships
      */
     public function build_all_relationship($data)
     {
+
         foreach($data as $row) {
+            
             $this->primary_key_value = $row['id'];
 
             $has_many = $this->build_relationship();

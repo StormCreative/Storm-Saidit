@@ -23,6 +23,9 @@ define(['jquery', '../utils/api-caller'], function($, api){
             if (data == '201') {
                 current_vote_elem.text(new_vote);
                 elem.addClass((action=='up'?'green':'red')+'-thumb');    
+            } else {
+                current_vote_elem.text(parseInt(new_vote-2));
+                elem.removeClass((action=='up'?'green':'red')+'-thumb');
             }
         });
 

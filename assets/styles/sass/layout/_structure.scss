@@ -180,6 +180,7 @@ a:hover, .active {
 .widget__filter--switch {
     float: right;
     margin-top: 8px;
+    cursor: hand;
 }
 
 .posters_list {
@@ -224,6 +225,7 @@ a:hover, .active {
         -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 .action-grad {

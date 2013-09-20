@@ -15,14 +15,18 @@ class Posts_model extends Activerecord
     /**
      * Retrieve top posters of the current day
      */
-    public static function top_posters()
+    public static function top_posters($by_month = false)
     {
         $post = new Posts_model();
 
         $post->group_by = 'authors_id';
+
+        if($by_month) {
+            $post->where('MONTH('.DB_SUFFIX.'_posts.create_date) = MONTH(CURDATE())', null, true);
+        }
+
         $posts = $post->column('count(*) as posts_total')
-                      ->where('DATE('.DB_SUFFIX.'_posts.create_date) = CURDATE()', null, true)
-                      ->limit(3)
+                      //->where('DATE('.DB_SUFFIX.'_posts.create_date) = CURDATE()', null, true)
                       ->all(null, false);
 
         if( count($posts) > 0 ) {

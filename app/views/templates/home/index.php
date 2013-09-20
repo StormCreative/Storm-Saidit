@@ -4,10 +4,10 @@
             <p class="filter-search__choices">
                 SHOW:
                 <a href="<?php echo DIRECTORY; ?>" <?php if(!$_GET && !$_POST): ?>class="active"<?php endif; ?>>Recent Suggestions</a> 
-                | <a href="<?php echo DIRECTORY; ?>?posts=1" <?php if(isset($_GET['today'])): ?>class="active"<?php endif; ?>>Pending</a> 
-                | <a href="<?php echo DIRECTORY; ?>?posts=2" <?php if(isset($_GET['today'])): ?>class="active"<?php endif; ?>>Unused</a> 
-                | <a href="<?php echo DIRECTORY; ?>?posts=3" <?php if(isset($_GET['all'])): ?>class="active"<?php endif; ?>>Previously Used</a>
-                | <a href="<?php echo DIRECTORY; ?>?posts=4" <?php if(isset($_GET['today'])): ?>class="active"<?php endif; ?>>Approved and Unused</a> 
+                | <a href="<?php echo DIRECTORY; ?>?posts=1" <?php if($_GET['posts'] == 1): ?>class="active"<?php endif; ?>>Pending</a> 
+                | <a href="<?php echo DIRECTORY; ?>?posts=2" <?php if($_GET['posts'] == 2): ?>class="active"<?php endif; ?>>Unused</a> 
+                | <a href="<?php echo DIRECTORY; ?>?posts=3" <?php if($_GET['posts'] == 3): ?>class="active"<?php endif; ?>>Previously Used</a>
+                | <a href="<?php echo DIRECTORY; ?>?posts=4" <?php if($_GET['posts'] == 4): ?>class="active"<?php endif; ?>>Approved and Unused</a> 
             </p>
             <p class="switch_icon rating_switch"></p>
         </div>
@@ -26,11 +26,11 @@
                             <p class="post__details--notes"><?php echo word_limiter($post['notes'], 40); ?></p>
                             <?php endif; ?>
                             <div class="post__details--extra-info">
-                                <span class="post__details--author">Submitted by <a href=""><?php echo $post['authors_name']; ?></a> on <?php echo tidy_time_posted($post['create_date']); ?></span>
+                                <span class="post__details--author">Submitted by <a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&name=<?php echo $post['authors_id']; ?>"><?php echo $post['authors_name']; ?></a> on <?php echo tidy_time_posted($post['create_date']); ?></span>
                                 <?php if(!!$post['category']): ?>
                                 <span class="post__details--tags">Tags: 
                                 <?php $c=1; foreach(explode(',', $post['category']) as $tag): ?>
-                                <a href="<?php echo DIRECTORY; ?>home?category=<?php echo $tag; ?>"><?php echo Posts::$tags[$tag]; ?><?php if($c != count(explode(',', $post['category']))): ?>,<?php endif; ?>&nbsp;</a>
+                                <a href="<?php echo DIRECTORY; ?>home?posts=<?php echo $posts_type; ?>&category=<?php echo $tag; ?>"><?php echo Posts::$tags[$tag]; ?><?php if($c != count(explode(',', $post['category']))): ?>,<?php endif; ?>&nbsp;</a>
                                 <?php $c++; endforeach; ?></span>
                                 <?php endif; ?>
                             </div>

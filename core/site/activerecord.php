@@ -302,6 +302,7 @@ abstract class Activerecord
         if( count($output) > 0 ) {
             $result = $this->build_has_many_relationship_all($output);
 
+
         } else {
             $result = false;
         }
@@ -723,13 +724,14 @@ abstract class Activerecord
      */
     public function build_has_many_relationship_all($data)
     {
+
         if( property_exists($this, 'has_many') && $this->has_many != "" ) {
 
             $options = array(
                         'associations' => $this->has_many,
                         'table' => $this->clean_table()
                     );
-
+            
             $has_many = new Has_many($options);
             $result = $has_many->build_all_relationship($data);
 

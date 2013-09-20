@@ -9,7 +9,7 @@
     -->
     <div class="widget">
         <a href="<?php echo DIRECTORY; ?>post/add"><input type="button" class="action__btn widget__post-btn" value="Add new post"></a>
-        <p class="widget__post-lead">Posters <span class="widget__post-leader--total">6</span></p>
+        <p class="widget__post-lead">Posters <span class="widget__post-leader--total"><?php echo count(Authors_model::get_all()); ?></span></p>
         <!--
         <p class="widget__intro">Todays Top Posters:</p>
         <div class="posters">
@@ -30,12 +30,12 @@
     <div class="widget">
         <div class="widget__filter">
             <p class="widget__filter--month">
-                <a href="#">Ever</a> | <a href="#">This month</a>
+                <a href="#" class="active">Ever</a> | <a href="#">This month</a>
             </p>
-            <span class="switch_icon widget__filter--switch"></span>
+            <a href="#" class="js-posters-rating" data-action="desc"><span class="switch_icon widget__filter--switch"></span></a>
         </div>
         <div class="posters_list">
-            <dl>
+            <dl class="js-posters-list">
                 <?php foreach(Authors_model::get_all() as $author): ?>
                 <dt><?php echo $author['name']; ?></dt>
                 <dd><?php echo Posts_model::get_posts_count($author['id']); ?></dd>

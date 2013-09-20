@@ -36,7 +36,7 @@
                                     <?php foreach(Posts::$tags as $key => $value): ?>
                                     <li>
                                         <label for="<?php echo $key; ?>"><?php echo $value; ?>:</label>
-                                        <input type="checkbox" id="<?php echo $key; ?>" name="posts[category][]" value="<?php echo $key; ?>">
+                                        <input type="checkbox" id="<?php echo $key; ?>" <?php if(in_array($key, $_POST['posts']['category'])): ?>checked="checked"<?php endif; ?> name="posts[category][]" value="<?php echo $key; ?>">
                                     </li>
                                     <?php endforeach; ?>
                                 </ul>
