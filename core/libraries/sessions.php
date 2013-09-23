@@ -26,4 +26,15 @@ class sessions
             header('location: '.DIRECTORY.'users/login');
         }
     }
+
+    public static function check_admin_access() 
+    {
+        $output = false;
+
+        if ($_SESSION['user']['level'] == 1) {
+            $output = true;
+        }
+
+        return $output;
+    }
 }

@@ -78,11 +78,6 @@ class home extends c_controller
                 $posts->order('create_date');
                 $posts->where('DATE('.DB_SUFFIX.'_posts.create_date) = CURDATE()', null, true);
 
-            } elseif( !isset($_GET['all']) ) {
-
-                $posts->where('posts.status = 0');
-                //w$posts->limit(10);
-
             } else {
 
                 $to_scroll = false;
@@ -92,7 +87,19 @@ class home extends c_controller
                 
                 $posts->where('posts.status = :status');
                 $binds['status'] = $_GET['posts'];
+                $show_decide = false;
 
+                if( $_GET['posts'] == '1' && Sessions::check_admin_access()) {
+                    $show_decide = true;
+                    $accept_status = 3;
+                    $decline_status = 4;
+                } 
+                
+            } else {
+                $posts->where('posts.status = 0');
+                $show_decide = true;
+                $accept_status = 1;
+                $decline_status = 2;
             }
 
             $order = 'asc';
@@ -124,6 +131,9 @@ class home extends c_controller
             $posts_list = $this->order_by_rating($posts_list, $order);
         }
 
+        $this->addTag('accept_status', $accept_status);
+        $this->addTag('decline_status', $decline_status);
+        $this->addTag('show_decide', $show_decide);
         $this->addTag('show_header_filter', true);
         $this->addTag('order', ($order=='desc'?'asc':'desc'));
         $this->addTag('posts_type', (!!$_GET['posts'] ? $_GET['posts'] : 0));

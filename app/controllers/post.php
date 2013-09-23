@@ -127,6 +127,29 @@ class Post extends C_Controller
         die(json_encode($result));
     }
 
+    public function ajax_descision()
+    {
+        $this->plain();
+
+        $status = $_POST['status'];
+        $post_id = $_POST['post_id'];
+        
+        $posts = new Posts_model();
+
+        $posts->find($post_id);
+
+        $posts->status = $status;
+
+        $output = $posts->save();
+
+        $result = array('status' => 401);
+
+        if($output) {
+            $result = array('status' => 201);
+        }
+
+        exit(json_encode($result));
+    }
 
 }
 

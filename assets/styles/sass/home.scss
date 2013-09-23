@@ -15,6 +15,51 @@
     }
 }
 
+.post-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.post-decide-accept {
+    margin-bottom: 3px;
+
+    a {
+        color: #2AAE62;
+    }
+}
+
+.post-decide-decline {
+    a {
+        color: #E44C40;
+    }
+}
+
+.post-decide-accept, .post-decide-decline {
+    border: 1px solid #ccc;
+    height: 68px;
+    background: #F7FBFB;
+
+    a:hover {
+        text-decoration: none;
+        font-size: 20px;
+    }
+}
+
+.post-decide {
+    width: 8%;
+    height: 140px;
+    float: right;
+}
+
+.post-decide-option {
+    line-height: 72px;
+    text-align: center;
+}
+
+.post-decide__icon {
+    font-size: 25px;   
+}
+
 .post {
     border: 1px solid #ccc;
     padding-right: 10px;
@@ -22,6 +67,12 @@
     overflow: hidden;
     margin-bottom: 10px;
     background: #F7FBFB;
+    height: 140px;
+}
+
+.post-management {
+    width: 91%;
+    float: left;
 }
 
 .post__image {

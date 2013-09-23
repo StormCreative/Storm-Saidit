@@ -24,5 +24,7 @@ require(['../views/scroller', 'menu'], function(Scroller) {
     require(['rating']);
 
     require(['posters']);
+
+    require(['posts']);
     
 });
