@@ -18,6 +18,19 @@
 .post-container {
     width: 100%;
     overflow: hidden;
+
+}
+
+.post-authorised {
+    width: 91%;
+    height: 30px;
+    position: relative;
+    clear: both;
+    background: #F7FBFB;
+    margin-bottom: 8px;
+    padding-left: 6px;
+    line-height: 30px;
+    font-size: 16px;
 }
 
 .post-decide-accept {
@@ -35,7 +48,7 @@
 }
 
 .post-decide-accept, .post-decide-decline {
-    border: 1px solid #ccc;
+    //border: 1px solid #ccc;
     height: 68px;
     background: #F7FBFB;
 
@@ -61,11 +74,11 @@
 }
 
 .post {
-    border: 1px solid #ccc;
+    //border: 1px solid #ccc;
     padding-right: 10px;
     padding-left: 10px;
     overflow: hidden;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
     background: #F7FBFB;
     height: 140px;
 }

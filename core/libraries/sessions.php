@@ -27,11 +27,11 @@ class sessions
         }
     }
 
-    public static function check_admin_access() 
+    public static function check_admin_access($status = 1) 
     {
         $output = false;
 
-        if ($_SESSION['user']['level'] == 1) {
+        if ($_SESSION['user']['level'] == $status) {
             $output = true;
         }
 

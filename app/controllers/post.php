@@ -139,6 +139,7 @@ class Post extends C_Controller
         $posts->find($post_id);
 
         $posts->status = $status;
+        $posts->approved_by = $_SESSION['user']['id'];
 
         $output = $posts->save();
 

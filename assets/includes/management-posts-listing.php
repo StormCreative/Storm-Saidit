@@ -46,5 +46,8 @@
             <a href="#" class="js-decide"><i data-action="decline" data-status="<?php echo $decline_status; ?>" class="icon-remove post-decide__icon"></i></a>
         </div>
     </div>
+    <div class="post-authorised">
+        <p>Approved by: <?php echo Users_model::get_name($post['post']['approved_by']); ?></p>
+    </div>
 </div>
 <?php endforeach; ?>
