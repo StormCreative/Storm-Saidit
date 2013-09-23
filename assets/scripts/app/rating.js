@@ -65,7 +65,9 @@ define(['jquery', '../utils/api-caller'], function($, api){
 
                     new_elem.removeClass((action=='up'?'red':'green')+'-thumb');
                     
-                } else {
+                } 
+                // Otherwise it's been clicked itself and we just need to turn off the colour.
+                else {
                     elem.removeClass((action=='up'?'green':'red')+'-thumb');
                 }
                 
