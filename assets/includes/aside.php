@@ -30,9 +30,9 @@
     <div class="widget">
         <div class="widget__filter">
             <p class="widget__filter--month">
-                <a href="#" class="active">Ever</a> | <a href="#">This month</a>
+                <a href="#" class="active js-posters-rating-ever js-posters-options">Ever</a> | <a class="js-posters-rating-month js-posters-options" href="#">This month</a>
             </p>
-            <a href="#" class="js-posters-rating" data-action="desc"><span class="switch_icon widget__filter--switch"></span></a>
+            <a href="#" class="js-posters-rating" data-when="ever" data-action="asc"><span class="switch_icon widget__filter--switch" data-when="ever" data-action="asc"></span></a>
         </div>
         <div class="posters_list">
             <dl class="js-posters-list">

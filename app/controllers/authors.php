@@ -3,8 +3,14 @@
 class Authors
 {
 	public function order()
-	{
-		$posts = Posts_model::top_posters();
+	{	
+		$by_month = false;
+		
+		if( !!$_POST['when'] ) {
+			$by_month = true;
+		}
+
+		$posts = Posts_model::top_posters($by_month);
 
 		$_authors = array();
 
@@ -13,19 +19,20 @@ class Authors
 		$authors = $authors->all();
 
 		foreach( $posts as $post ) {
-
 			$_authors[] = array('posts' => $post['posts_total'], 'name' => Users_model::get_name($post['authors_id']));
 		}
 
-		$c = 0;
-		foreach( $authors as $author ) {
+		if( !$by_month ) {
+			$c = 0;
+			foreach( $authors as $author ) {
 
-			if( $_authors[$c]['name'] != $author['name'] ) {
+				if( $_authors[$c]['name'] != $author['name'] ) {
 
-				$_authors[] = array('posts' => count($author['posts']), 'name' => $author['name']);
+					$_authors[] = array('posts' => count($author['posts']), 'name' => $author['name']);
+				}
+
+				$c++;
 			}
-
-			$c++;
 		}
 
 		if (!!$_POST['order']) {

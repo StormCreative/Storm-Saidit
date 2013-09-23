@@ -25,6 +25,7 @@
             </ul>
         </div>
         <div class="wrapper">
+            <?php if($show_header_filter): ?>
             <div class="filter-bar">
                 <form method="post" action="<?php echo DIRECTORY; ?>">
                     <ul class="tags">
@@ -46,11 +47,12 @@
                     </ul>
                     <ul class="date_filter">
                         <li>Filter:</li>
-                        <li><a href="">Today |</a></li>
-                        <li><a href="">This week |</a></li>
-                        <li><a href="">This month</a></li>
+                        <li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=today" <?php if($_GET['order_by'] == 'today'): ?>class="active"<?php endif; ?>>Today |</a></li>
+                        <li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=week" <?php if($_GET['order_by'] == 'week'): ?>class="active"<?php endif; ?>>This week |</a></li>
+                        <li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=month" <?php if($_GET['order_by'] == 'month'): ?>class="active"<?php endif; ?>>This month</a></li>
                     </ul>
                 </form>
+                <?php endif; ?>
                 <div class="header__login">
                     <?php if(!!$_SESSION['user']['id']): ?>
                     <a href="#" class="js-controls-action"><?php echo Users_model::get_name($_SESSION['user']['id']); ?> <?php if(Notifications_model::get($_SESSION['user']['id']) != false): ?> <span class="notifications js-notifications">(<?php echo count(Notifications_model::get($_SESSION['user']['id'])); ?>)</span> <?php endif; ?></a>

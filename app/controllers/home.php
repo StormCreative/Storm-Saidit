@@ -62,6 +62,7 @@ class home extends c_controller
             }
 
             $posts_list = $posts->order('rating')->all($binds);
+            $posts_list = $this->order_by_rating($posts_list);
 
         } else {
 
@@ -94,15 +95,37 @@ class home extends c_controller
 
             }
 
+            $order = 'asc';
+
+            if( !!$_GET['order'] ) {
+                $order = $_GET['order'];
+            }
+
             if( !!$_GET['category'] ) {
                 $posts = $this->filter_by_category($_GET['category'], $posts);
             }
 
+            $order_by = 'create_date';
+
+            if( !!$_GET['order_by'] ) {
+                
+                if( $_GET['order_by'] == 'today' ) {
+                    $posts->where('DAY('.DB_SUFFIX.'_posts.create_date) = DAY(CURDATE())', null, true);
+                } elseif( $_GET['order_by'] == 'week' ) {
+
+                    $posts->where('WEEKOFYEAR('.DB_SUFFIX.'_posts.create_date)=WEEKOFYEAR(NOW())', null, true);
+                } else {
+                    $posts->where('MONTH('.DB_SUFFIX.'_posts.create_date) = MONTH(CURDATE())', null, true);
+                }
+            }
+
             $posts_list = $posts->order('create_date')->all($binds);  
-
-
+            
+            $posts_list = $this->order_by_rating($posts_list, $order);
         }
 
+        $this->addTag('show_header_filter', true);
+        $this->addTag('order', ($order=='desc'?'asc':'desc'));
         $this->addTag('posts_type', (!!$_GET['posts'] ? $_GET['posts'] : 0));
         $this->addTag('to_scroll', $to_scroll);
         $this->addTag('posts_list', $posts_list);
@@ -112,6 +135,33 @@ class home extends c_controller
 
         $this->addStyle('home');
         $this->setView('home/index');
+    }
+
+    public function order_by_rating($posts, $order="desc")
+    {
+        $_posts = array();
+        foreach( $posts as $post ) {
+            $total_rating = 0;
+
+            foreach( $post['ratings'] as $rating ) {
+                if( $rating['rating'] == 1) {
+                    $total_rating++;
+                }
+            }
+
+            $_posts[] = array('rating' => $total_rating,
+                              'post'   => $post
+                              );
+
+        }
+
+        if( $order == 'desc' ) {
+            array_multisort($_posts, SORT_DESC);
+        } else {
+            array_multisort($_posts, SORT_ASC);
+        }
+
+        return $_posts;
     }
 
     public function test()
