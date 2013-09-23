@@ -14,12 +14,16 @@ define(['jquery', '../utils/api-caller'], function($, api){
 
         var new_vote = parseInt(current_vote)+1;
 
+
+        elem.addClass((action=='up'?'green':'red')+'-thumb'); 
+
         $.ajax({
             type: 'POST',
             url: window.site_path + "ratings/add",
             data: {posts_id:post_id, rating:(action=='up'?1:2)}
         }).done(function( data ) {
             
+            // This status is for first time voters
             if (data == '201') {
                 current_vote_elem.text(new_vote);
                 elem.addClass((action=='up'?'green':'red')+'-thumb');    
@@ -29,6 +33,9 @@ define(['jquery', '../utils/api-caller'], function($, api){
                     current_vote_elem.text(parseInt(new_vote-2));
                 }
 
+                // If it's a 202 response it is a vote that it replacing a previous vote
+                // So we need to unmark and remark the new vote and change the values
+                // As this happens if someone has pressed up and then pressed down after - they can alternative
                 if (data == '202') {
                     
                     current_vote_elem.text(new_vote);
@@ -57,12 +64,16 @@ define(['jquery', '../utils/api-caller'], function($, api){
                     new_elem_num.html(new_elem_num_val-1);
 
                     new_elem.removeClass((action=='up'?'red':'green')+'-thumb');
+                    
+                } else {
+                    elem.removeClass((action=='up'?'green':'red')+'-thumb');
                 }
-
-                elem.removeClass((action=='up'?'green':'red')+'-thumb');
+                
             }
 
         });
+
+        e.preventDefault();
 
     });
 
