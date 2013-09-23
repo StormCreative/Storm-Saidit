@@ -18,19 +18,27 @@
 .post-container {
     width: 100%;
     overflow: hidden;
-
 }
 
-.post-authorised {
-    width: 91%;
-    height: 30px;
-    position: relative;
-    clear: both;
+.post-authorised { 
     background: #F7FBFB;
     margin-bottom: 8px;
     padding-left: 6px;
     line-height: 30px;
     font-size: 16px;
+}
+
+.post-authorised-management {
+    width: 91%;
+    height: 30px;
+    position: relative;
+    clear: both;
+}
+
+.post-authorised-staff {
+    // No idea why its suddenly got margin and needs to go back?
+    margin-top: -12px;
+    
 }
 
 .post-decide-accept {
@@ -125,7 +133,12 @@
 
 .post__details--notes {
     width: 60%;
-    margin-bottom: 8px;
+    //margin-bottom: 8px;
+    min-height: 40px;
+
+    p {
+        margin: 0;
+    }
 }
 
 .post__details--extra-info {

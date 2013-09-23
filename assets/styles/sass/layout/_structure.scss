@@ -89,8 +89,25 @@ a:hover, .active {
     width: 173px;
 }
 
+/** General page **/
 
+.page-title {
+    background: #F7FBFB;
+    font-color: #231F20;
+    font-size: 16px;
+    padding: 14px;
+    margin-bottom: 4px;
+}
 
+.back-btn {
+    background: #2AAE62;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    color: white;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
 
 /** Controls within the header **/
 

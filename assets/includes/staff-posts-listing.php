@@ -6,9 +6,12 @@
     <div class="post__info">
         <p class="post__title"><a target="_blank" href="<?php echo $post['post']['link']; ?>"><?php echo ucwords($post['post']['title']); ?></a></p>
         <div class="post__details">
-            <?php if(!!$post['post']['notes']): ?>
-            <p class="post__details--notes"><?php echo word_limiter($post['post']['notes'], 40); ?></p>
-            <?php endif; ?>
+
+            <div class="post__details--notes">
+                <?php if(!!$post['post']['notes']): ?>
+                <p><?php echo word_limiter($post['post']['notes'], 20); ?></p>
+                <?php endif; ?>
+            </div>
             <div class="post__details--extra-info">
                 <span class="post__details--author">Submitted by <a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&name=<?php echo $post['post']['authors_id']; ?>"><?php echo $post['post']['authors_name']; ?></a> on <?php echo tidy_time_posted($post['post']['create_date']); ?></span>
                 <?php if(!!$post['post']['category']): ?>
@@ -37,4 +40,9 @@
         <div class="arrow-down js-rating" data-action="down"></div>-->
     </div>
 </article>
+<?php if(!!$post['post']['approved_by']): ?>
+<div class="post-authorised post-authorised-staff">
+    <p>Approved by: <?php echo Users_model::get_name($post['post']['approved_by']); ?></p>
+</div>
+<?php endif; ?>
 <?php endforeach; ?>
