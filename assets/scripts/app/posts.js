@@ -29,6 +29,8 @@ define(['jquery'], function($){
 
         });
 
+        e.preventDefault();
+
 	});
 
 });

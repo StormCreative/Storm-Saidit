@@ -20,6 +20,7 @@ define(['jquery', '../utils/hogan'], function($, hogan){
         }
 
         get_posters(data);
+        e.preventDefault();
     });
 
     $(".js-posters-rating-month").on('click', function(e) {
@@ -27,6 +28,8 @@ define(['jquery', '../utils/hogan'], function($, hogan){
         set_active(elem);
         set_rating_data('month');
         get_posters({when:true});
+
+        e.preventDefault();
     });
 
     $(".js-posters-rating-ever").on('click', function(e) {
@@ -34,6 +37,7 @@ define(['jquery', '../utils/hogan'], function($, hogan){
         set_active(elem);
         set_rating_data('ever');
         get_posters({order:'asc'});
+        e.preventDefault();
     });
 
     function set_rating_data(value) {

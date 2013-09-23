@@ -13,7 +13,11 @@ requirejs.config({
 
 require(['../views/scroller', 'menu'], function(Scroller) {
     
-    
+    $(".js-back").on('click', function(e) {
+        window.history.go(-1);
+
+        e.preventDefault();
+    });
 
     if(window.scroll == 1 ) {
         //var scroller = new Scroller();    
