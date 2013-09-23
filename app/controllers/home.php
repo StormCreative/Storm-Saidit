@@ -69,7 +69,6 @@ class home extends c_controller
             $posts->order('rating');
 
             if( !!$_GET['name'] ) {
-
                 $posts->where('posts.authors_id LIKE :name');
                 $binds['name'] = $_GET['name'];
 
