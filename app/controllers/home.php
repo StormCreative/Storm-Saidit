@@ -41,17 +41,18 @@ class home extends c_controller
         if( post_set() ) {
 
             
-            foreach( $_POST['category'] as $cat ) {
+            foreach( $_POST['posts']['category'] as $cat ) {
                 
-                $posts->where('('.DB_SUFFIX.'_posts.category LIKE :'.$cat.' OR '.DB_SUFFIX.'_posts.category LIKE :'.$cat.'_2 OR '.DB_SUFFIX.'_posts.category LIKE :'.$cat.'_3)', null, true);
+                $_cat = str_replace('-', '_', $cat);
+                $posts->where('('.DB_SUFFIX.'_posts.category LIKE :'.$_cat.' OR '.DB_SUFFIX.'_posts.category LIKE :'.$_cat.'_2 OR '.DB_SUFFIX.'_posts.category LIKE :'.$_cat.'_3)', null, true);
 
 
                 //$posts->where('( FIND_IN_SET( "'.$cat.'", '.DB_SUFFIX.'_posts.category) )', null, true);
 
                 
-                $binds[$cat] = "%".$cat."%";
-                $binds[$cat.'_2'] = "".$cat."%";
-                $binds[$cat."_3"] = "%".$cat."";
+                $binds[$_cat] = "%".$cat."%";
+                $binds[$_cat.'_2'] = "".$cat."%";
+                $binds[$_cat."_3"] = "%".$cat."";
                 
 
             }
@@ -65,7 +66,6 @@ class home extends c_controller
 
             //$posts_list = $posts->order('rating')->all($binds);
             //$posts_list = $this->order_by_rating($posts_list);
-
         } 
 
         $posts->order('rating');

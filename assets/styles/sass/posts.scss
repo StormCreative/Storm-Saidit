@@ -64,6 +64,7 @@
     padding-top: 1px;
     padding-bottom: 1px;
     background: #F7FBFB;
+    margin-bottom: 4px;
 
     .comments__list--author {
         color: #666666;
@@ -107,6 +108,12 @@
     margin-top: 10px;
     background: #F7FBFB;
     padding-left: 6px;
+}
+
+.comment-form__body {
+    width: 90% !important;
+    border: 1px solid red;
+    margin-top: 6px;
 }
 
 .auto-suggest {

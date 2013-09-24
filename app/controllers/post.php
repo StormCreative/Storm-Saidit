@@ -54,7 +54,8 @@ class Post extends C_Controller
 
             if( $result != false ) {
 
-                $content = 'commented on the post <a href="'.DIRECTORY.'post/view/'.$post->id.'">'.$post->title.'</a> you posted';
+                // Fires off an email to the author to let them know a coment has been made
+                $content = 'commented on the post <a href="'.SITE.DIRECTORY.'post/view/'.$post->id.'">'.$post->title.'</a> you posted on Saidit.';
                 
                 Activity_model::add($_SESSION['user']['id'], $content);
                 

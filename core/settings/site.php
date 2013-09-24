@@ -9,3 +9,5 @@ $settings[ 'PATH' ] = $_SERVER[ "DOCUMENT_ROOT" ] . $settings[ 'DIRECTORY' ];
 $settings[ 'IP' ] = $_SERVER['HTTP_HOST'];
 
 $settings[ 'LIVE' ] = FALSE;
+
+$settings[ 'SITE' ] = 'http://localhost:8888/';

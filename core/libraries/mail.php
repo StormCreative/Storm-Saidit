@@ -162,7 +162,7 @@ class Mail
             $this->_headers .= "This is a multi-part message in MIME format.\n";
             $this->_headers .= "--".$this->_mime_uid."\n";
             $this->_headers .= "Content-type:text/html; charset=iso-8859-1\n";
-            $this->_headers .= "Content-Transfer-Encoding: 7bit\r\n\n";
+            $this->_headers .= "Content-Transfer-Encoding: 7bit\n\n";
             $this->_headers .= $this->_email_body."\n\n";
             $this->_headers .= "--".$uid."\n";
             $this->_headers .= "Content-Type: ".$ftype."; name=\"".$this->_attachment_name."\"\n";
@@ -171,7 +171,9 @@ class Mail
             $this->_headers .= $this->_attachment_content."\n\n";
             $this->_headers .= "--".$this->_mime_uid."--";
         } else {
-            $this->_headers .= "Content-type: text/html; charset=utf-8\n";
+            //$this->_headers .= "Content-type: text/html; charset=utf-8\n";
+            $this->_headers  .= 'MIME-Version: 1.0' . "\n";
+            $this->_headers .= 'Content-type: text/html; charset=iso-8859-1' . "\n";
         }
 
         return $this;

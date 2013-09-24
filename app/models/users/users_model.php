@@ -19,5 +19,14 @@ class Users_model extends Activerecord
         
         return $users->authors_name;
     }
+
+    public static function get_email($id)
+    {
+        $users = new Users_model();
+        $users->find_where_authors_id(array('authors_id' => $id));
+        
+        return $users->username;
+    }
+
 }
 ?>  

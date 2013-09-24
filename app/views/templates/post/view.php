@@ -22,7 +22,7 @@
         </div>
     </div>
     <?php if( !!$comments && count($comments) > 0 ): ?>
-    <h3><?php echo count($comments); ?> Response(s):</h3>
+    <h3><i class="icon-comment"></i> <?php echo count($comments); ?> Response(s):</h3>
     <div class="comments">
         
         <?php foreach( $comments as $comment ): ?>

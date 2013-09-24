@@ -41,9 +41,7 @@ class Users extends C_Controller
                 $users_model->save();
 
                 $mail = new Mail('forgotten-password', $data);
-
                 $mail->to = $_POST['users']['username'];
-                
                 $mail->from = 'no-reply@saidit.co.uk';
                 $mail->subject = 'Saidit - Forgotten password request';
                 $mail->send();

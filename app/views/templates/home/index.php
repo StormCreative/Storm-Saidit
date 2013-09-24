@@ -23,9 +23,9 @@
             <?php endif; ?>
             </div>
         <?php else: ?>
-        <p>Oh, there doesn't seem to be any posts under that criteria. 
+        <p>There currently isn't any posts within this section. 
         <?php if(!!$_SESSION['user']['id']): ?>
-        Why not <a href="<?php echo DIRECTORY; ?>post/add">create one?</a>
+        Be the first to <a href="<?php echo DIRECTORY; ?>post/add">create one</a>.
         <?php endif; ?>
         <?php endif; ?>
     </section>

@@ -2,7 +2,11 @@
 <div class="comment-form">
     <!-- Render comment form -->
     <?php echo Form::start_form('comments', '', 'POST', 'form'); ?>
-    <p><?php echo Form::textarea('body', 'js-comment'); ?></p>
+    <p>
+    	<label for="comment">Add your comment</label>
+    	<textarea name="comments[body]" id="comment" class="js-comment comment-form__body"></textarea>
+    </p>
+    <!--<p><?php echo Form::textarea('body', 'js-comment comment-form__body'); ?></p>-->
     <p><?php echo Form::submit('submit', 'Post Comment', 'form__submit action__btn'); ?></p>
     <div class="auto-suggest js-auto-suggest"></div>
     <?php echo Form::end_form(); ?>

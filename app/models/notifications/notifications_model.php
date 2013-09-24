@@ -17,11 +17,23 @@ class Notifications_model extends Activerecord
 
             $name = Users_model::get_name($users_id);
 
-            $content = htmlspecialchars('<a href="'.DIRECTORY.'?name='.urlencode($users_id).'">'.$name.'</a> '.str_replace(' ', '+', $content));
+            //$content = '<a href="'.DIRECTORY.'?name='.urlencode($users_id).'">'.$name.'</a> '.str_replace(' ', '+', $content);
+            $content = '<a href="'. SITE . DIRECTORY.'?name='.urlencode($users_id).'">'.$name.'</a> '.$content;
+            $data['content'] = $content;
+
+            $content = htmlspecialchars($content);
             
             $notifi = new Notifications_model(array('content' => $content, 'authors_id' => $authors_id));  
 
             $result = $notifi->save();
+
+            
+
+            $mail = new Mail('comment-report', $data);
+            $mail->to = Users_model::get_email($authors_id);
+            $mail->from = 'no-reply@saidit.co.uk';
+            $mail->subject = 'Saidit - New comment on your post.';
+            $mail->send();
 
         } else {
             $result = false;
