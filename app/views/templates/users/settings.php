@@ -1,10 +1,25 @@
 <section class="main">
-    <form method="post" action="" class="form">
-        <p>Email Notifications:</p>
-        <label for="">On:</label>
-        <input type="radio" name="users[notifications]" value="0" <?php if($user['notifications'] == 0): ?>checked="checked"<?php endif; ?>>
-        <label for="">Off:</label>
-        <input type="radio" name="users[notifications]" value="1" <?php if($user['notifications'] == 1): ?>checked="checked"<?php endif; ?>>
-        <p><input type="submit" name="submit" value="Save"></p>
-    </form>
+    <h1 class="page-title">Settings</h1>
+    <div class="post-entry">
+        <?php if($error): ?>
+            <div class="error">
+                <p>Please confirm your password before saving.</p>
+            </div>
+        <?php endif; ?>
+
+        <?php if($success): ?>
+            <div class="success">
+                <p>Your password has been successfully saved.</p>
+            </div>
+        <?php endif; ?>
+        
+        <?php echo Form::start_form('users', '', 'POST', 'form'); ?>
+
+        </p><?php echo Form::textfield('password', 'password'); ?></p>
+        <p><?php echo Form::textfield('confirm', 'password'); ?></p>
+        
+        <p><?php echo Form::submit('submit', 'Save', 'form__submit action__btn'); ?></p>
+
+        <?php echo Form::end_form(); ?>
+    </div>
 </section>

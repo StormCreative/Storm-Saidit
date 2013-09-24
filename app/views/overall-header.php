@@ -25,9 +25,12 @@
             </ul>
         </div>
         <div class="wrapper">
-            <?php if($show_header_filter): ?>
             <div class="filter-bar">
-                <form method="post" action="<?php echo DIRECTORY; ?>">
+            <?php if(!$show_header_filter && !$hide_back_btn): ?>
+            <a href="#"><span class="back-btn js-back">Back to posts</span></a>
+            <?php endif; ?>
+            <?php if($show_header_filter): ?>
+                <form method="post" action="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?><?php echo $order_by_string; ?>">
                     <ul class="tags">
                         <li>Tags:</li>
                         <li class="filter_dropdown">
@@ -56,7 +59,7 @@
                 <div class="header__login">
                     <?php if(!!$_SESSION['user']['id']): ?>
                     <!--<a href="#" class="js-controls-action"><?php echo Users_model::get_name($_SESSION['user']['id']); ?> <?php if(Notifications_model::get($_SESSION['user']['id']) != false): ?> <span class="notifications js-notifications">(<?php echo count(Notifications_model::get($_SESSION['user']['id'])); ?>)</span> <?php endif; ?></a>-->
-                    <a href="#">Logout</a> | <a href="#">Settings</a>
+                    <a href="<?php echo DIRECTORY; ?>users/logout">Logout</a> | <a href="<?php echo DIRECTORY; ?>users/settings">Settings</a>
                     <div class="controls js-controls">
                         <ul>
                            <!-- <li><a href="<?php echo DIRECTORY; ?>notifications"><?php if(Notifications_model::get($_SESSION['user']['id']) != false): ?> <span class="js-notifications">(<?php echo count(Notifications_model::get($_SESSION['user']['id'])); ?>)<?php endif; ?></span> Notifcations</a></li>
@@ -67,8 +70,9 @@
                     </div>
                     <?php else: ?>
                     <a href="<?php echo DIRECTORY; ?>users/login">Login</a>
-                    |
+                    <!--|
                     <a href="<?php echo DIRECTORY; ?>users/signup">Signup</a>
+                    -->
                     <?php endif; ?>
                 </div>
             </div>

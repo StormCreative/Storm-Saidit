@@ -90,3 +90,4 @@
 20-09-2013 17:11:37 Core/Routing/Router: Threw exception: Could not find controller "assets" to load
 23-09-2013 13:10:59 Core/Routing/Router: Threw exception: Could not find controller "posts=0&order=desc" to load
 23-09-2013 19:04:45 Core/Routing/Router: Threw exception: Could not find controller "fsdf" to load
+24-09-2013 10:07:46 Core/Routing/Router: Threw exception: Could not find controller "asdasd" to load

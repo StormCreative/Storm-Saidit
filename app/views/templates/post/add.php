@@ -1,5 +1,4 @@
 <section class="main">
-    <a href="#"><span class="back-btn js-back">Back to posts</span></a>
     <h1 class="page-title">Post a link</h1>
     <div class="post-entry">
     <?php if(count($errors) > 0 ): ?>

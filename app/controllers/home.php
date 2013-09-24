@@ -29,6 +29,8 @@ class home extends c_controller
 
     public function index ()
     {
+        Sessions::check_access();
+        
         $posts = new Posts_model();
         $binds = array();
 
@@ -38,98 +40,98 @@ class home extends c_controller
 
         if( post_set() ) {
 
-            /*
+            
             foreach( $_POST['category'] as $cat ) {
                 
-                //$posts->where('('.DB_SUFFIX.'_posts.category LIKE :'.$cat.' OR '.DB_SUFFIX.'_posts.category LIKE :'.$cat.'_2 OR '.DB_SUFFIX.'_posts.category LIKE :'.$cat.'_3)', null, true);
+                $posts->where('('.DB_SUFFIX.'_posts.category LIKE :'.$cat.' OR '.DB_SUFFIX.'_posts.category LIKE :'.$cat.'_2 OR '.DB_SUFFIX.'_posts.category LIKE :'.$cat.'_3)', null, true);
 
 
-                $posts->where('( FIND_IN_SET( "'.$cat.'", '.DB_SUFFIX.'_posts.category) )', null, true);
+                //$posts->where('( FIND_IN_SET( "'.$cat.'", '.DB_SUFFIX.'_posts.category) )', null, true);
 
-                /*
+                
                 $binds[$cat] = "%".$cat."%";
                 $binds[$cat.'_2'] = "".$cat."%";
                 $binds[$cat."_3"] = "%".$cat."";
-                */
+                
 
-            //}
+            }
 
-                $posts = $this->filter_by_category($_POST['category'], $posts);
+                //$posts = $this->filter_by_category($_POST['category'], $posts);
 
             if( !!$_POST['posts']['search'] ) {
                 $posts->where('posts.title LIKE :title');
                 $binds['title'] = '%'.$_POST['posts']['search'].'%';
             }
 
-            $posts_list = $posts->order('rating')->all($binds);
-            $posts_list = $this->order_by_rating($posts_list);
+            //$posts_list = $posts->order('rating')->all($binds);
+            //$posts_list = $this->order_by_rating($posts_list);
+
+        } 
+
+        $posts->order('rating');
+
+        if( !!$_GET['name'] ) {
+            $posts->where('posts.authors_id LIKE :name');
+            $binds['name'] = $_GET['name'];
+
+        } elseif( isset($_GET['today']) ) { 
+
+            $posts->order('create_date');
+            $posts->where('DATE('.DB_SUFFIX.'_posts.create_date) = CURDATE()', null, true);
 
         } else {
 
-            $posts->order('rating');
-
-            if( !!$_GET['name'] ) {
-                $posts->where('posts.authors_id LIKE :name');
-                $binds['name'] = $_GET['name'];
-
-            } elseif( isset($_GET['today']) ) { 
-
-                $posts->order('create_date');
-                $posts->where('DATE('.DB_SUFFIX.'_posts.create_date) = CURDATE()', null, true);
-
-            } else {
-
-                $to_scroll = false;
-            }
-
-            if( !!$_GET['posts'] ) {
-                
-                $posts->where('posts.status = :status');
-                $binds['status'] = $_GET['posts'];
-                $show_decide = false;
-
-                if( ($_GET['posts'] == '1' || $_GET['posts'] == '4') && Sessions::check_admin_access()) {
-                    $show_decide = true;
-                    $accept_status = 3;
-                    $decline_status = 4;
-                } 
-                
-            } else {
-                $posts->where('posts.status = 0');
-                $show_decide = true;
-                $accept_status = 1;
-                $decline_status = 2;
-            }
-
-            $order = 'asc';
-
-            if( !!$_GET['order'] ) {
-                $order = $_GET['order'];
-            }
-
-            if( !!$_GET['category'] ) {
-                $posts = $this->filter_by_category($_GET['category'], $posts);
-            }
-
-            $order_by = 'create_date';
-
-            if( !!$_GET['order_by'] ) {
-                
-                if( $_GET['order_by'] == 'today' ) {
-                    $posts->where('DAY('.DB_SUFFIX.'_posts.create_date) = DAY(CURDATE())', null, true);
-                } elseif( $_GET['order_by'] == 'week' ) {
-
-                    $posts->where('WEEKOFYEAR('.DB_SUFFIX.'_posts.create_date)=WEEKOFYEAR(NOW())', null, true);
-                } else {
-                    $posts->where('MONTH('.DB_SUFFIX.'_posts.create_date) = MONTH(CURDATE())', null, true);
-                }
-            }
-
-            $posts_list = $posts->order('create_date')->all($binds);  
-            
-            $posts_list = $this->order_by_rating($posts_list, $order);
+            $to_scroll = false;
         }
 
+        if( !!$_GET['posts'] ) {
+            
+            $posts->where('posts.status = :status');
+            $binds['status'] = $_GET['posts'];
+            $show_decide = false;
+
+            if( ($_GET['posts'] == '1' || $_GET['posts'] == '4') && Sessions::check_admin_access()) {
+                $show_decide = true;
+                $accept_status = 3;
+                $decline_status = 4;
+            } 
+            
+        } else {
+            $posts->where('posts.status = 0');
+            $show_decide = true;
+            $accept_status = 1;
+            $decline_status = 2;
+        }
+
+        $order = 'asc';
+
+        if( !!$_GET['order'] ) {
+            $order = $_GET['order'];
+        }
+
+        if( !!$_GET['category'] ) {
+            $posts = $this->filter_by_category($_GET['category'], $posts);
+        }
+
+        $order_by = 'create_date';
+
+        if( !!$_GET['order_by'] ) {
+            
+            if( $_GET['order_by'] == 'today' ) {
+                $posts->where('DAY('.DB_SUFFIX.'_posts.create_date) = DAY(CURDATE())', null, true);
+            } elseif( $_GET['order_by'] == 'week' ) {
+
+                $posts->where('WEEKOFYEAR('.DB_SUFFIX.'_posts.create_date)=WEEKOFYEAR(NOW())', null, true);
+            } else {
+                $posts->where('MONTH('.DB_SUFFIX.'_posts.create_date) = MONTH(CURDATE())', null, true);
+            }
+        }
+
+        $posts_list = $posts->order('create_date')->all($binds);  
+        
+        $posts_list = $this->order_by_rating($posts_list, $order);
+        
+        $this->addTag('order_by_string', (!!$_GET['order_by']?'&order_by='.$_GET['order_by']:''));
         $this->addTag('accept_status', $accept_status);
         $this->addTag('decline_status', $decline_status);
         $this->addTag('show_decide', $show_decide);

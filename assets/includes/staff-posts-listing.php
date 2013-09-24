@@ -13,11 +13,11 @@
                 <?php endif; ?>
             </div>
             <div class="post__details--extra-info">
-                <span class="post__details--author">Submitted by <a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&name=<?php echo $post['post']['authors_id']; ?>"><?php echo $post['post']['authors_name']; ?></a> on <?php echo tidy_time_posted($post['post']['create_date']); ?></span>
+                <span class="post__details--author">Submitted by <a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?><?php echo $order_by_string; ?>&name=<?php echo $post['post']['authors_id']; ?>"><?php echo $post['post']['authors_name']; ?></a> on <?php echo tidy_time_posted($post['post']['create_date']); ?></span>
                 <?php if(!!$post['post']['category']): ?>
                 <span class="post__details--tags">Tags: 
                 <?php $c=1; foreach(explode(',', $post['post']['category']) as $tag): ?>
-                <a href="<?php echo DIRECTORY; ?>home?posts=<?php echo $posts_type; ?>&category=<?php echo $tag; ?>"><?php echo Posts::$tags[$tag]; ?><?php if($c != count(explode(',', $post['post']['category']))): ?>,<?php endif; ?>&nbsp;</a>
+                <a href="<?php echo DIRECTORY; ?>home?posts=<?php echo $posts_type; ?><?php echo $order_by_string; ?>&category=<?php echo $tag; ?>"><?php echo Posts::$tags[$tag]; ?><?php if($c != count(explode(',', $post['post']['category']))): ?>,<?php endif; ?>&nbsp;</a>
                 <?php $c++; endforeach; ?></span>
                 <?php endif; ?>
             </div>

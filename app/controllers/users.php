@@ -20,10 +20,47 @@ class Users extends C_Controller
             }
         }
 
+        $this->addTag('hide_back_btn', true);
         $this->addTag('error', $error);
 
         $this->addStyle('posts');
     } 
+
+    public function forgot()
+    {
+        if( post_set() ) {
+
+            $users_model = new Users_model();
+            $output = $users_model->find($_POST['users']['username'], 'username');
+
+            if( !!$users_model->id ) {
+
+                $data['password'] = random_string(8);
+
+                $users_model->password = sha1($data['password']);
+                $users_model->save();
+
+                $mail = new Mail('forgotten-password', $data);
+
+                $mail->to = $_POST['users']['username'];
+                
+                $mail->from = 'no-reply@saidit.co.uk';
+                $mail->subject = 'Saidit - Forgotten password request';
+                $mail->send();
+
+                $success = true;
+            } else {
+                $failure = true;
+            }
+
+        }
+
+        $this->addTag('success', $success);
+        $this->addTag('failure', $failure);
+
+        $this->addTag('hide_back_btn', true);
+        $this->addStyle('posts');
+    }
 
     public function logout()
     {
@@ -59,19 +96,31 @@ class Users extends C_Controller
 
     public function settings()
     {
+        $error = false;
         $users = new Users_model();
         $user = $users->find_where_authors_id(array('authors_id' => $_SESSION['user']['id']));
 
-        if( !!post_set() ) {
+        if( post_set() ) {
 
-            $users->notifications = $_POST['users']['notifications'];
+            if( ($_POST['users']['password'] == $_POST['users']['confirm']) && ($_POST['users']['password'] != "" && $_POST['users']['confirm'] != "") ) {
 
-            $output = $users->save();
+                $users->password = sha1($_POST['users']['password']);
+                $output = $users->save();
 
+                if($output) {
+                    $success = true;
+                }
+            } else {
+                
+                $error = true;
+            }
         }
 
         $user = $users->find_where_authors_id(array('authors_id' => $_SESSION['user']['id']));
 
+        $this->addTag('error', $error);
+        $this->addTag('success', $success);
+        $this->addTag('hide_back_btn', true);
         $this->addTag('user', $user);
         $this->addStyle('posts');
     }

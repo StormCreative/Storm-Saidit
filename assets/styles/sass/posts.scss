@@ -26,9 +26,24 @@
 
 .description {
     margin-top: -20px;
+    width: 60%;
+    float: left;
 }
 
+.post-entry-rating {
+    float: right;
 
+
+
+    ul {
+
+        li {
+            a {
+                color: #6F6E6B;
+            }
+        }
+    }
+}
 
 .main {
     a {
@@ -68,6 +83,7 @@
     background: #F7FBFB;
     color: #6F6E6B;
     padding: 10px;
+    overflow: hidden;
 
     label {
         font-size: 16px;
@@ -88,6 +104,9 @@
 .comment-form {
     position: relative;
     width:100%;
+    margin-top: 10px;
+    background: #F7FBFB;
+    padding-left: 6px;
 }
 
 .auto-suggest {

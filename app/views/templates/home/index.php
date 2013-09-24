@@ -3,11 +3,11 @@
         <div class="filter-search">
             <p class="filter-search__choices">
                 SHOW:
-                <a href="<?php echo DIRECTORY; ?>" <?php if(!$_POST && $_GET['posts'] == 0): ?>class="active"<?php endif; ?>>Current Suggestions</a> 
-                | <a href="<?php echo DIRECTORY; ?>?posts=1" <?php if($_GET['posts'] == 1): ?>class="active"<?php endif; ?>>Pending</a> 
-                | <a href="<?php echo DIRECTORY; ?>?posts=3" <?php if($_GET['posts'] == 3): ?>class="active"<?php endif; ?>>Used</a>
-                | <a href="<?php echo DIRECTORY; ?>?posts=2" <?php if($_GET['posts'] == 2): ?>class="active"<?php endif; ?>>Unused</a> 
-                | <a href="<?php echo DIRECTORY; ?>?posts=4" <?php if($_GET['posts'] == 4): ?>class="active"<?php endif; ?>>Unused but approved</a> 
+                <a href="<?php echo DIRECTORY; ?>?posts=0<?php echo $order_by_string; ?>" <?php if(!$_POST && $_GET['posts'] == 0): ?>class="active"<?php endif; ?>>Current Suggestions</a> 
+                | <a href="<?php echo DIRECTORY; ?>?posts=1<?php echo $order_by_string; ?>" <?php if($_GET['posts'] == 1): ?>class="active"<?php endif; ?>>Pending</a> 
+                | <a href="<?php echo DIRECTORY; ?>?posts=3<?php echo $order_by_string; ?>" <?php if($_GET['posts'] == 3): ?>class="active"<?php endif; ?>>Used</a>
+                | <a href="<?php echo DIRECTORY; ?>?posts=2<?php echo $order_by_string; ?>" <?php if($_GET['posts'] == 2): ?>class="active"<?php endif; ?>>Unused</a> 
+                | <a href="<?php echo DIRECTORY; ?>?posts=4<?php echo $order_by_string; ?>" <?php if($_GET['posts'] == 4): ?>class="active"<?php endif; ?>>Unused but approved</a> 
             </p>
             <a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order=<?php echo $order; ?><?php if(!!$_GET['order_by']): ?>&order_by=<?php echo $_GET['order_by']; ?><?php endif; ?>"><p class="switch_icon rating_switch"></p></a>
         </div>

@@ -98,8 +98,8 @@ class Mail
 
             if( file_exists($template) ) {
                 $content = file_get_contents($template);
-
-                foreach($columns as $col => $value) {
+                
+                foreach($data as $col => $value) {
                     $content = str_replace('{'.strtoupper($col).'}', $value, $content);
                 }
 
