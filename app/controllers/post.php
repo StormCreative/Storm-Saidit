@@ -17,7 +17,9 @@ class Post extends C_Controller
             // Arrange the addition post data that is not within the form
             $_POST['posts']['category'] = (!!$_POST['posts']['category']?implode(',', $_POST['posts']['category']):"");
             $_POST['posts']['authors_id'] = (!!$_SESSION['user']['id']?$_SESSION['user']['id']:2);
-            $_POST['posts']['image_url'] = get_website_first_image($_POST['posts']['link']);
+            
+            $image = get_website_first_image($_POST['posts']['link']);
+            $_POST['posts']['image_url'] = ($image != false ? $image : "");
             $_POST['posts']['status'] = 0;
             $post = new Posts_model($_POST['posts']);
             $output = $post->save();

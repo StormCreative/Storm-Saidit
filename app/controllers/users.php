@@ -20,6 +20,7 @@ class Users extends C_Controller
             }
         }
 
+        $this->addTag('hide_login', true);
         $this->addTag('hide_back_btn', true);
         $this->addTag('error', $error);
 
@@ -53,6 +54,7 @@ class Users extends C_Controller
 
         }
 
+        $this->addTag('hide_login', true);
         $this->addTag('success', $success);
         $this->addTag('failure', $failure);
 

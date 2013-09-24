@@ -69,7 +69,9 @@
                         </ul>
                     </div>
                     <?php else: ?>
+                    <?php if(!$hide_login): ?>
                     <a href="<?php echo DIRECTORY; ?>users/login">Login</a>
+                    <?php endif; ?>
                     <!--|
                     <a href="<?php echo DIRECTORY; ?>users/signup">Signup</a>
                     -->
