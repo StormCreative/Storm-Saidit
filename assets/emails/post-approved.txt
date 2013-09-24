@@ -1,0 +1,6 @@
+<html>
+	<body>
+		<p>Hi,</p>
+		<p>The following <a href="{LINK}">post</a> has been approved by management.</p>
+	</body>
+</html>

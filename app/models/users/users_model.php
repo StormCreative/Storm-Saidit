@@ -28,5 +28,20 @@ class Users_model extends Activerecord
         return $users->username;
     }
 
+    public static function get_admins($level=1) 
+    {
+        $users = new Users_model();
+        $users->where('users.level = :level');
+        $user_list = $users->all(array('level' => $level));
+
+        $_users = array();
+
+        foreach( $user_list as $user ) {
+            $_users[] = $user['username'];
+        }
+
+        return implode(',', $_users);
+    }
+
 }
 ?>  

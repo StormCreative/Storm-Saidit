@@ -15,6 +15,7 @@ define(['jquery'], function($){
 		}
 		*/
 
+
 		$.ajax({
             type: 'POST',
             url: window.site_path + "post/ajax_descision",

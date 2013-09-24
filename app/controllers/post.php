@@ -146,7 +146,20 @@ class Post extends C_Controller
 
         $result = array('status' => 401);
 
+
         if($output) {
+
+            if($status == 1) {
+
+                $data['link'] = SITE.DIRECTORY.'post/view/'.$post_id;
+
+                $mail = new Mail('post-approved', $data);
+                $mail->to = Users_model::get_admins();
+                $mail->from = 'no-reply@saidit.co.uk';
+                $mail->subject = 'Saidit - New post has been approved.';
+                $mail->send();
+            }
+
             $result = array('status' => 201);
         }
 

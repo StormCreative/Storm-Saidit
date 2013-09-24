@@ -9,7 +9,7 @@
                 | <a href="<?php echo DIRECTORY; ?>?posts=2<?php echo $order_by_string; ?>" <?php if($_GET['posts'] == 2): ?>class="active"<?php endif; ?>>Unused</a> 
                 | <a href="<?php echo DIRECTORY; ?>?posts=4<?php echo $order_by_string; ?>" <?php if($_GET['posts'] == 4): ?>class="active"<?php endif; ?>>Unused but approved</a> 
             </p>
-            <a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order=<?php echo $order; ?><?php if(!!$_GET['order_by']): ?>&order_by=<?php echo $_GET['order_by']; ?><?php endif; ?>"><p class="switch_icon rating_switch"></p></a>
+            <a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order=<?php echo $order; ?><?php if(!!$_GET['order_by']): ?>&order_by=<?php echo $_GET['order_by']; ?><?php endif; ?><?php if(!!$posts_category): ?>&posts_category=<?php echo $posts_category; ?><?php endif; ?><?php if(!!$_GET['posts_category']): ?>&posts_category=<?php echo $_GET['posts_category']; ?><?php endif; ?>"><p class="switch_icon rating_switch"></p></a>
         </div>
         <?php if($posts_list != false): ?>
             <div class="js-infi-scroll">

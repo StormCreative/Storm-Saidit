@@ -38,10 +38,24 @@ class home extends c_controller
 
         $posts->where_implode = ' AND ';
 
-        if( post_set() ) {
+        if( post_set() || $_GET['posts_category'] ) {
 
+            $categories = $_POST['posts']['category'];
+
+            if( !!$_GET['posts_category'] ) {
+                $categories = $_GET['posts_category'];                
+
+                if( !is_array($categories) ) {
+                    $_categories = explode(',', $categories);
+                    $categories = array();
+
+                    foreach($_categories as $cat) {
+                        $categories[] = $cat;
+                    }
+                }
+            }
             
-            foreach( $_POST['posts']['category'] as $cat ) {
+            foreach( $categories as $cat ) {
                 
                 $_cat = str_replace('-', '_', $cat);
                 $posts->where('('.DB_SUFFIX.'_posts.category LIKE :'.$_cat.' OR '.DB_SUFFIX.'_posts.category LIKE :'.$_cat.'_2 OR '.DB_SUFFIX.'_posts.category LIKE :'.$_cat.'_3)', null, true);
@@ -131,6 +145,7 @@ class home extends c_controller
         
         $posts_list = $this->order_by_rating($posts_list, $order);
         
+        $this->addTag('posts_category', (!!$_POST['posts']['category']?implode(',', $_POST['posts']['category']):''));
         $this->addTag('order_by_string', (!!$_GET['order_by']?'&order_by='.$_GET['order_by']:''));
         $this->addTag('accept_status', $accept_status);
         $this->addTag('decline_status', $decline_status);
