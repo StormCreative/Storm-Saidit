@@ -18,15 +18,19 @@ class Authors
 
 		$authors = $authors->all();
 
+		$authors_posts = array();
+
 		foreach( $posts as $post ) {
-			$_authors[] = array('posts' => $post['posts_total'], 'name' => Users_model::get_name($post['authors_id']));
+			$name = Users_model::get_name($post['authors_id']);
+			$_authors[] = array('posts' => $post['posts_total'], 'name' => $name);
+			$authors_posts[] = $name;
 		}
 
 		if( !$by_month ) {
 			$c = 0;
 			foreach( $authors as $author ) {
 
-				if( $_authors[$c]['name'] != $author['name'] ) {
+				if( !in_array($author['name'], $authors_posts) ) {
 
 					$_authors[] = array('posts' => count($author['posts']), 'name' => $author['name']);
 				}
