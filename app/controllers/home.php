@@ -104,11 +104,19 @@ class home extends c_controller
             $binds['status'] = $_GET['posts'];
             $show_decide = false;
 
-            if( ($_GET['posts'] == '1' || $_GET['posts'] == '4') && Sessions::check_admin_access()) {
-                $show_decide = true;
-                $accept_status = 3;
-                $decline_status = 4;
-            } 
+            if( Sessions::check_admin_access() ) {
+
+                if($_GET['posts'] == '1') {
+                    $show_decide = true;
+                    $accept_status = 3;
+                    $decline_status = 4;
+                } elseif($_GET['posts'] == '4') {
+                    $show_decide = true;
+                    $accept_status = 3;
+                    $decline_status = 2;
+                }
+            }
+            
             
         } else {
             /*
@@ -117,7 +125,7 @@ class home extends c_controller
             $accept_status = 1;
             $decline_status = 2;
             */
-            
+
             if( Sessions::check_admin_access() ) {
                 $show_decide = true;
                 $accept_status = 1;
