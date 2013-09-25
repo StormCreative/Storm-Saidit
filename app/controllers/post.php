@@ -7,12 +7,12 @@ class Post extends C_Controller
         parent::__Construct();
 
         $this->addStyle('posts');
+
+        Sessions::check_access();
     }
 
     public function add()
     {
-        Sessions::check_access();
-
         if( post_set() ) {
             // Arrange the addition post data that is not within the form
             $_POST['posts']['category'] = (!!$_POST['posts']['category']?implode(',', $_POST['posts']['category']):"");
@@ -69,7 +69,7 @@ class Post extends C_Controller
 
         $comments = new Comments_model();
 
-        $output = $comments->where('comments.posts_id = :id')->order('create_date')->all(array('id' => $id));
+        $output = $comments->where('comments.posts_id = :id')->order('create_date', 'ASC')->all(array('id' => $id));
 
         $this->addTag('post', $post->attributes);
         $this->addTag('comments', $output);

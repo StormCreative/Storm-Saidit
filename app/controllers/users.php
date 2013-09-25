@@ -14,7 +14,13 @@ class Users extends C_Controller
             if( !!$result['id'] ) {
                 $_SESSION['user']['level'] = $result['level'];
                 $_SESSION['user']['id'] = $result['authors_id'];
-                header('location: '.DIRECTORY);
+
+                $location = '?posts=0';
+                if( $result['level'] == 1 ) {
+                    $location = '?posts=1';
+                }
+
+                header('location: '.DIRECTORY.$location);
             } else {
                 $error = true;
             }

@@ -1,5 +1,5 @@
 <?php if( !!$_SESSION['user']['id'] ): ?> 
-<div class="comment-form">
+<div class="comment-form" id="comment-form">
     <!-- Render comment form -->
     <?php echo Form::start_form('comments', '', 'POST', 'form'); ?>
     <p>

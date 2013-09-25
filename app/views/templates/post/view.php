@@ -1,6 +1,6 @@
 <section class="main">
     <div class="post-entry">
-        <?php if( !!$post['image_url'] ): ?>
+        <?php if( !!$post['image_url'] && substr($post['image_url'], 0, 4) == 'http'): ?>
         <img src="<?php echo $post['image_url']; ?>" width="100" class="image">
         <?php endif; ?>
         <div class="description">

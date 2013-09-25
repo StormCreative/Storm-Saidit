@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="post__comments">
-                <p><i class="icon-comment"></i> <a href="<?php echo DIRECTORY; ?>post/view/<?php echo $post['post']['id']; ?>"><?php echo count($post['post']['comments']); ?> Comments</a> | <a href="<?php echo DIRECTORY; ?>comments/add/<?php echo $post['post']['id']; ?>">Make comment</a></p>
+                <p><i class="icon-comment"></i> <a href="<?php echo DIRECTORY; ?>post/view/<?php echo $post['post']['id']; ?>"><?php echo count($post['post']['comments']); ?> Comments</a> | <a href="<?php echo DIRECTORY; ?>post/view/<?php echo $post['post']['id']; ?>#comment-form">Make comment</a></p>
             </div>
         </div>
         <div class="post__rate" data-rating="<?php echo $post['post']['rating']; ?>" data-post-id="<?php echo $post['post']['id']; ?>">

@@ -15,6 +15,7 @@ define(['jquery'], function($){
 		}
 		*/
 
+		$("#js-post-item-"+post_id).fadeOut();
 
 		$.ajax({
             type: 'POST',

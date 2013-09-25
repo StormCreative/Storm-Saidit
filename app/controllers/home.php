@@ -111,10 +111,18 @@ class home extends c_controller
             } 
             
         } else {
+            /*
             $posts->where('posts.status = 0');
             $show_decide = true;
             $accept_status = 1;
             $decline_status = 2;
+            */
+            
+            if( Sessions::check_admin_access() ) {
+                $show_decide = true;
+                $accept_status = 1;
+                $decline_status = 2;
+            }
         }
 
         $order = 'asc';

@@ -19,7 +19,7 @@
     <body>
         <div class="header">
             <ul class="header__logos">
-                <li><a class="header__main header__logos--logo" href="<?php echo DIRECTORY; ?>">Saidit</a></li>
+                <li><a class="header__main header__logos--logo" href="<?php echo DIRECTORY; ?>?posts=0">Saidit</a></li>
                 <li><a class="header__middle header__logos--logo" href="<?php echo DIRECTORY; ?>">Saidit</a></li>
                 <li class="header__logo--right"><a class="header__right header__logos--logo" href="<?php echo DIRECTORY; ?>">Saidit</a></li>
             </ul>
