@@ -28,7 +28,7 @@
         <?php foreach( $comments as $comment ): ?>
         <div class="comments__list">
             <p class="comments__list--comment"><?php echo $comment['body']; ?></p>
-            <p class="comments__list--author" id="comment-<?php echo $comment['id']; ?>">By <a href="<?php echo DIRECTORY; ?>?name=<?php echo $comment['authors_id']; ?>"><?php echo $comment['authors_name']; ?></a> at <?php echo tidy_time_posted($comment['create_date']); ?></p>
+            <p class="comments__list--author" id="comment-<?php echo $comment['id']; ?>">By <a href="<?php echo DIRECTORY; ?>?name=<?php echo $comment['authors_id']; ?>"><?php echo $comment['authors_name']; ?></a> on <?php echo tidy_time_posted($comment['create_date']); ?></p>
         </div>
         <?php endforeach; ?>
         

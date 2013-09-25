@@ -28,7 +28,7 @@ class Post extends C_Controller
 
                 Activity_model::add($_SESSION['user']['id'], 'created new post <a href="'.DIRECTORY.'post/view/'.$output.'">'.$post->title.'</a>');
 
-                header('location: '.DIRECTORY);
+                header('location: '.DIRECTORY.'?posts=0');
             } else {
                 $this->addTag('errors', $post->errors);
             }

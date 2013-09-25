@@ -125,6 +125,10 @@ class home extends c_controller
             $accept_status = 1;
             $decline_status = 2;
             */
+            
+            if( $_GET['posts'] == '0' ) {
+                $posts->where('posts.status = 0');
+            }
 
             if( Sessions::check_admin_access() ) {
                 $show_decide = true;

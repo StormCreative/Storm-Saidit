@@ -55,14 +55,14 @@ class Users extends C_Controller
 
                 $success = true;
             } else {
-                $failure = true;
+                $error = true;
             }
 
         }
 
         $this->addTag('hide_login', true);
         $this->addTag('success', $success);
-        $this->addTag('failure', $failure);
+        $this->addTag('error', $error);
 
         $this->addTag('hide_back_btn', true);
         $this->addStyle('posts');
@@ -124,6 +124,7 @@ class Users extends C_Controller
 
         $user = $users->find_where_authors_id(array('authors_id' => $_SESSION['user']['id']));
 
+        $this->addTag('show_generic_back', true);
         $this->addTag('error', $error);
         $this->addTag('success', $success);
         $this->addTag('hide_back_btn', true);

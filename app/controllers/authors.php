@@ -18,6 +18,8 @@ class Authors
 
 		$authors = $authors->all();
 
+		// Need an extra array of names, to run a conditional against the main array
+		// As can't check every element within the embedded array
 		$authors_posts = array();
 
 		foreach( $posts as $post ) {

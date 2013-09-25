@@ -3,7 +3,7 @@
     <div class="post-entry">
         <?php if($error): ?>
             <div class="error">
-                <p>Unable to login - check your credentials</p>
+                <p>Cannot find your email address in the system.</p>
             </div>
         <?php endif; ?>
         <?php if(!$success): ?>
