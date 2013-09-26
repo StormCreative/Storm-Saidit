@@ -215,8 +215,6 @@
     float: left;
     font-size: 14px;
     color: #6F6E6B;
-
-
 }
 
 .rating_switch {
@@ -240,8 +238,9 @@
         padding: 0;
 
         li {
-            display: inline-block; 
-            width: 32.333333%;
+            display: inline-block;
+            margin: 0 0 0 -3px;
+            width: 33.33333%;
             
             &:first-child {
                 text-align: left;
@@ -251,15 +250,23 @@
         .pagination__right {
             text-align: right;
         }
+
+        .pagination__info {
+            display: inline-block;
+            text-align: center;
+
+            span {
+                font-size: 12px;
+            }
+        }
     }
-
-
 }
 
 .pagination__item {
-    display: block;
+    display: inline-block;
     text-align: center;
     padding: 10px 4px;
+    margin-left: 3px;
     background: #2AAE62;
     height: 35px;
     color: white;
@@ -271,11 +278,9 @@
 
 .pagination__item--previous {
     width: 150px;
-    
 }
 
 .pagination__item--next {
     width: 150px;
-    
 }
 

@@ -55,19 +55,25 @@ class home extends c_controller
                 }
             }
             
+            $where = array();
+
             foreach( $categories as $cat ) {
                 
                 $_cat = str_replace('-', '_', $cat);
-                $posts->where('('.DB_SUFFIX.'_posts.category LIKE :'.$_cat.' OR '.DB_SUFFIX.'_posts.category LIKE :'.$_cat.'_2 OR '.DB_SUFFIX.'_posts.category LIKE :'.$_cat.'_3)', null, true);
-
+                //$posts->where('('.DB_SUFFIX.'_posts.category LIKE :'.$_cat.' OR '.DB_SUFFIX.'_posts.category LIKE :'.$_cat.'_2 OR '.DB_SUFFIX.'_posts.category LIKE :'.$_cat.'_3)', null, true);
+                
+                // Build up and implode later - as we don't want to have it appended by and AND and be very specific
+                // Needs to be loose with an OR so it can find the differences within the comma seperated string
+                $where[] = '('.DB_SUFFIX.'_posts.category LIKE :'.$_cat.' OR '.DB_SUFFIX.'_posts.category LIKE :'.$_cat.'_2 OR '.DB_SUFFIX.'_posts.category LIKE :'.$_cat.'_3)';
                 //$posts->where('( FIND_IN_SET( "'.$cat.'", '.DB_SUFFIX.'_posts.category) )', null, true);
                 
-                $binds[$_cat] = "%".$cat."%";
-                $binds[$_cat.'_2'] = "".$cat."%";
-                $binds[$_cat."_3"] = "%".$cat."";
-                
+                $binds[$_cat] = "%,".$cat.",%";
+                $binds[$_cat.'_2'] = "%".$cat.",%";
+                $binds[$_cat."_3"] = "%".$cat."%";
 
             }
+
+            $posts->where(implode(' OR ', $where), null, true);
 
                 //$posts = $this->filter_by_category($_POST['category'], $posts);
 
@@ -166,7 +172,7 @@ class home extends c_controller
         $config['total_items'] = count($posts_list);
         $config['page_no'] = $page;
         $config['url'] = 'home/index';
-        $config['per_page'] = 2;
+        $config['per_page'] = 20;
 
         $paginater = new Paginater($config);
 

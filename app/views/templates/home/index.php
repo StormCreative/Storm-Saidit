@@ -31,7 +31,7 @@
                     <a href="<?php echo DIRECTORY; ?><?php echo $back_button; ?>?<?php echo $_SERVER['QUERY_STRING']; ?>" class="pagination__item pagination__item--previous">Previous</a>
                     <?php endif; ?> 
                 </li>
-                <li><span class="pagination__info">Page <?php echo $page_no; ?> of <?php echo $total_pages; ?></span></li>
+                <li class="pagination__info"><span>Page <?php echo $page_no; ?> of <?php echo $total_pages; ?></span></li>
                 <?php if(!!$next_button): ?>
                 <li class="pagination__right"><a href="<?php echo DIRECTORY; ?><?php echo $next_button; ?>?<?php echo $_SERVER['QUERY_STRING']; ?>" class="pagination__item pagination__item--next">Next</a></li>
                 <?php endif; ?>

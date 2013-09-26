@@ -5,4 +5,12 @@
 
 class_name: CodeGuy
 modules:
-    enabled: [Unit, CodeHelper]
+   enabled: [Unit, CodeHelper, Db]
+   config:
+      Db:
+         dsn: 'mysql:host=localhost:8889;dbname=gileswilson_saidit'
+         user: 'root'
+         password: 'root'
+         dump: 'tests/_data/dump.sql'
+         populate: true
+         cleanup: false

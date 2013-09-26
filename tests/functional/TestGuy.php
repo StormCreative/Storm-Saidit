@@ -5,6 +5,7 @@
 
 use Codeception\Maybe;
 use Codeception\Module\Filesystem;
+use Codeception\Module\TestHelper;
 
 /**
  * Inherited methods
@@ -22,7 +23,7 @@ use Codeception\Module\Filesystem;
 
 class TestGuy extends \Codeception\AbstractGuy
 {
-
+    
     /**
      * Enters a directory In local filesystem.
      * Project root directory is used by default
@@ -33,18 +34,16 @@ class TestGuy extends \Codeception\AbstractGuy
      * ! This method is generated. DO NOT EDIT. !
      * ! Documentation taken from corresponding module !
      */
-    public function amInPath($path)
-    {
+    public function amInPath($path) {
         $this->scenario->condition('amInPath', func_get_args());
         if ($this->scenario->running()) {
             $result = $this->scenario->runStep();
-
             return new Maybe($result);
         }
-
         return new Maybe();
     }
 
+ 
     /**
      * Opens a file and stores it's content.
      *
@@ -63,19 +62,16 @@ class TestGuy extends \Codeception\AbstractGuy
      * ! This method is generated. DO NOT EDIT. !
      * ! Documentation taken from corresponding module !
      */
-    public function openFile($filename)
-    {
+    public function openFile($filename) {
         $this->scenario->action('openFile', func_get_args());
         if ($this->scenario->running()) {
             $result = $this->scenario->runStep();
-
             return new Maybe($result);
         }
-
         return new Maybe();
     }
 
-
+ 
     /**
      * Deletes a file
      *
@@ -91,19 +87,16 @@ class TestGuy extends \Codeception\AbstractGuy
      * ! This method is generated. DO NOT EDIT. !
      * ! Documentation taken from corresponding module !
      */
-    public function deleteFile($filename)
-    {
+    public function deleteFile($filename) {
         $this->scenario->action('deleteFile', func_get_args());
         if ($this->scenario->running()) {
             $result = $this->scenario->runStep();
-
             return new Maybe($result);
         }
-
         return new Maybe();
     }
 
-
+ 
     /**
      * Deletes directory with all subdirectories
      *
@@ -119,19 +112,16 @@ class TestGuy extends \Codeception\AbstractGuy
      * ! This method is generated. DO NOT EDIT. !
      * ! Documentation taken from corresponding module !
      */
-    public function deleteDir($dirname)
-    {
+    public function deleteDir($dirname) {
         $this->scenario->action('deleteDir', func_get_args());
         if ($this->scenario->running()) {
             $result = $this->scenario->runStep();
-
             return new Maybe($result);
         }
-
         return new Maybe();
     }
 
-
+ 
     /**
      * Copies directory with all contents
      *
@@ -148,19 +138,16 @@ class TestGuy extends \Codeception\AbstractGuy
      * ! This method is generated. DO NOT EDIT. !
      * ! Documentation taken from corresponding module !
      */
-    public function copyDir($src, $dst)
-    {
+    public function copyDir($src, $dst) {
         $this->scenario->action('copyDir', func_get_args());
         if ($this->scenario->running()) {
             $result = $this->scenario->runStep();
-
             return new Maybe($result);
         }
-
         return new Maybe();
     }
 
-
+ 
     /**
      * Checks If opened file has `text` in it.
      *
@@ -179,19 +166,16 @@ class TestGuy extends \Codeception\AbstractGuy
      * ! This method is generated. DO NOT EDIT. !
      * ! Documentation taken from corresponding module !
      */
-    public function seeInThisFile($text)
-    {
+    public function seeInThisFile($text) {
         $this->scenario->assertion('seeInThisFile', func_get_args());
         if ($this->scenario->running()) {
             $result = $this->scenario->runStep();
-
             return new Maybe($result);
         }
-
         return new Maybe();
     }
 
-
+ 
     /**
      * Checks If opened file doesn't contain `text` in it
      *
@@ -208,18 +192,16 @@ class TestGuy extends \Codeception\AbstractGuy
      * ! This method is generated. DO NOT EDIT. !
      * ! Documentation taken from corresponding module !
      */
-    public function dontSeeInThisFile($text)
-    {
+    public function dontSeeInThisFile($text) {
         $this->scenario->action('dontSeeInThisFile', func_get_args());
         if ($this->scenario->running()) {
             $result = $this->scenario->runStep();
-
             return new Maybe($result);
         }
-
         return new Maybe();
     }
 
+ 
     /**
      * Deletes a file
      * @see Filesystem::deleteThisFile()
@@ -227,18 +209,16 @@ class TestGuy extends \Codeception\AbstractGuy
      * ! This method is generated. DO NOT EDIT. !
      * ! Documentation taken from corresponding module !
      */
-    public function deleteThisFile()
-    {
+    public function deleteThisFile() {
         $this->scenario->action('deleteThisFile', func_get_args());
         if ($this->scenario->running()) {
             $result = $this->scenario->runStep();
-
             return new Maybe($result);
         }
-
         return new Maybe();
     }
 
+ 
     /**
      * Checks if file exists in path.
      * Opens a file when it's exists
@@ -256,15 +236,13 @@ class TestGuy extends \Codeception\AbstractGuy
      * ! This method is generated. DO NOT EDIT. !
      * ! Documentation taken from corresponding module !
      */
-    public function seeFileFound($filename, $path = null)
-    {
+    public function seeFileFound($filename, $path = null) {
         $this->scenario->assertion('seeFileFound', func_get_args());
         if ($this->scenario->running()) {
             $result = $this->scenario->runStep();
-
             return new Maybe($result);
         }
-
         return new Maybe();
     }
 }
+

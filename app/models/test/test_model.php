@@ -1,6 +1,6 @@
 <?php
 
-class test_model extends activate
+class test_model extends activerecord
 {
 	public function __Construct( $attributes=array(), $clean=false )
 	{
