@@ -29,8 +29,10 @@ define(['jquery', '../utils/api-caller'], function($, api){
                 elem.addClass((action=='up'?'green':'red')+'-thumb');    
             } else {
                 
+                // First remove the current selections amount from the original amount
                 if (current_vote != 0) {
-                    current_vote_elem.text(parseInt(new_vote-2));
+                    var new_vote_val = parseInt(new_vote-2);
+                    current_vote_elem.text(new_vote_val);
                 }
 
                 // If it's a 202 response it is a vote that it replacing a previous vote
@@ -63,12 +65,16 @@ define(['jquery', '../utils/api-caller'], function($, api){
 
                     new_elem_num.html(new_elem_num_val-1);
 
-                    new_elem.removeClass((action=='up'?'red':'green')+'-thumb');
+                    if ((new_elem_num_val-1) == 0) {
+                        new_elem.removeClass((action=='up'?'red':'green')+'-thumb');
+                    }
                     
                 } 
                 // Otherwise it's been clicked itself and we just need to turn off the colour.
                 else {
-                    elem.removeClass((action=='up'?'green':'red')+'-thumb');
+                    if (new_vote_val == 0) {
+                        elem.removeClass((action=='up'?'green':'red')+'-thumb');
+                    }
                 }
                 
             }

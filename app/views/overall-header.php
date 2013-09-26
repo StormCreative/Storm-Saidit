@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta name="author" content="Storm Creative" />
 
-        <title>Saidit - I did.</title>
+        <title>Saidit. - A social tool.</title>
         <meta name="keywords" content="<?php echo $meta_keywords; ?>">
         <meta name="description" content="<?php echo $meta_desc; ?>">
 
@@ -43,7 +43,7 @@
                                     <?php foreach(Posts::$tags as $key => $value): ?>
                                     <li>
                                         <label for="<?php echo $key; ?>"><?php echo $value; ?>:</label>
-                                        <input type="checkbox" id="<?php echo $key; ?>" <?php if(in_array($key, $_POST['posts']['category'])): ?>checked="checked"<?php endif; ?> name="posts[category][]" value="<?php echo $key; ?>">
+                                        <input type="checkbox" id="<?php echo $key; ?>" <?php if(in_array($key, $_POST['posts']['category']) || in_array($key, explode(',', $_GET['posts_category']))): ?>checked="checked"<?php endif; ?> name="posts[category][]" value="<?php echo $key; ?>">
                                     </li>
                                     <?php endforeach; ?>
                                 </ul>
