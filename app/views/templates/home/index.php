@@ -9,7 +9,9 @@
                 | <a href="<?php echo DIRECTORY; ?>?posts=2" <?php if($_GET['posts'] == 2): ?>class="active"<?php endif; ?>>Unused</a> 
                 | <a href="<?php echo DIRECTORY; ?>?posts=4" <?php if($_GET['posts'] == 4): ?>class="active"<?php endif; ?>>Unused but approved</a> 
             </p>
-            <a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order=<?php echo $order; ?><?php if(!!$_GET['order_by']): ?>&order_by=<?php echo $_GET['order_by']; ?><?php endif; ?><?php if(!!$posts_category): ?>&posts_category=<?php echo $posts_category; ?><?php endif; ?><?php if(!!$_GET['posts_category']): ?>&posts_category=<?php echo $_GET['posts_category']; ?><?php endif; ?>"><p class="switch_icon rating_switch"></p></a>
+            <?php if($posts_list != false): ?>
+            <a href="<?php echo DIRECTORY; ?><?php echo $current_page; ?>?posts=<?php echo $posts_type; ?>&order=<?php echo $order; ?><?php if(!!$_GET['order_by']): ?>&order_by=<?php echo $_GET['order_by']; ?><?php endif; ?><?php if(!!$posts_category): ?>&posts_category=<?php echo $posts_category; ?><?php endif; ?><?php if(!!$_GET['posts_category']): ?>&posts_category=<?php echo $_GET['posts_category']; ?><?php endif; ?>"><p class="switch_icon rating_switch"></p></a>
+            <?php endif; ?>
         </div>
         <?php if($posts_list != false): ?>
             <div class="js-infi-scroll">
@@ -22,6 +24,19 @@
             <?php endif; ?>
             <?php endif; ?>
             </div>
+        <div class="pagination">
+            <ul>
+                <li>
+                    <?php if(!!$back_button): ?>
+                    <a href="<?php echo DIRECTORY; ?><?php echo $back_button; ?>?<?php echo $_SERVER['QUERY_STRING']; ?>" class="pagination__item pagination__item--previous">Previous</a>
+                    <?php endif; ?> 
+                </li>
+                <li><span class="pagination__info">Page <?php echo $page_no; ?> of <?php echo $total_pages; ?></span></li>
+                <?php if(!!$next_button): ?>
+                <li class="pagination__right"><a href="<?php echo DIRECTORY; ?><?php echo $next_button; ?>?<?php echo $_SERVER['QUERY_STRING']; ?>" class="pagination__item pagination__item--next">Next</a></li>
+                <?php endif; ?>
+            </ul>
+        </div>
         <?php else: ?>
         <p>There currently isn't any posts within this section. 
         <?php if(!!$_SESSION['user']['id']): ?>
@@ -29,6 +44,7 @@
         <?php endif; ?>
         <?php endif; ?>
     </section>
+
 <?php include "assets/includes/aside.php"; ?>
 </div>
 <script> 

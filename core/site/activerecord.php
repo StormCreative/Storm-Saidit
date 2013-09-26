@@ -189,8 +189,10 @@ abstract class Activerecord
     public function limit($limit, $offset="")
     {
         if( !!$offset ) {
-            $limit .= ', '.$offset;
-        }
+            //$limit .= ', '.$offset;
+            $limit = $offset .', '.$limit;
+        } 
+
 
         $this->_limit = $limit;
 

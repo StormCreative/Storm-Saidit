@@ -27,8 +27,8 @@ class Notifications_model extends Activerecord
 
             $result = $notifi->save();
 
-            
-
+            // After saving the notification - will send an email to person who would
+            // have written the original post to let them know someone has commented on their post
             $mail = new Mail('comment-report', $data);
             $mail->to = Users_model::get_email($authors_id);
             $mail->from = 'no-reply@saidit.co.uk';

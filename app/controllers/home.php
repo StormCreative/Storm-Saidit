@@ -27,7 +27,7 @@ class home extends c_controller
         return $obj;
     }
 
-    public function index ()
+    public function index($page="")
     {
         Sessions::check_access();
         
@@ -60,9 +60,7 @@ class home extends c_controller
                 $_cat = str_replace('-', '_', $cat);
                 $posts->where('('.DB_SUFFIX.'_posts.category LIKE :'.$_cat.' OR '.DB_SUFFIX.'_posts.category LIKE :'.$_cat.'_2 OR '.DB_SUFFIX.'_posts.category LIKE :'.$_cat.'_3)', null, true);
 
-
                 //$posts->where('( FIND_IN_SET( "'.$cat.'", '.DB_SUFFIX.'_posts.category) )', null, true);
-
                 
                 $binds[$_cat] = "%".$cat."%";
                 $binds[$_cat.'_2'] = "".$cat."%";
@@ -161,10 +159,28 @@ class home extends c_controller
             }
         }
 
-        $posts_list = $posts->order('create_date')->all($binds);  
+        $posts_list = $posts->order('create_date')->all($binds);
+
+
+        // Handle the pagination
+        $config['total_items'] = count($posts_list);
+        $config['page_no'] = $page;
+        $config['url'] = 'home/index';
+        $config['per_page'] = 2;
+
+        $paginater = new Paginater($config);
+
+        $posts->limit( $config['per_page'], $paginater->offset );
+
+        $posts_list = $posts->order('create_date')->all($binds);
         
         $posts_list = $this->order_by_rating($posts_list, $order);
-        
+
+        $this->addTag('page_no', $paginater->page_no);
+        $this->addTag('total_pages', $paginater->total_pages);
+        $this->addTag('next_button', $paginater->get_next_btn());
+        $this->addTag('back_button', $paginater->get_back_btn());
+        $this->addTag('current_page', str_replace(DIRECTORY, '', $_SERVER['REDIRECT_URL']));
         $this->addTag('posts_category', (!!$_POST['posts']['category']?implode(',', $_POST['posts']['category']):''));
         $this->addTag('order_by_string', (!!$_GET['order_by']?'&order_by='.$_GET['order_by']:''));
         $this->addTag('accept_status', $accept_status);

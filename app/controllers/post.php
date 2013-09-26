@@ -148,7 +148,6 @@ class Post extends C_Controller
 
         $result = array('status' => 401);
 
-
         if($output) {
 
             if($status == 1) {

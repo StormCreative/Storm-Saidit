@@ -54,6 +54,7 @@ class table
             $sql .= ' '.$options['group'];
         }
 
+
         if( !!$options['limit'] ) {
             $sql .= ' LIMIT '.$options['limit'];
         }
