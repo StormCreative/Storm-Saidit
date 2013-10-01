@@ -46,12 +46,14 @@ small {
     display: inline-block;
     background: #F7FBFB;
     border: 1px solid #6F6E6B;
-    line-height: 28px;
+    line-height: 26px;
     border-radius: 50%;
+    padding: 2px 0 0 0;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     text-align: center;
     width: 30px;
+    vertical-align: middle;
 }
 
 .rating_system__thumb-up, .rating_system__thumb-down {
