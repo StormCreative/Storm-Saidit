@@ -10,15 +10,31 @@
         </div>
     <?php endif; ?>
     <?php echo Form::start_form('posts', '', 'POST', 'form'); ?>
-
+        <p>
+            <label for="title">Title of post</label>
+            <input type="text" name="posts[title]">
+        </p>
+        <p>
+            <label for="title">Link</label>
+            <input type="text" name="posts[link]">
+            <small>Copy and paste a URL from the browser address bar</small>
+        </p>
+        <p>
+            <label for="notes">Notes</label>
+            <textarea name="posts[notes]"></textarea>
+        </p>
+        <!--
         <p><?php echo Form::textfield('title'); ?></p>
         <p><?php echo Form::textfield('link'); ?><small>Copy and paste a URL from the browser address bar</small></p>
         <p><?php echo Form::textarea('notes'); ?></p>
-        <p>Select Tags:</p>
+    -->
+        <p>Select Tags:
+
         <?php foreach(Posts::$tags as $key => $value): ?>
         <label for="<?php echo $key; ?>"><?php echo $value; ?>:</label>
         <input type="checkbox" id="<?php echo $key; ?>" name="posts[category][]" value="<?php echo $key; ?>">
         <?php endforeach; ?>
+        </p>
 
         <p><?php echo Form::submit('submit', 'Post', 'form__submit action__btn'); ?></p>
 
