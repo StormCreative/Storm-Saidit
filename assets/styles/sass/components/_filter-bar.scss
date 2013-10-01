@@ -33,12 +33,14 @@
 		}
 
 		.filter_dropdown {
+			cursor: hand;
 			width: 135px;
 			vertical-align: bottom;
 
 			.filter_tags {
 				background: white;
 				border: 1px solid #6F6E6B;
+				cursor: pointer;
 				color: #6F6E6B;
 				display: inline-block;
 				height: 23px;
@@ -85,9 +87,14 @@
 
 					li {
 						line-height: normal;
+
 						margin: 10px 0;
 						padding: 0;
 						width: 100%;
+
+						label {
+							cursor: pointer;
+						}
 					}
 				}
 			}
