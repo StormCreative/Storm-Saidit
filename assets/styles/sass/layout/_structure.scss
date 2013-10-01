@@ -42,7 +42,17 @@ small {
         }
     }
 }
-
+.widget__post-leader--total {
+    display: inline-block;
+    background: #F7FBFB;
+    border: 1px solid #6F6E6B;
+    line-height: 28px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    text-align: center;
+    width: 30px;
+}
 
 .rating_system__thumb-up, .rating_system__thumb-down {
     font-size: 30px;
