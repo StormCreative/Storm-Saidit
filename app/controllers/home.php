@@ -73,7 +73,7 @@ class home extends c_controller
 
             }
 
-            $posts->where(implode(' OR ', $where), null, true);
+            $posts->where('('.implode(' OR ', $where).')', null, true);
 
                 //$posts = $this->filter_by_category($_POST['category'], $posts);
 
