@@ -9,12 +9,16 @@
                 | <a href="<?php echo DIRECTORY; ?>?posts=2" <?php if($_GET['posts'] == 2): ?>class="active"<?php endif; ?>>Unused</a> 
                 | <a href="<?php echo DIRECTORY; ?>?posts=4" <?php if($_GET['posts'] == 4): ?>class="active"<?php endif; ?>>Unused but approved</a> 
             </p>
+
             <?php if($posts_list != false): ?>
             
             <!-- if management then use this one -->
             <a href="<?php echo DIRECTORY; ?><?php echo $current_page; ?>?posts=<?php echo $posts_type; ?>&order=<?php echo $order; ?><?php if(!!$_GET['order_by']): ?>&order_by=<?php echo $_GET['order_by']; ?><?php endif; ?><?php if(!!$posts_category): ?>&posts_category=<?php echo $posts_category; ?><?php endif; ?><?php if(!!$_GET['posts_category']): ?>&posts_category=<?php echo $_GET['posts_category']; ?><?php endif; ?>"><p class="switch_icon rating_switch management-switch"></p></a>
             <?php endif; ?>
         </div>
+        <?php if(!!$_GET['new_post'] && $_GET['new_post'] == 'true'): ?>
+        <p class="success success-listing">New post added to current suggestions.</p>
+        <?php endif; ?>
         <?php if($posts_list != false): ?>
             <div class="js-infi-scroll">
             <?php if( !$to_scroll ): ?>
