@@ -30,7 +30,7 @@ class Users extends C_Controller
         $this->addTag('hide_back_btn', true);
         $this->addTag('error', $error);
 
-        $this->addStyle('posts');
+        $this->addStyle('login');
     } 
 
     public function forgot()
@@ -129,7 +129,7 @@ class Users extends C_Controller
         $this->addTag('success', $success);
         $this->addTag('hide_back_btn', true);
         $this->addTag('user', $user);
-        $this->addStyle('posts');
+         $this->addStyle('login');
     }
 
     public function get()

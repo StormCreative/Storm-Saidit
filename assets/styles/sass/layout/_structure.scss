@@ -6,6 +6,7 @@
 
 body {
     font-family: 'TTRegular';
+    min-width: 1024px;
     width: 100%;
     margin: 0;
     background: #EFF3F4;
@@ -42,13 +43,11 @@ small {
     }
 }
 
-.rating_system__thumb-up {
 
-    
-}
-
-.rating_system__thumb-down {
-    
+.rating_system__thumb-up, .rating_system__thumb-down {
+    font-size: 30px;
+    vertical-align: middle;
+    text-decoration: none !important;
 }
 
 .green-thumb {
@@ -145,6 +144,12 @@ small {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
+    text-decoration: none !important;
+
+    &:hover {
+        color: white;
+        background: darken(#2AAE62,10%)
+    }
 }
 
 /** Controls within the header **/
@@ -248,7 +253,7 @@ small {
     padding: 0 10px;
     
     dt {
-        width: 70%;
+        width: 69%;
         float: left;
     }
 
@@ -274,13 +279,21 @@ small {
     background: #2AAE62;
     border: 1px solid #2AAE62;
     color: white;
-    height: 32px;
+    line-height: 32px;
     font-size: 14px;
+    display: block;
+    text-align: center;
+    text-decoration: none !important;
 
-        -webkit-border-radius: 4px;
+    -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
     cursor: pointer;
+
+    &:hover {
+        color: white;
+        background: darken(#2AAE62,10%)
+    }
 }
 
 .action-grad {
@@ -452,4 +465,28 @@ small {
     background: url(../images/switch_bg.png) no-repeat;
     height: 25px;
     width: 21px;
+
+    &:hover, &:focus {
+        background: url(../images/switch_bg_hover.png) no-repeat;
+    }
+}
+
+/* Media Queries */
+@media all and (min-width: 960px) and (max-width: 1024px) {
+
+.rating_switch {
+    right: 115px;
+}
+
+.management-switch {
+    right: 20px;
+}
+
+.posters_list dt {
+width: 64%;
+}
+
+.post__details {
+padding-right: 50px;
+}
 }

@@ -11,6 +11,8 @@
             </p>
             <?php if($posts_list != false): ?>
             <a href="<?php echo DIRECTORY; ?><?php echo $current_page; ?>?posts=<?php echo $posts_type; ?>&order=<?php echo $order; ?><?php if(!!$_GET['order_by']): ?>&order_by=<?php echo $_GET['order_by']; ?><?php endif; ?><?php if(!!$posts_category): ?>&posts_category=<?php echo $posts_category; ?><?php endif; ?><?php if(!!$_GET['posts_category']): ?>&posts_category=<?php echo $_GET['posts_category']; ?><?php endif; ?>"><p class="switch_icon rating_switch"></p></a>
+            <!-- if management then use this one -->
+            <a href="<?php echo DIRECTORY; ?><?php echo $current_page; ?>?posts=<?php echo $posts_type; ?>&order=<?php echo $order; ?><?php if(!!$_GET['order_by']): ?>&order_by=<?php echo $_GET['order_by']; ?><?php endif; ?><?php if(!!$posts_category): ?>&posts_category=<?php echo $posts_category; ?><?php endif; ?><?php if(!!$_GET['posts_category']): ?>&posts_category=<?php echo $_GET['posts_category']; ?><?php endif; ?>"><p class="switch_icon rating_switch management-switch"></p></a>
             <?php endif; ?>
         </div>
         <?php if($posts_list != false): ?>

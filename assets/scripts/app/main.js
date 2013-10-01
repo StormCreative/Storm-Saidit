@@ -11,7 +11,7 @@ requirejs.config({
     }
 });
 
-require(['../views/scroller', 'menu'], function(Scroller) {
+require(['../views/scroller', 'menu', 'selectivizr-min'], function(Scroller) {
     
     $(".js-back").on('click', function(e) {
         window.history.go(-1);
