@@ -7,7 +7,7 @@
     	<textarea name="comments[body]" id="comment" class="js-comment comment-form__body"></textarea>
     </p>
     <!--<p><?php echo Form::textarea('body', 'js-comment comment-form__body'); ?></p>-->
-    <p><?php echo Form::submit('submit', 'Clear', 'form__clear action__btn'); ?><?php echo Form::submit('submit', 'Submit Comment', 'form__submit action__btn'); ?></p>
+    <p><?php //echo Form::submit('submit', 'Clear', 'form__clear action__btn'); ?><?php echo Form::submit('submit', 'Submit Comment', 'form__submit action__btn'); ?></p>
     <div class="auto-suggest js-auto-suggest"></div>
     <?php echo Form::end_form(); ?>
     <!-- End form -->
