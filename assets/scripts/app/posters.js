@@ -42,6 +42,7 @@ define(['jquery', '../utils/hogan'], function($, hogan){
 
     function set_rating_data(value) {
         var rating = $('.js-posters-rating');
+
         rating.attr('data-when', value);
         rating.children().attr('data-when', value);
         rating.children().attr('data-action', 'asc');
@@ -81,6 +82,8 @@ define(['jquery', '../utils/hogan'], function($, hogan){
 
                     }, this)
                 });
+            } else {
+                $(".js-posters-list").html('');
             }
         });
     }
