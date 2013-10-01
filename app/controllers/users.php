@@ -65,7 +65,7 @@ class Users extends C_Controller
         $this->addTag('error', $error);
 
         $this->addTag('hide_back_btn', true);
-        $this->addStyle('posts');
+        $this->addStyle('login');
     }
 
     public function logout()
