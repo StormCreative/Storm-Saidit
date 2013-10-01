@@ -38,6 +38,7 @@ class home extends c_controller
 
         $posts->where_implode = ' AND ';
 
+        // Filtering the categories seperately - by either the post or the get
         if( post_set() || $_GET['posts_category'] ) {
 
             $categories = $_POST['posts']['category'];
@@ -57,6 +58,10 @@ class home extends c_controller
             
             $where = array();
 
+            // Looping through and building up the where string as the conditions rely on an OR
+            // Did not use FIND_IN_SET as this is for more specific finds
+            // Want to bring up multiple results that match any of the categories not restricting to an entire math
+            // Which seemingly FIND_IN_SET does, which it shouldn't do?
             foreach( $categories as $cat ) {
                 
                 $_cat = str_replace('-', '_', $cat);
@@ -73,9 +78,11 @@ class home extends c_controller
 
             }
 
+            // Implode the strings up with an OR and wrap with another set of parameters
+            // as without these it treats it as an additional OR and can not have other specific AND requirements
             $posts->where('('.implode(' OR ', $where).')', null, true);
 
-                //$posts = $this->filter_by_category($_POST['category'], $posts);
+            //$posts = $this->filter_by_category($_POST['category'], $posts);
 
             if( !!$_POST['posts']['search'] ) {
                 $posts->where('posts.title LIKE :title');
@@ -141,10 +148,12 @@ class home extends c_controller
             }
         }
 
-        $order = 'asc';
+        
 
         if( !!$_GET['order'] ) {
             $order = $_GET['order'];
+        } else {
+            $order = false;
         }
 
         if( !!$_GET['category'] ) {
@@ -153,6 +162,7 @@ class home extends c_controller
 
         $order_by = 'create_date';
 
+        // Handle the order by filter within the top nav - Week/Day/Month
         if( !!$_GET['order_by'] ) {
             
             if( $_GET['order_by'] == 'today' ) {
@@ -165,23 +175,22 @@ class home extends c_controller
             }
         }
 
+        // Setup up the configurations for the pagination
         $posts_list = $posts->order('create_date')->all($binds);
-
-
-        // Handle the pagination
         $config['total_items'] = count($posts_list);
         $config['page_no'] = $page;
         $config['url'] = 'home/index';
         $config['per_page'] = 20;
 
         $paginater = new Paginater($config);
-
         $posts->limit( $config['per_page'], $paginater->offset );
 
         $posts_list = $posts->order('create_date')->all($binds);
         
+        // Handles the ordering of the posts by their rating
         $posts_list = $this->order_by_rating($posts_list, $order);
 
+        // Set all of the page attributes
         $this->addTag('page_no', $paginater->page_no);
         $this->addTag('total_pages', $paginater->total_pages);
         $this->addTag('next_button', $paginater->get_next_btn());
@@ -205,12 +214,21 @@ class home extends c_controller
         $this->setView('home/index');
     }
 
+    /**
+     * Orders posts by their rating - ASC or DESC
+     * 
+     * @param array $posts - the database results of the posts
+     * @param mixed bool/string - if false no ordering is made
+     *                            as we only reorder if an action is set
+     */
     public function order_by_rating($posts, $order="desc")
     {
         $_posts = array();
         foreach( $posts as $post ) {
             $total_rating = 0;
 
+            // Build up the rating for every post - as we will be ordering the 
+            // array by the first associated key
             foreach( $post['ratings'] as $rating ) {
                 if( $rating['rating'] == 1) {
                     $total_rating++;
@@ -225,7 +243,7 @@ class home extends c_controller
 
         if( $order == 'desc' ) {
             array_multisort($_posts, SORT_DESC);
-        } else {
+        } elseif( $order == 'asc') {
             array_multisort($_posts, SORT_ASC);
         }
 
