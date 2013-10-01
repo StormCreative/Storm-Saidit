@@ -9,7 +9,7 @@
         <title>Saidit. - A social tool.</title>
         <meta name="keywords" content="<?php echo $meta_keywords; ?>">
         <meta name="description" content="<?php echo $meta_desc; ?>">
-
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <script src="<?php echo DIRECTORY; ?>assets/scripts/utils/modernizr.min.js"></script>
         <?php foreach ( $stylesheets as $style ): ?>
             <link rel="stylesheet" href="<?php echo $style; ?>" /></head>
