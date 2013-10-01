@@ -85,8 +85,14 @@
     overflow: hidden;
 
     label {
+        display: inline-block;
         font-size: 16px;
         text-transform: uppercase;
+        
+    }
+
+    .main_label {
+        width: 150px;
     }
 
     h2 {
@@ -155,6 +161,15 @@
        font-size: 16px; 
     }
     
+}
+
+.form .form__submit {
+    width: 150px;
+    margin-left: 150px;
+}
+
+small {
+    margin-left: 10px;
 }
 
 /* Media Queries */

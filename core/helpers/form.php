@@ -62,7 +62,8 @@ class form
 
         $value = (!!$value ? $value : "");
 
-        return '<label for="'.$name.'" class="form__text-label">'.ucwords($name).': <input type="'.$type.'" name="'.self::$form.'['.$name.']" id="'.$name.'" value="'.$value.'"></label>';
+        return '<label for="'.$name.'" class="form__text-label">'.ucwords($name).': </label>
+                <input type="'.$type.'" name="'.self::$form.'['.$name.']" id="'.$name.'" value="'.$value.'">'."\n";
                 
     }
 

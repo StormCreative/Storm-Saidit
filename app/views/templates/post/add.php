@@ -11,16 +11,16 @@
     <?php endif; ?>
     <?php echo Form::start_form('posts', '', 'POST', 'form'); ?>
         <p>
-            <label for="title">Title of post</label>
+            <label for="title" class="main_label">Title of post</label>
             <input type="text" name="posts[title]">
         </p>
         <p>
-            <label for="title">Link</label>
+            <label for="title" class="main_label">Link</label>
             <input type="text" name="posts[link]">
             <small>Copy and paste a URL from the browser address bar</small>
         </p>
         <p>
-            <label for="notes">Notes</label>
+            <label for="notes" class="main_label">Notes</label>
             <textarea name="posts[notes]"></textarea>
         </p>
         <!--
@@ -28,7 +28,7 @@
         <p><?php echo Form::textfield('link'); ?><small>Copy and paste a URL from the browser address bar</small></p>
         <p><?php echo Form::textarea('notes'); ?></p>
     -->
-        <p>Select Tags:
+        <p><label class="main_label">Select Tags:</label>
 
         <?php foreach(Posts::$tags as $key => $value): ?>
         <label for="<?php echo $key; ?>"><?php echo $value; ?>:</label>
