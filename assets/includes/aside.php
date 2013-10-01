@@ -8,7 +8,7 @@
     </div>
     -->
     <div class="widget">
-        <a href="<?php echo DIRECTORY; ?>post/add"><input type="button" class="action__btn widget__post-btn" value="Add new post"></a>
+        <a href="<?php echo DIRECTORY; ?>post/add" class="action__btn widget__post-btn">Add new post</a>
         <p class="widget__post-lead">Posters <span class="widget__post-leader--total"><?php echo count(Authors_model::get_all()); ?></span></p>
         <!--
         <p class="widget__intro">Todays Top Posters:</p>

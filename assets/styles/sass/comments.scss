@@ -1,1 +1,73 @@
 @import "layout/structure";
+
+.form p {
+	vertical-align: top;
+}
+
+.form p label {
+	position: relative;
+	display: block;
+	vertical-align: top;
+}
+
+.comment-form__body {
+	width: 30% !important;
+}
+
+.form .form__clear {
+	border: none;
+	background: #E44C40;
+	display: inline-block;
+	width: 10%;
+	min-width: 70px;
+	height: 40px;
+	font-size: 16px;
+
+	&:hover {
+		background: darken(#E44C40, 10%);
+	}
+}
+
+.form .form__submit {
+	display: inline-block;
+	width: 15%;
+	min-width: 135px;
+	height: 40px;
+	font-size: 16px;
+}
+
+.post-entry {
+	position: relative;
+}
+
+.post-entry-rating {
+position: absolute;
+margin-top: -30px;
+right: 20px;
+top: 50%;
+}
+
+.post-entry h2 a {
+	font-family: 'TTMedium';
+	font-size: 16px;
+}
+
+/* Media Queries */
+@media all and (min-width: 960px) and (max-width: 1024px) {
+
+.rating_switch {
+    right: 115px;
+}
+
+.management-switch {
+    right: 20px;
+}
+
+.posters_list dt {
+width: 64%;
+}
+
+.post__details {
+padding-right: 50px;
+}
+}

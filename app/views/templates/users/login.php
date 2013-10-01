@@ -12,7 +12,7 @@
         <p><?php echo Form::textfield('username'); ?></p>
         <p><?php echo Form::textfield('password', 'password'); ?><small><a href="<?php echo DIRECTORY; ?>users/forgot">I forgot</a></small></p>
         
-        <p><?php echo Form::submit('submit', 'Login', 'form__submit action__btn'); ?></p>
+        <p><label class="submit-label">Submit <?php echo Form::submit('submit', 'Login', 'form__submit action__btn'); ?></label></p>
 
         <?php echo Form::end_form(); ?>
     </div>

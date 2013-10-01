@@ -76,6 +76,7 @@ class Post extends C_Controller
 
         $this->addStyle('jqueryui');
         $this->setScript('post');
+        $this->addStyle('comments');
     }
 
     public function all()

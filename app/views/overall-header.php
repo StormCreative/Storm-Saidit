@@ -27,10 +27,10 @@
         <div class="wrapper">
             <div class="filter-bar">
             <?php if(!$show_header_filter && !$hide_back_btn): ?>
-            <a href="#"><span class="back-btn js-back">Back to posts</span></a>
+            <a href="#" class="back-btn js-back">Back to posts</a>
             <?php endif; ?>
             <?php if(!$show_header_filter && $show_generic_back): ?>
-            <a href="<?php echo DIRECTORY; ?>?posts=0"><span class="back-btn">Back</span></a>
+            <a href="<?php echo DIRECTORY; ?>?posts=0" class="back-btn">Back</a>
             <?php endif; ?>
             <?php if($show_header_filter): ?>
                 <form method="post" action="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?><?php echo $order_by_string; ?>">
@@ -53,8 +53,8 @@
                     </ul>
                     <ul class="date_filter">
                         <li>Filter:</li>
-                        <li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=today" <?php if($_GET['order_by'] == 'today'): ?>class="active"<?php endif; ?>>Today |</a></li>
-                        <li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=week" <?php if($_GET['order_by'] == 'week'): ?>class="active"<?php endif; ?>>This week |</a></li>
+                        <li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=today" <?php if($_GET['order_by'] == 'today'): ?>class="active"<?php endif; ?>>Today</a></li>
+                        <li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=week" <?php if($_GET['order_by'] == 'week'): ?>class="active"<?php endif; ?>>This week</a></li>
                         <li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=month" <?php if($_GET['order_by'] == 'month'): ?>class="active"<?php endif; ?>>This month</a></li>
                     </ul>
                 </form>
