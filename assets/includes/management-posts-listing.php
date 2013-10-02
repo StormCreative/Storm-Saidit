@@ -22,7 +22,7 @@
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="post__comments has_comment">
+            <div class="post__comments <?php if(count($post['post']['comments']) > 0): ?>has_comment<?php endif; ?>">
                 <p><i class="icon-comment"></i> <a href="<?php echo DIRECTORY; ?>post/view/<?php echo $post['post']['id']; ?>"><?php echo count($post['post']['comments']); ?> Comments</a> | <a href="<?php echo DIRECTORY; ?>post/view/<?php echo $post['post']['id']; ?>#comment-form">Make comment</a></p>
             </div>
         </div>
