@@ -17,6 +17,27 @@
     }
 }
 
+.page-title {
+    background: #F7FBFB;
+    padding: 5px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+h1 {
+    color: #364A5E;
+    font-family: helvetica;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 10px;
+    text-transform: lowercase;
+
+    .red-text {
+        color: #E44C40;
+        font-size: 20px;
+    }
+}
+
 .image {
     border: 1px solid #ccc;
     float: left;
