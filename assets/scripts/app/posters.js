@@ -83,7 +83,9 @@ define(['jquery', '../utils/hogan'], function($, hogan){
                         posters.order_by = "";
 
                         if (filter_by_week) {
-                            posters.order_by = '&order_by=month';
+                            var d = new Date();
+                            var m = d.getMonth();
+                            posters.order_by = '&order_by='+(m+1);
                         }
 
                         template = hogan.compile(tmp);

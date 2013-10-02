@@ -39,6 +39,9 @@ class home extends c_controller
         $posts->where_implode = ' AND ';
 
         // Filtering the categories seperately - by either the post or the get
+        // The GET is only if the POST has been set previously and an additional action
+        // has been set like flipping the ratings round - so a get variable to keep the posts 
+        // needs to be made
         if( post_set() || $_GET['posts_category'] ) {
 
             $categories = $_POST['posts']['category'];
@@ -109,7 +112,10 @@ class home extends c_controller
             $to_scroll = false;
         }
 
-        if( !!$_GET['posts'] ) {
+        // Posts 99 is only there to check wether to put a posts query string
+        // into a href - so we want to ignore picking it up and treating it as anything
+        // if posts has been set.
+        if( !!$_GET['posts'] && $_GET['posts'] != '99' ) {
             
             $posts->where('posts.status = :status');
             $binds['status'] = $_GET['posts'];
@@ -161,14 +167,13 @@ class home extends c_controller
             }
         }
 
-        
-
         if( !!$_GET['order'] ) {
             $order = $_GET['order'];
         } else {
             $order = false;
         }
 
+        // This GET category is only for the individual category that would be in a listing
         if( !!$_GET['category'] ) {
             $posts = $this->filter_by_category($_GET['category'], $posts);
         }

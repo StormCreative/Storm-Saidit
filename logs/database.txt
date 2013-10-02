@@ -210,3 +210,7 @@
 02-10-2013 14:57:58 Core/Database/Query: GetAssoc error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'weekposts' in 'where clause'
 02-10-2013 14:58:44 Core/Database/Query: GetAssoc error: SQLSTATE[42S22]: Column not found: 1054 Unknown column '10posts' in 'where clause'
 02-10-2013 14:58:44 Core/Database/Query: GetAssoc error: SQLSTATE[42S22]: Column not found: 1054 Unknown column '10posts' in 'where clause'
+02-10-2013 15:34:16 Core/Database/Query: GetAssoc error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month' in 'where clause'
+02-10-2013 15:34:16 Core/Database/Query: GetAssoc error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month' in 'where clause'
+02-10-2013 15:35:07 Core/Database/Query: GetAssoc error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month' in 'where clause'
+02-10-2013 15:35:07 Core/Database/Query: GetAssoc error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month' in 'where clause'

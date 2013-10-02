@@ -60,7 +60,7 @@
                             <li><a href="<?php echo DIRECTORY; ?>?order_by=week<?php if($posts_type != 99): ?>&posts=<?php echo $posts_type; ?><?php endif; ?><?php echo $archive; ?><?php if(!!$_GET['name']): ?>&name=<?php echo $_GET['name']; ?><?php endif; ?>" <?php if($_GET['order_by'] == 'week'): ?>class="active"<?php endif; ?>>This week</a></li>
                             <!--<li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=month" <?php if($_GET['order_by'] == 'month'): ?>class="active"<?php endif; ?>>This month</a></li>-->
 
-                            <li class="date_filter_dropdown"><div class="date_filter_option js-date_filter"><?php if($order_by_month): ?><?php echo $order_by_month_value; ?><?php else: ?>Month<?php endif; ?> <span class="date_filter_dropdown--arrow"></span></div>
+                            <li class="date_filter_dropdown"><div class="date_filter_option js-date_filter"><a href="#"><?php if($order_by_month): ?><?php echo $order_by_month_value; ?><?php else: ?>Month<?php endif; ?> <span class="date_filter_dropdown--arrow"></span></a></div>
                                   <div class="date_filter--dropdown">
                                     <ul class="date_filter--options">
                                     <?php for($i=1; $i<=12; $i++): ?>
