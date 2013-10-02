@@ -23,10 +23,12 @@
 
 .post-authorised { 
     background: #F7FBFB;
-    margin-bottom: 2px;
+    
     padding-left: 6px;
+    //padding-top: 1px;
     line-height: 30px;
     font-size: 16px;
+    margin-bottom: -8px;
 }
 
 .post-authorised-management {
@@ -34,6 +36,7 @@
     height: 30px;
     position: relative;
     clear: both;
+    margin-bottom: 0;
 }
 
 .post-authorised-staff {
