@@ -1,7 +1,7 @@
 
 <div class="main_container">
     <section class="main">
-        <h1 class="page-title">Post a link</h1>
+        <div class="page-title"><h1>Post a link<span class="red-text">.</span></h1></div>
         <div class="post-entry">
         <?php if(count($errors) > 0 ): ?>
             <div class="error">
