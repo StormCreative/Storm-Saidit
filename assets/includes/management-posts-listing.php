@@ -5,7 +5,13 @@
         <img src="<?php echo $post['post']['image_url']; ?>" width="100" class="post__image">
         <?php endif; ?>
         <div class="post__info">
-            <p class="post__title"><a target="_blank" href="<?php echo $post['post']['link']; ?>"><?php echo ucwords($post['post']['title']); ?></a></p>
+            <p class="post__title">
+                <?php if(!!$post['post']['link']): ?>
+                <a target="_blank" href="<?php echo $post['post']['link']; ?>"><?php echo ucwords($post['post']['title']); ?></a>
+                <?php else: ?>
+                <a href="<?php echo DIRECTORY; ?>post/view/<?php echo $post['post']['id']; ?>"><?php echo ucwords($post['post']['title']); ?></a>
+                <?php endif; ?>
+            </p>
             <div class="post__details">
                 <div class="post__details--notes">
                     <?php if(!!$post['post']['notes']): ?>
