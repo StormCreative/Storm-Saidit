@@ -61,14 +61,27 @@ small {
     vertical-align: middle;
     text-decoration: none !important;
 
+}
+
+.rating_system__thumb-up {
+
     &:hover {
-        color: darken(#6F6E6B, 10%);
+        color: darken(#2AAE62, 10%);
     }
+
+}
+
+.rating_system__thumb-down {
+
+    &:hover {
+        color: darken(#E44C40, 10%);
+    }
+
 }
 
 .green-thumb {
     color: #2AAE62;
-    
+
     &:hover {
         color: darken(#2AAE62, 10%);
     }

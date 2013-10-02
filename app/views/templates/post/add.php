@@ -30,14 +30,15 @@
             <p><?php echo Form::textfield('link'); ?><small>Copy and paste a URL from the browser address bar</small></p>
             <p><?php echo Form::textarea('notes'); ?></p>
         -->
-            <p><label class="main_label">Select Tags:</label>
-
-
-            <?php foreach(Posts::$tags as $key => $value): ?>
-            <label for="<?php echo $key; ?>"><?php echo $value; ?>:</label>
-            <input type="checkbox" id="<?php echo $key; ?>" name="posts[category][]" value="<?php echo $key; ?>">
-            <?php endforeach; ?>
-            </p>
+            <div class="post-holder">
+                <label class="main_label">Select Tags:</label>
+                 <p class="post_tags_inline">
+                    <?php foreach(Posts::$tags as $key => $value): ?>
+                    <label for="<?php echo $key; ?>"><?php echo $value; ?>:</label>
+                    <input type="checkbox" id="<?php echo $key; ?>" name="posts[category][]" value="<?php echo $key; ?>">
+                    <?php endforeach; ?>
+                 </p>
+            </div>
 
             <p><?php echo Form::submit('submit', 'Post', 'form__submit action__btn'); ?></p>
 
