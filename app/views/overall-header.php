@@ -45,8 +45,8 @@
                                     <ul class="filter_tags--options">
                                         <?php foreach(Posts::$tags as $key => $value): ?>
                                         <li>
-                                            <label for="<?php echo $key; ?>"><?php echo $value; ?>:</label>
                                             <input type="checkbox" id="<?php echo $key; ?>" <?php if(in_array($key, $_POST['posts']['category']) || in_array($key, explode(',', $_GET['posts_category']))): ?>checked="checked"<?php endif; ?> name="posts[category][]" value="<?php echo $key; ?>">
+                                            <label for="<?php echo $key; ?>"><?php echo $value; ?>:</label>
                                         </li>
                                         <?php endforeach; ?>
                                     </ul>
@@ -59,7 +59,7 @@
                             <li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=today" <?php if($_GET['order_by'] == 'today'): ?>class="active"<?php endif; ?>>Today</a></li>
                             <li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=week" <?php if($_GET['order_by'] == 'week'): ?>class="active"<?php endif; ?>>This week</a></li>
                             <!--<li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=month" <?php if($_GET['order_by'] == 'month'): ?>class="active"<?php endif; ?>>This month</a></li>-->
-                            <li class="date_filter_dropdown"><div class="date_filter_option js-date_filter">Month <span class="date_filter_dropdown--arrow"></span></div>
+                            <li class="date_filter_dropdown"><div class="date_filter_option js-date_filter"><a href="#">Month <span class="date_filter_dropdown--arrow"></span></a></div>
                                   <div class="date_filter--dropdown">
                                     <ul class="date_filter--options">
                                         <li><a href="">January</a></li>
