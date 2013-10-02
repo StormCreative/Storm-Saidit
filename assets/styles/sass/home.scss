@@ -185,11 +185,14 @@
         color: #C0C0C0;    
     }
 
-    .has_comment {
-        color: black;
-    }
 
     a:hover {
+        color: black;
+    }
+}
+
+.has_comment {
+    a {
         color: black;
     }
 }
