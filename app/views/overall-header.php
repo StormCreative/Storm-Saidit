@@ -58,7 +58,16 @@
                             <li>Filter:</li>
                             <li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=today" <?php if($_GET['order_by'] == 'today'): ?>class="active"<?php endif; ?>>Today</a></li>
                             <li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=week" <?php if($_GET['order_by'] == 'week'): ?>class="active"<?php endif; ?>>This week</a></li>
-                            <li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=month" <?php if($_GET['order_by'] == 'month'): ?>class="active"<?php endif; ?>>This month</a></li>
+                            <!--<li><a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?>&order_by=month" <?php if($_GET['order_by'] == 'month'): ?>class="active"<?php endif; ?>>This month</a></li>-->
+                            <li class="date_filter_dropdown"><div class="date_filter_option js-date_filter">Month <span class="date_filter_dropdown--arrow"></span></div>
+                                  <div class="date_filter--dropdown">
+                                    <ul class="date_filter--options">
+                                        <li><a href="">January</a></li>
+                                        <li><a href="">January</a></li>
+                                        <li><a href="">January</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                         </ul>
                     </form>
                     <?php endif; ?>

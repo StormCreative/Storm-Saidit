@@ -1,3 +1,4 @@
+<div class="main_container">
 <section class="main">
     <div class="post-entry">
         <?php if( !!$post['image_url'] && substr($post['image_url'], 0, 4) == 'http'): ?>
@@ -39,3 +40,4 @@
 </section>
 
 <?php include "assets/includes/aside.php"; ?>
+</div>

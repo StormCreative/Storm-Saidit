@@ -8,4 +8,8 @@ define(['jquery'], function($){
         $('.filter_tags--dropdown').toggle();
     });
 
+    $('.js-date_filter').bind('click', function(e) {
+        $('.date_filter--dropdown').toggle();
+    });
+
 });

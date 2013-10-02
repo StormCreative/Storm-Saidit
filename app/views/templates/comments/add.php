@@ -1,3 +1,4 @@
+<div class="main_container">
 <section class="main">
     <h3>Post Comment:</h3>
     <p><a target="_blank" href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a></p>
@@ -6,3 +7,4 @@
 </section>
 
 <?php include "assets/includes/aside.php"; ?>
+</div>
