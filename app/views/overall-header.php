@@ -18,17 +18,17 @@
     </head>
     <body>
         <div class="header">
-            <!--<div class="main_container">-->
+            <div class="main_container">
                 <ul class="header__logos">
                     <li><a class="header__main header__logos--logo" href="<?php echo DIRECTORY; ?>?posts=0">Saidit</a></li>
                     <li><a class="header__middle header__logos--logo" href="<?php echo DIRECTORY; ?>">Saidit</a></li>
                     <li class="header__logo--right"><a class="header__right header__logos--logo" href="<?php echo DIRECTORY; ?>">Saidit</a></li>
                 </ul>
-            <!--</div>-->
+            </div>
         </div>
         <div class="wrapper">
             <div class="filter-bar">
-            <!--<div class="main_container">-->
+            <div class="main_container">
                 <?php if(!$show_header_filter && !$hide_back_btn): ?>
                 <a href="#" class="back-btn js-back">Back to posts</a>
                 <?php endif; ?>
@@ -82,7 +82,7 @@
                         <a href="<?php echo DIRECTORY; ?>users/signup">Signup</a>
                         -->
                         <?php endif; ?>
-                    <!--</div>-->
+                    </div>
                 </div>
             </div>
             

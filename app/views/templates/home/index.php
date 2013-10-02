@@ -1,4 +1,4 @@
-<!--<div class="main_container">-->
+<div class="main_container">
     <div class="listing-container">
         <section class="main">
             <div class="filter-search">
@@ -50,7 +50,7 @@
 
     <?php include "assets/includes/aside.php"; ?>
     </div>
-<!--</div>-->
+</div>
 <script> 
     <?php if(!!$posts_list): ?>
     var total_items = <?php echo count($posts_list); ?>;
