@@ -7,6 +7,7 @@
 .container {
     margin: 0 auto;
     max-width: 780px;
+     position: relative;
 }
 
 .page-title {
@@ -80,6 +81,17 @@ width: 100px;
     margin-left: 104px;
     padding-bottom: 3px;
     width: 270px;
+}
+
+.form .forgot_btn {
+    width: 150px;
+    float: left;
+}
+
+.login_btn {
+    position: absolute;
+    right: 230px;
+    bottom: -28px;
 }
 
 .intro {
