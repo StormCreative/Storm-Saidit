@@ -190,6 +190,10 @@ small {
     margin: 0;
     line-height: 23px;
     width: 75%;
+
+    label {
+        text-transform: lowercase;
+    }
 }
 
 /* Media Queries */
