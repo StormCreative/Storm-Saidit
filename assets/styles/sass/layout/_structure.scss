@@ -60,14 +60,27 @@ small {
     font-size: 30px;
     vertical-align: middle;
     text-decoration: none !important;
+
+    &:hover {
+        color: darken(#6F6E6B, 10%);
+    }
 }
 
 .green-thumb {
     color: #2AAE62;
+    
+    &:hover {
+        color: darken(#2AAE62, 10%);
+    }
+
 }
 
 .red-thumb {
     color: #E44C40;
+
+    &:hover {
+        color: darken(#E44C40, 10%);
+    }
 }
 
 
