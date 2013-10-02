@@ -191,10 +191,14 @@ class home extends c_controller
 
                 $posts->where('WEEKOFYEAR('.DB_SUFFIX.'_posts.create_date)=WEEKOFYEAR(NOW())', null, true);
             } else {
-                //$posts->where('MONTH('.DB_SUFFIX.'_posts.create_date) = MONTH('.$_GET['order_by'].')', null, true);
-                $posts->where('MONTH('.DB_SUFFIX.'_posts.create_date) = '.$_GET['order_by'].'', null, true);
-                $order_by_month = true;
-                $order_by_month_value = date('F', strtotime('1-'.$_GET['order_by'].'-2012'));
+
+                // If order_by is all then we don't want to do any filtering
+                if( $_GET['order_by'] != 'all' ) {
+                    //$posts->where('MONTH('.DB_SUFFIX.'_posts.create_date) = MONTH('.$_GET['order_by'].')', null, true);
+                    $posts->where('MONTH('.DB_SUFFIX.'_posts.create_date) = '.$_GET['order_by'].'', null, true);
+                    $order_by_month = true;
+                    $order_by_month_value = date('F', strtotime('1-'.$_GET['order_by'].'-2012'));
+                }
             }
         }
 

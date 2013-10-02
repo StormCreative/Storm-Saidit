@@ -63,6 +63,7 @@
                             <li class="date_filter_dropdown"><div class="date_filter_option js-date_filter"><a href="#"><?php if($order_by_month): ?><?php echo $order_by_month_value; ?><?php else: ?>Month<?php endif; ?> <span class="date_filter_dropdown--arrow"></span></a></div>
                                   <div class="date_filter--dropdown">
                                     <ul class="date_filter--options">
+                                        <li><a href="<?php echo DIRECTORY; ?>?order_by=all<?php if($posts_type != 99): ?>&posts=<?php echo $posts_type; ?><?php endif; ?><?php echo $archive; ?><?php if(!!$_GET['name']): ?>&name=<?php echo $_GET['name']; ?><?php endif; ?><?php if(!!$_GET['category']): ?>&category=<?php echo $_GET['category']; ?><?php endif; ?>">All</a></li>
                                     <?php for($i=1; $i<=12; $i++): ?>
                                         <li><a href="<?php echo DIRECTORY; ?>?order_by=<?php echo $i; ?><?php if($posts_type != 99): ?>&posts=<?php echo $posts_type; ?><?php endif; ?><?php echo $archive; ?><?php if(!!$_GET['name']): ?>&name=<?php echo $_GET['name']; ?><?php endif; ?><?php if(!!$_GET['category']): ?>&category=<?php echo $_GET['category']; ?><?php endif; ?>"><?php echo date('F', strtotime('1-'.$i.'-2012')); ?></a></li>
                                     <?php endfor; ?>

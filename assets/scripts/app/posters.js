@@ -98,7 +98,7 @@ define(['jquery', '../utils/hogan'], function($, hogan){
                     }, this)
                 });
             } else {
-                $(".js-posters-list").html('');
+                $(".js-posters-list").html('No posters');
             }
         });
     }
