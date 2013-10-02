@@ -54,6 +54,13 @@ define(['jquery', '../utils/hogan'], function($, hogan){
     }
 
     function get_posters(data) {
+        
+        var filter_by_week = false;
+
+        if (data.when) {
+            filter_by_week = true;
+        }
+
         $.ajax({
             type: 'POST',
             url: window.site_path + "authors/order",
@@ -72,6 +79,12 @@ define(['jquery', '../utils/hogan'], function($, hogan){
                     success: _.bind (function (tmp) {
                         
                         posters = {data:posters};
+
+                        posters.order_by = "";
+
+                        if (filter_by_week) {
+                            posters.order_by = '&order_by=month';
+                        }
 
                         template = hogan.compile(tmp);
                         

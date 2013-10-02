@@ -126,7 +126,10 @@ class home extends c_controller
                     $accept_status = 3;
                     $decline_status = 2;
                 }
+
             }
+
+            $posts_type = $_GET['posts'];
             
             
         } else {
@@ -137,14 +140,24 @@ class home extends c_controller
             $decline_status = 2;
             */
             
+            // If query string of posts is 0 - as it's not being picked up as a string at all
+            // We manually set it
             if( $_GET['posts'] == '0' ) {
+                $posts_type = 0;
                 $posts->where('posts.status = 0');
-            }
+            }   
 
-            if( Sessions::check_admin_access() ) {
+            // Only if the admin is top level do we show the ability to approve as management only
+            // However if archiving is set - then we don't want to have the ability to approve/decline
+            // As we are grouping them all as one - to save confusing of actions
+            if( Sessions::check_admin_access() && $_GET['archive'] == "" ) {
+                $posts_type = 0;
                 $show_decide = true;
                 $accept_status = 1;
                 $decline_status = 2;
+            } else {
+                // Turn posts_type to false as we don't want to filter when filtering in the main archive
+                $posts_type = false;
             }
         }
 
@@ -190,7 +203,12 @@ class home extends c_controller
         // Handles the ordering of the posts by their rating
         $posts_list = $this->order_by_rating($posts_list, $order);
 
+        if(!!$_GET['archive']) {
+            $archive = '&archive=1';
+        }
+
         // Set all of the page attributes
+        $this->addTag('archive', $archive);
         $this->addTag('page_no', $paginater->page_no);
         $this->addTag('total_pages', $paginater->total_pages);
         $this->addTag('next_button', $paginater->get_next_btn());
@@ -203,7 +221,7 @@ class home extends c_controller
         $this->addTag('show_decide', $show_decide);
         $this->addTag('show_header_filter', true);
         $this->addTag('order', ($order=='desc'?'asc':'desc'));
-        $this->addTag('posts_type', (!!$_GET['posts'] ? $_GET['posts'] : 0));
+        $this->addTag('posts_type', $posts_type);
         $this->addTag('to_scroll', $to_scroll);
         $this->addTag('posts_list', $posts_list);
         $this->addTag('title', 'Home');

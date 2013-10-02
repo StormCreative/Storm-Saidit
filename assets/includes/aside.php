@@ -37,7 +37,7 @@
         <div class="posters_list">
             <dl class="js-posters-list">
                 <?php foreach(Authors_model::get_all() as $author): ?>
-                <dt><?php echo $author['name']; ?></dt>
+                <dt><a href="<?php echo DIRECTORY; ?>?name=<?php echo $author['id']; ?>&archive=1"><?php echo $author['name']; ?></a></dt>
                 <dd><?php echo Posts_model::get_posts_count($author['id']); ?></dd>
                 <?php endforeach; ?>
             </dl>
