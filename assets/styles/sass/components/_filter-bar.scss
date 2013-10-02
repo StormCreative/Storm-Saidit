@@ -174,29 +174,25 @@
 				vertical-align: bottom;
 
 				.date_filter_option {
-					background: white;
-					border: 1px solid #6F6E6B;
+					border-left: 1px solid #6F6E6B;
 					cursor: pointer;
 					color: #6F6E6B;
 					display: inline-block;
-					height: 23px;
-					line-height: 23px;
-					padding: 0 5px;
+					height: 14px;
+					line-height: 14px;
+					padding: 0 7px;
 					position: relative;
 					width: 100%;
-					border-radius: 4px;
-					-moz-border-radius: 4px;
-					-webkit-border-radius: 4px;
 
 					.date_filter_dropdown--arrow {
 						background: url(../images/fake_dropdown_arrow.png) no-repeat;
 						content: "";
 						height: 7px;
-						right: 10px;
+						left: 55px;
 						margin: 0;
 						padding: 0;
 						position: absolute;
-						top: 7px;
+						top: 2px;
 						width: 11px;
 					}
 				}
