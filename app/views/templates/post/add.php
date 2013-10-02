@@ -34,7 +34,7 @@
                 <label class="main_label">Select Tags:</label>
                  <p class="post_tags_inline">
                     <?php foreach(Posts::$tags as $key => $value): ?>
-                    <label for="<?php echo $key; ?>"><?php echo ucwords($value); ?>:</label>
+                    <label for="<?php echo $key; ?>"><?php echo ucfirst($value); ?>:</label>
                     <input type="checkbox" id="<?php echo $key; ?>" name="posts[category][]" value="<?php echo $key; ?>">
                     <?php endforeach; ?>
                  </p>
