@@ -200,6 +200,13 @@ small {
 .wrapper {
 
 }
+.main_container {
+    margin: 0 auto;
+    max-width: 1100px;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
 
 @import "components/filter-bar";
 @import "Fonts/fonts";
@@ -214,7 +221,6 @@ small {
     float: right;
     //width: 285px;
     width: 22%;
-    padding-right: 20px;
 }
 
 .widget {
