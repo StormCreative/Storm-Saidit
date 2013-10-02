@@ -87,7 +87,6 @@
 
 					li {
 						line-height: normal;
-
 						margin: 10px 0;
 						padding: 0;
 						width: 100%;
@@ -135,6 +134,8 @@
 			padding: 0;
 			width: 25%;
 
+
+
 			a {
 				color: #6F6E6B;
 				padding-left: 10px;
@@ -166,6 +167,82 @@
 				width: 100px;;
 			}
 		}
+
+			.date_filter_dropdown {
+				cursor: hand;
+				width: 135px;
+				vertical-align: bottom;
+
+				.date_filter_option {
+					background: white;
+					border: 1px solid #6F6E6B;
+					cursor: pointer;
+					color: #6F6E6B;
+					display: inline-block;
+					height: 23px;
+					line-height: 23px;
+					padding: 0 5px;
+					position: relative;
+					width: 100%;
+					border-radius: 4px;
+					-moz-border-radius: 4px;
+					-webkit-border-radius: 4px;
+
+					.date_filter_dropdown--arrow {
+						background: url(../images/fake_dropdown_arrow.png) no-repeat;
+						content: "";
+						height: 7px;
+						right: 10px;
+						margin: 0;
+						padding: 0;
+						position: absolute;
+						top: 5px;
+						width: 11px;
+					}
+				}
+				
+				.date_filter--dropdown {
+					display: none;
+					position: absolute;
+					top: 31px;
+					width: 100%;
+					z-index: 100;
+
+					.date_filter--options {
+						border: 1px solid #6F6E6B;
+						background: white;
+						list-style: none;
+						line-height: normal;
+						margin: 0;
+						padding: 0 5px;
+						width: 100%;
+						border-radius: 0 0 4px 4px;
+						-moz-border-radius: 0 0 4px 4px;
+						-webkit-border-radius: 0 0 4px 4px;
+						width: 100px;
+						overflow: hidden;
+
+						li {
+							display: block;
+							line-height: normal;
+							margin: 10px 0;
+							padding: 0;
+							width: 100%;
+
+							a {
+								display: inline-block;
+								border: none;
+								width: 100%;
+								line-height: 18px;
+							}
+
+							label {
+								cursor: pointer;
+							}
+						}
+					}
+				}
+			}
 	}
 
 	.header__login {

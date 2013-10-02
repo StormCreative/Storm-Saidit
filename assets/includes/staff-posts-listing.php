@@ -40,7 +40,7 @@
         <div class="arrow-down js-rating" data-action="down"></div>-->
     </div>
 </article>
-<?php if(!!$post['post']['approved_by']): ?>
+<?php if(!!$post['post']['approved_by'] && $archive == ""): ?>
 <div class="post-authorised post-authorised-staff">
     <p>Approved by: <?php echo Users_model::get_name($post['post']['approved_by']); ?></p>
 </div>

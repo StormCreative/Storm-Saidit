@@ -157,7 +157,7 @@ class home extends c_controller
                 $decline_status = 2;
             } else {
                 // Turn posts_type to false as we don't want to filter when filtering in the main archive
-                $posts_type = false;
+                $posts_type = '99';
             }
         }
 
@@ -175,6 +175,8 @@ class home extends c_controller
 
         $order_by = 'create_date';
 
+        $order_by_month = false;
+
         // Handle the order by filter within the top nav - Week/Day/Month
         if( !!$_GET['order_by'] ) {
             
@@ -184,7 +186,10 @@ class home extends c_controller
 
                 $posts->where('WEEKOFYEAR('.DB_SUFFIX.'_posts.create_date)=WEEKOFYEAR(NOW())', null, true);
             } else {
-                $posts->where('MONTH('.DB_SUFFIX.'_posts.create_date) = MONTH(CURDATE())', null, true);
+                //$posts->where('MONTH('.DB_SUFFIX.'_posts.create_date) = MONTH('.$_GET['order_by'].')', null, true);
+                $posts->where('MONTH('.DB_SUFFIX.'_posts.create_date) = '.$_GET['order_by'].'', null, true);
+                $order_by_month = true;
+                $order_by_month_value = date('F', strtotime('1-'.$_GET['order_by'].'-2012'));
             }
         }
 
@@ -209,6 +214,8 @@ class home extends c_controller
 
         // Set all of the page attributes
         $this->addTag('archive', $archive);
+        $this->addTag('order_by_month', $order_by_month);
+        $this->addTag('order_by_month_value', $order_by_month_value);
         $this->addTag('page_no', $paginater->page_no);
         $this->addTag('total_pages', $paginater->total_pages);
         $this->addTag('next_button', $paginater->get_next_btn());

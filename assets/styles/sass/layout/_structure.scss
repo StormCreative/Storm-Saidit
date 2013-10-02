@@ -194,7 +194,6 @@ small {
 .main {
     float: left;
     width: 75%;
-    padding-left: 10px;
 }
 
 .wrapper {
@@ -205,7 +204,6 @@ small {
     max-width: 1100px;
     padding: 0;
     position: relative;
-    overflow: hidden;
 }
 
 @import "components/filter-bar";

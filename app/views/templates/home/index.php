@@ -13,12 +13,12 @@
                 <?php if($posts_list != false): ?>
                 
                 <!-- if management then use this one -->
-                <a href="<?php echo DIRECTORY; ?><?php echo $current_page; ?>?<?php if(!!$_GET['name']): ?>name=<?php echo $_GET['name']; ?><?php endif; ?><?php if($posts_type != false): ?>posts=<?php echo $posts_type; ?><?php endif; ?>&order=<?php echo $order; ?><?php if(!!$_GET['order_by']): ?>&order_by=<?php echo $_GET['order_by']; ?><?php endif; ?><?php if(!!$posts_category): ?>&posts_category=<?php echo $posts_category; ?><?php endif; ?><?php if(!!$_GET['posts_category']): ?>&posts_category=<?php echo $_GET['posts_category']; ?><?php endif; ?><?php echo $archive; ?>"><p class="switch_icon rating_switch management-switch"></p></a>
+                <a href="<?php echo DIRECTORY; ?><?php echo $current_page; ?>?<?php if($posts_type != 99): ?>posts=<?php echo $posts_type; ?><?php endif; ?>&order=<?php echo $order; ?><?php if(!!$_GET['order_by']): ?>&order_by=<?php echo $_GET['order_by']; ?><?php endif; ?><?php if(!!$posts_category): ?>&posts_category=<?php echo $posts_category; ?><?php endif; ?><?php if(!!$_GET['posts_category']): ?>&posts_category=<?php echo $_GET['posts_category']; ?><?php endif; ?><?php echo $archive; ?><?php if(!!$_GET['name']): ?>&name=<?php echo $_GET['name']; ?><?php endif; ?>"><p class="switch_icon rating_switch management-switch"></p></a>
                 <?php endif; ?>
             </div>
             <?php if(!!$_GET['new_post'] && $_GET['new_post'] == 'true'): ?>
-        <p class="success success-listing">New post added to current suggestions.</p>
-        <?php endif; ?>
+             <p class="success success-listing">New post added to current suggestions.</p>
+            <?php endif; ?>
             <?php if($posts_list != false): ?>
                 
                 <div class="js-infi-scroll">
