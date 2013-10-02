@@ -10,6 +10,13 @@
             <p><?php echo $post['notes']; ?></p>
             <?php endif; ?>
             <p>Submitted by: <a href="<?php echo DIRECTORY; ?>?name=<?php echo $post['authors_id']; ?>&archive=1"><?php echo $post['authors_name']; ?></a> on <?php echo date('jS F Y', strtotime($post['create_date'])); ?></p>
+
+            <?php if(!!$post['category']): ?>
+            <span class="post__details--tags">Tags: 
+            <?php $c=1; foreach(explode(',', $post['category']) as $tag): ?>
+            <a href="<?php echo DIRECTORY; ?>home?archive=1&category=<?php echo $tag; ?>"><?php echo Posts::$tags[$tag]; ?><?php if($c != count(explode(',', $post['category']))): ?>,<?php endif; ?>&nbsp;</a>
+            <?php $c++; endforeach; ?></span>
+            <?php endif; ?>
         </div>
         <div class="post-entry-rating">
             <ul class="rating_system" data-id="<?php echo $post['id']; ?>">
