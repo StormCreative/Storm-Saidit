@@ -185,6 +185,10 @@
         color: #C0C0C0;    
     }
 
+    .has_comment {
+        color: black;
+    }
+
     a:hover {
         color: black;
     }
@@ -314,6 +318,11 @@
 .pagination__item--next {
     width: 150px;
 }
+
+.success-listing {
+    width: 100%;
+}
+
 @media (min-width: 1024px) and (max-width: 1200px) {
 
     .posters_list dt {

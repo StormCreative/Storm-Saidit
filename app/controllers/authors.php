@@ -24,7 +24,7 @@ class Authors
 
 		foreach( $posts as $post ) {
 			$name = Users_model::get_name($post['authors_id']);
-			$_authors[] = array('posts' => $post['posts_total'], 'name' => $name);
+			$_authors[] = array('posts' => $post['posts_total'], 'name' => $name, 'id' => $post['authors_id']);
 			$authors_posts[] = $name;
 		}
 
@@ -34,7 +34,7 @@ class Authors
 
 				if( !in_array($author['name'], $authors_posts) ) {
 
-					$_authors[] = array('posts' => count($author['posts']), 'name' => $author['name']);
+					$_authors[] = array('posts' => count($author['posts']), 'name' => $author['name'], 'id' => $author['id']);
 				}
 
 				$c++;

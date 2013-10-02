@@ -1,5 +1,5 @@
 <section class="main">
-    <h2>Signup</h2>
+    <h2>Signup<span class="red-text">.</span></h2>
     <?php if($errors): ?>
         <div class="error">
             <p>Woah! See below:</p>

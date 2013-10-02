@@ -13,17 +13,17 @@
                 <?php endif; ?>
             </div>
             <div class="post__details--extra-info">
-                <span class="post__details--author">Submitted by <a href="<?php echo DIRECTORY; ?>?posts=<?php echo $posts_type; ?><?php echo $order_by_string; ?>&name=<?php echo $post['post']['authors_id']; ?>"><?php echo $post['post']['authors_name']; ?></a> on <?php echo tidy_time_posted($post['post']['create_date']); ?></span>
+                <span class="post__details--author">Submitted by <a href="<?php echo DIRECTORY; ?>?<?php if($posts_type != false): ?>posts=<?php echo $posts_type; ?><?php endif; ?><?php echo $order_by_string; ?>&name=<?php echo $post['post']['authors_id']; ?><?php echo $archive; ?>"><?php echo $post['post']['authors_name']; ?></a> on <?php echo tidy_time_posted($post['post']['create_date']); ?></span>
                 <?php if(!!$post['post']['category']): ?>
                 <span class="post__details--tags">Tags: 
                 <?php $c=1; foreach(explode(',', $post['post']['category']) as $tag): ?>
-                <a href="<?php echo DIRECTORY; ?>home?posts=<?php echo $posts_type; ?><?php echo $order_by_string; ?>&category=<?php echo $tag; ?>"><?php echo Posts::$tags[$tag]; ?><?php if($c != count(explode(',', $post['post']['category']))): ?>,<?php endif; ?>&nbsp;</a>
+                <a href="<?php echo DIRECTORY; ?>home?<?php if($posts_type != false): ?>posts=<?php echo $posts_type; ?><?php endif; ?><?php echo $order_by_string; ?>&category=<?php echo $tag; ?><?php echo $archive; ?>"><?php echo Posts::$tags[$tag]; ?><?php if($c != count(explode(',', $post['post']['category']))): ?>,<?php endif; ?>&nbsp;</a>
                 <?php $c++; endforeach; ?></span>
                 <?php endif; ?>
             </div>
         </div>
         <div class="post__comments">
-            <p><i class="icon-comment"></i> <a href="<?php echo DIRECTORY; ?>post/view/<?php echo $post['post']['id']; ?>"><?php echo count($post['post']['comments']); ?> Comments</a> | <a href="<?php echo DIRECTORY; ?>post/view/<?php echo $post['post']['id']; ?>#comment-form">Make comment</a></p>
+            <p><i class="icon-comment"></i> <a href="<?php echo DIRECTORY; ?>post/view/<?php echo $post['post']['id']; ?>" class="has_comment"><?php echo count($post['post']['comments']); ?> Comments</a> | <a href="<?php echo DIRECTORY; ?>post/view/<?php echo $post['post']['id']; ?>#comment-form">Make comment</a></p>
         </div>
     </div>
     <div class="post__rate" data-rating="<?php echo $post['post']['rating']; ?>" data-post-id="<?php echo $post['post']['id']; ?>">
@@ -40,7 +40,7 @@
         <div class="arrow-down js-rating" data-action="down"></div>-->
     </div>
 </article>
-<?php if(!!$post['post']['approved_by']): ?>
+<?php if(!!$post['post']['approved_by'] && $archive == ""): ?>
 <div class="post-authorised post-authorised-staff">
     <p>Approved by: <?php echo Users_model::get_name($post['post']['approved_by']); ?></p>
 </div>

@@ -1,3 +1,4 @@
+
 <div class="main_container">
     <section class="main">
         <h1 class="page-title">Post a link</h1>
@@ -30,6 +31,7 @@
             <p><?php echo Form::textarea('notes'); ?></p>
         -->
             <p><label class="main_label">Select Tags:</label>
+
 
             <?php foreach(Posts::$tags as $key => $value): ?>
             <label for="<?php echo $key; ?>"><?php echo $value; ?>:</label>

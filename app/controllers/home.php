@@ -38,6 +38,7 @@ class home extends c_controller
 
         $posts->where_implode = ' AND ';
 
+        // Filtering the categories seperately - by either the post or the get
         if( post_set() || $_GET['posts_category'] ) {
 
             $categories = $_POST['posts']['category'];
@@ -57,6 +58,10 @@ class home extends c_controller
             
             $where = array();
 
+            // Looping through and building up the where string as the conditions rely on an OR
+            // Did not use FIND_IN_SET as this is for more specific finds
+            // Want to bring up multiple results that match any of the categories not restricting to an entire math
+            // Which seemingly FIND_IN_SET does, which it shouldn't do?
             foreach( $categories as $cat ) {
                 
                 $_cat = str_replace('-', '_', $cat);
@@ -73,9 +78,11 @@ class home extends c_controller
 
             }
 
-            $posts->where(implode(' OR ', $where), null, true);
+            // Implode the strings up with an OR and wrap with another set of parameters
+            // as without these it treats it as an additional OR and can not have other specific AND requirements
+            $posts->where('('.implode(' OR ', $where).')', null, true);
 
-                //$posts = $this->filter_by_category($_POST['category'], $posts);
+            //$posts = $this->filter_by_category($_POST['category'], $posts);
 
             if( !!$_POST['posts']['search'] ) {
                 $posts->where('posts.title LIKE :title');
@@ -119,7 +126,10 @@ class home extends c_controller
                     $accept_status = 3;
                     $decline_status = 2;
                 }
+
             }
+
+            $posts_type = $_GET['posts'];
             
             
         } else {
@@ -130,21 +140,33 @@ class home extends c_controller
             $decline_status = 2;
             */
             
+            // If query string of posts is 0 - as it's not being picked up as a string at all
+            // We manually set it
             if( $_GET['posts'] == '0' ) {
+                $posts_type = 0;
                 $posts->where('posts.status = 0');
-            }
+            }   
 
-            if( Sessions::check_admin_access() ) {
+            // Only if the admin is top level do we show the ability to approve as management only
+            // However if archiving is set - then we don't want to have the ability to approve/decline
+            // As we are grouping them all as one - to save confusing of actions
+            if( Sessions::check_admin_access() && $_GET['archive'] == "" ) {
+                $posts_type = 0;
                 $show_decide = true;
                 $accept_status = 1;
                 $decline_status = 2;
+            } else {
+                // Turn posts_type to false as we don't want to filter when filtering in the main archive
+                $posts_type = '99';
             }
         }
 
-        $order = 'asc';
+        
 
         if( !!$_GET['order'] ) {
             $order = $_GET['order'];
+        } else {
+            $order = false;
         }
 
         if( !!$_GET['category'] ) {
@@ -153,6 +175,9 @@ class home extends c_controller
 
         $order_by = 'create_date';
 
+        $order_by_month = false;
+
+        // Handle the order by filter within the top nav - Week/Day/Month
         if( !!$_GET['order_by'] ) {
             
             if( $_GET['order_by'] == 'today' ) {
@@ -161,27 +186,36 @@ class home extends c_controller
 
                 $posts->where('WEEKOFYEAR('.DB_SUFFIX.'_posts.create_date)=WEEKOFYEAR(NOW())', null, true);
             } else {
-                $posts->where('MONTH('.DB_SUFFIX.'_posts.create_date) = MONTH(CURDATE())', null, true);
+                //$posts->where('MONTH('.DB_SUFFIX.'_posts.create_date) = MONTH('.$_GET['order_by'].')', null, true);
+                $posts->where('MONTH('.DB_SUFFIX.'_posts.create_date) = '.$_GET['order_by'].'', null, true);
+                $order_by_month = true;
+                $order_by_month_value = date('F', strtotime('1-'.$_GET['order_by'].'-2012'));
             }
         }
 
+        // Setup up the configurations for the pagination
         $posts_list = $posts->order('create_date')->all($binds);
-
-
-        // Handle the pagination
         $config['total_items'] = count($posts_list);
         $config['page_no'] = $page;
         $config['url'] = 'home/index';
         $config['per_page'] = 20;
 
         $paginater = new Paginater($config);
-
         $posts->limit( $config['per_page'], $paginater->offset );
 
         $posts_list = $posts->order('create_date')->all($binds);
         
+        // Handles the ordering of the posts by their rating
         $posts_list = $this->order_by_rating($posts_list, $order);
 
+        if(!!$_GET['archive']) {
+            $archive = '&archive=1';
+        }
+
+        // Set all of the page attributes
+        $this->addTag('archive', $archive);
+        $this->addTag('order_by_month', $order_by_month);
+        $this->addTag('order_by_month_value', $order_by_month_value);
         $this->addTag('page_no', $paginater->page_no);
         $this->addTag('total_pages', $paginater->total_pages);
         $this->addTag('next_button', $paginater->get_next_btn());
@@ -194,7 +228,7 @@ class home extends c_controller
         $this->addTag('show_decide', $show_decide);
         $this->addTag('show_header_filter', true);
         $this->addTag('order', ($order=='desc'?'asc':'desc'));
-        $this->addTag('posts_type', (!!$_GET['posts'] ? $_GET['posts'] : 0));
+        $this->addTag('posts_type', $posts_type);
         $this->addTag('to_scroll', $to_scroll);
         $this->addTag('posts_list', $posts_list);
         $this->addTag('title', 'Home');
@@ -205,12 +239,21 @@ class home extends c_controller
         $this->setView('home/index');
     }
 
+    /**
+     * Orders posts by their rating - ASC or DESC
+     * 
+     * @param array $posts - the database results of the posts
+     * @param mixed bool/string - if false no ordering is made
+     *                            as we only reorder if an action is set
+     */
     public function order_by_rating($posts, $order="desc")
     {
         $_posts = array();
         foreach( $posts as $post ) {
             $total_rating = 0;
 
+            // Build up the rating for every post - as we will be ordering the 
+            // array by the first associated key
             foreach( $post['ratings'] as $rating ) {
                 if( $rating['rating'] == 1) {
                     $total_rating++;
@@ -225,7 +268,7 @@ class home extends c_controller
 
         if( $order == 'desc' ) {
             array_multisort($_posts, SORT_DESC);
-        } else {
+        } elseif( $order == 'asc') {
             array_multisort($_posts, SORT_ASC);
         }
 

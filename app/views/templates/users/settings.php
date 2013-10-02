@@ -1,5 +1,5 @@
 <section class="main">
-    <div class="page-title"><div class="container"><h1>Settings</h1></div></div>
+    <div class="page-title"><div class="container"><h1>Settings<span class="red-text">.</span></h1></div></div>
     <div class="post-entry">
         <div class="container">
         <?php if($error): ?>

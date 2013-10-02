@@ -9,7 +9,7 @@
             <?php if(!!$post['notes']): ?>
             <p><?php echo $post['notes']; ?></p>
             <?php endif; ?>
-            <p>Submitted by: <a href="<?php echo DIRECTORY; ?>?name=<?php echo $post['authors_id']; ?>"><?php echo $post['authors_name']; ?></a> on <?php echo date('jS F Y', strtotime($post['create_date'])); ?></p>
+            <p>Submitted by: <a href="<?php echo DIRECTORY; ?>?name=<?php echo $post['authors_id']; ?>&archive=1"><?php echo $post['authors_name']; ?></a> on <?php echo date('jS F Y', strtotime($post['create_date'])); ?></p>
         </div>
         <div class="post-entry-rating">
             <ul class="rating_system" data-id="<?php echo $post['id']; ?>">
@@ -23,7 +23,7 @@
         </div>
     </div>
     <?php if( !!$comments && count($comments) > 0 ): ?>
-    <h3><i class="icon-comment"></i> <?php echo count($comments); ?> Response(s):</h3>
+    <h3><i class="icon-comment"></i> <?php echo count($comments); ?> Response<?php if(count($comments) > 1): ?>s<?php endif; ?>:</h3>
     <div class="comments">
         
         <?php foreach( $comments as $comment ): ?>
