@@ -49,6 +49,20 @@ h1 {
     margin-top: -20px;
     width: 60%;
     float: left;
+
+    p {
+        margin-top: 20px;
+        a {
+            color: #231F20;
+            font-weight: none;
+
+        }
+
+        a:hover {
+            color: #E44C40;
+            text-decoration: none;
+        }
+    }
 }
 
 .post-entry-rating {
@@ -117,7 +131,7 @@ h1 {
     }
 
     p {
-        margin-top: 20px;
+        //margin-top: 20px;
         a {
             color: #231F20;
             font-weight: none;
