@@ -14,6 +14,8 @@ class Ratings_model extends Activerecord
 
     	return $ratings->rating_total;
     }
+
+    //public static function get_user_rating($post_id, )
 }
 
 ?>
