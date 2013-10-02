@@ -156,7 +156,9 @@ class home extends c_controller
             // Only if the admin is top level do we show the ability to approve as management only
             // However if archiving is set - then we don't want to have the ability to approve/decline
             // As we are grouping them all as one - to save confusing of actions
-            if( Sessions::check_admin_access() && $_GET['archive'] == "" ) {
+
+            if( (Sessions::check_admin_access() || Sessions::check_admin_access(2)) && $_GET['archive'] == "" ) {
+
                 $posts_type = 0;
                 $show_decide = true;
                 $accept_status = 1;

@@ -2,7 +2,7 @@
 <div class="post-container" id="js-post-item-<?php echo $post['post']['id']; ?>">
     <article class="post post-management">
         <?php if( !!$post['post']['image_url'] && substr($post['post']['image_url'], 0, 4) == 'http'): ?>
-        <img src="<?php echo $post['post']['image_url']; ?>" width="100" class="post__image">
+        <img src="<?php echo $post['post']['image_url']; ?>" class="post__image">
         <?php endif; ?>
         <div class="post__info">
             <p class="post__title">

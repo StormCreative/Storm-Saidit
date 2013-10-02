@@ -18,11 +18,12 @@
 .post-container {
     width: 100%;
     overflow: hidden;
+    margin-bottom: 6px;
 }
 
 .post-authorised { 
     background: #F7FBFB;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
     padding-left: 6px;
     line-height: 30px;
     font-size: 16px;
@@ -106,7 +107,10 @@
 
 .post__image {
     float: left;
-    padding: 1em 1em;
+    width: 90px;
+    margin-top: 14px;
+    margin-right: 6px;
+    margin-bottom: 14px;
 }
 
 .post__info {

@@ -14,7 +14,14 @@ requirejs.config({
 require(['../views/scroller', 'menu', 'selectivizr-min'], function(Scroller) {
     
     $(".js-back").on('click', function(e) {
-        window.history.go(-1);
+
+        var amount = -1;
+        
+        if (window.back_button_history) {
+            amount = -2;
+        }
+        
+        window.history.go(amount);
 
         e.preventDefault();
     });
