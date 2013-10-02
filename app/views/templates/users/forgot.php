@@ -1,5 +1,6 @@
+<div class="main_container">
 <section class="main">
-    <div class="page-title"><div class="container"><h1>Forgotten Password</h1></div></div>
+    <div class="page-title"><div class="container"><h1>Forgotten Password<span class="red-text">.</span</h1></div></div>
     <div class="post-entry">
         <div class="container">
             <?php if($error): ?>
@@ -12,13 +13,14 @@
 
             <p><?php echo Form::textfield('username'); ?></p>
             
-            <p><?php echo Form::submit('submit', 'Submit', 'form__submit action__btn'); ?></p>
+            <p><?php echo Form::submit('submit', 'Submit', 'form__submit action__btn forgot_btn'); ?></p>
 
             <?php echo Form::end_form(); ?>
         	<?php else: ?>
     		<p>A temporary password has been sent to your email address.</p>
     		<?php endif; ?>
-            <a href="<?php echo DIRECTORY; ?>users/login"><< Login</a>
+            <a href="<?php echo DIRECTORY; ?>users/login" class="login_btn">< Login</a>
         </div>
     </div>
 </section>
+</div>
