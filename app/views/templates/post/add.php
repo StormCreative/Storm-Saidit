@@ -41,6 +41,15 @@
             </div>
 
             <div class="js-upload-container" data-type="image"></div>
+            <div>
+                <div id="image-list-js"></div>
+                
+                <div class="file-upload-js images_upload">                         
+                    <div type="button" name="image_upload" data-type="image" id="image_upload"/>
+                </div>
+            </div>
+            
+        </div>
 
             <p><?php echo Form::submit('submit', 'Post', 'form__submit action__btn'); ?></p>
 
