@@ -195,29 +195,10 @@ class AJAX_uploadify
 	{
 		if ( !!$_POST['imagename'] && !!$_POST['type'] )
 		{
-			//If the thing deleted was a document delete the row from the database
-			if ( !!$_POST[ 'id' ] && $_POST[ 'type' ] == 'document' )
-			{
-				$downloads = new downloads_model ();
-				$downloads->delete ( array ( $_POST[ 'id' ] ) );
-			}
-			elseif ( !!$_POST[ 'id' ] && $_POST[ 'type' ] == 'image' )
-			{
-				$images = new image_model ();
-				$images->delete ( array ( $_POST[ 'id' ] ) );
-			}
-			
-			//This is to delete a gallery image
-			//I put this here because image upload / delete works on AJAX and I wasn't to sure of a way to get this into the controller with shuffling a lot of stuff around
-			if ( !!$_POST['gallery'] )
-				$this->delete_gallery ( $_POST['gallery'] );
-			
-			$target = PATH . '_admin/assets/uploads/' . $_POST['type'] . 's';
-			//Unset the file
-			if ( unlink ( $_SERVER[ 'DOCUMENT_ROOT' ] . $target . '/' . $_POST['imagename'] ) )
-				die ( json_encode ( array ( 'deleted' ) ) );
+			die ( json_encode ( array( 'deleted' ) ) );
 		}
-		else
-			die ( json_encode ( array ( 'not deleted' ) ) );
+		else {
+			die ( json_encode ( array( 'not deleted' ) ) );
+		}
 	}
 }

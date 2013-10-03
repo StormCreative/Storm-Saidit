@@ -28,8 +28,8 @@ class Post extends C_Controller
 
                 $images = Image_helper::multi_image_move();
 
-                if( !!$images ) {
-                    Image_model::save_multi( $images, $post->attributes[ 'id' ] );
+                if( !!$images || $_POST[ 'multi-image' ] ) {
+                    Image_model::save_multi( ( !!$images ? $images : $_POST[ 'multi-image' ] ), $post->attributes[ 'id' ] );
                 }
 
                 Activity_model::add($_SESSION['user']['id'], 'created new post <a href="'.DIRECTORY.'post/view/'.$output.'">'.$post->title.'</a>');
