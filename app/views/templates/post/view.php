@@ -29,6 +29,32 @@
             </ul>
         </div>
     </div>
+    <div class="post-images">
+        <div class="post-images__image">
+            <img src="<?php echo DIRECTORY; ?>assets/images/test-image.png" width="260">
+            <p class="post-images__image--download"> <a href=""><i class="icon-cloud-download"></i> Download Image</a></p>
+        </div>
+        <div class="post-images__image">
+            <img src="<?php echo DIRECTORY; ?>assets/images/test-image.png" width="260">
+            <p class="post-images__image--download"> <a href=""><i class="icon-cloud-download"></i> Download Image</a></p>
+        </div>
+        <div class="post-images__image">
+            <img src="<?php echo DIRECTORY; ?>assets/images/test-image.png" width="260">
+            <p class="post-images__image--download"> <a href=""><i class="icon-cloud-download"></i> Download Image</a></p>
+        </div>
+        <div class="post-images__image">
+            <img src="<?php echo DIRECTORY; ?>assets/images/test-image.png" width="260">
+            <p class="post-images__image--download"> <a href=""><i class="icon-cloud-download"></i> Download Image</a></p>
+        </div>
+        <div class="post-images__image">
+            <img src="<?php echo DIRECTORY; ?>assets/images/test-image.png" width="260">
+            <p class="post-images__image--download"> <a href=""><i class="icon-cloud-download"></i> Download Image</a></p>
+        </div>
+        <div class="post-images__image">
+            <img src="<?php echo DIRECTORY; ?>assets/images/test-image.png" width="260">
+            <p class="post-images__image--download"> <a href=""><i class="icon-cloud-download"></i> Download Image</a></p>
+        </div>
+    </div>
     <?php if( !!$comments && count($comments) > 0 ): ?>
     <h3><i class="icon-comment"></i> <?php echo count($comments); ?> Response<?php if(count($comments) > 1): ?>s<?php endif; ?>:</h3>
     <div class="comments">

@@ -8,7 +8,7 @@ class Post extends C_Controller
 
         $this->addStyle('posts');
 
-        Sessions::check_access();
+        //Sessions::check_access();
     }
 
     public function add()

@@ -158,6 +158,25 @@ h1 {
     }
 }
 
+.post-images {
+    margin-top: 10px;
+    overflow: hidden;
+    background: #F7FBFB;
+    padding: 8px 0 0 2px;
+    height: auto;
+}
+
+.post-images__image {
+    background: white;
+    width: 264px;
+    float: left;
+    margin: 4px 0 10px 8px;
+}
+
+.post-images__image--download {
+    margin: 8px 0 4px 4px;
+}
+
 /** Notifications **/
 
 .notification {
@@ -245,23 +264,4 @@ small {
     }
 }
 
-/* Media Queries */
-@media all and (min-width: 960px) and (max-width: 1024px) {
 
-.rating_switch {
-    right: 115px;
-}
-
-.management-switch {
-    right: 21px;
-}
-
-.posters_list dt {
-    border: 1px solid red;
-width: 64%;
-}
-
-.post__details {
-padding-right: 50px;
-}
-}
