@@ -9,9 +9,9 @@
  * 
  * @param array options ( the options to be changed in the uploadify set up )
  */
-define(['jquery'], function($) {
+define(['jquery', '../utils/uploadify/uploadify.min'], function( $, uploadify ) {
 
-	require(['../utils/uploadify/uploadify.min']);
+	//require([]);
 	
 	var feedback = $('#feedback-js');
 	var form = $('#upload-form-js');
