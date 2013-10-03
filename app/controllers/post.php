@@ -27,6 +27,7 @@ class Post extends C_Controller
             if($output != false) {
 
                 $images = Image_helper::multi_image_move();
+
                 if( !!$images ) {
                     Image_model::save_multi( $images, $post->attributes[ 'id' ] );
                 }

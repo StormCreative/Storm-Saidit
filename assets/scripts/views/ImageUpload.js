@@ -54,7 +54,7 @@ define(['../utils/api-caller', 'Backbone'], function(api){
             $( '.js-upload-container' ).append( '<p class="js-error"><p>' +
                                                 '<div class="js-image-upload-container">' +
                                                     '<input type="hidden" name="normal_uploader" value="1" />' + 
-                                                    '<input type="file" class="js-image-upload" name="image[]" multiple />' +
+                                                    '<input type="file" class="js-image-upload" name="image[]" />' +
                                                     '<span class="action">Upload Image</span>' +
                                                 '</div>' +
                                                 '<div class="js-images"></div>' );
@@ -116,7 +116,7 @@ define(['../utils/api-caller', 'Backbone'], function(api){
             this.container_count++;
 
             //We need to append the new image first otherwise getting the height and width of the image is really buggy
-            $(this.image).addClass( 'js-image-' + this.upload_count );
+            $( this.image ).addClass( 'js-image-' + this.upload_count ).attr( 'id', 'js-image-' + this.upload_count );
 
             //For some reason it wouldnt let me append a div with the image in it
             //So I had to append the div, then append the image into the div
@@ -126,25 +126,34 @@ define(['../utils/api-caller', 'Backbone'], function(api){
             var img_width = $( '.js-image-' + this.upload_count ).width(),
                 img_height = $( '.js-image-' + this.upload_count ).height();
 
+            //Need to check the width and height for firefox
+            if( img_width == 0 ) {
+                img_width = document.getElementById( 'js-image-' + this.upload_count ).offsetWidth;
+            }
+
+            if( img_height == 0 ) {
+                img_height = document.getElementById( 'js-image-' + this.upload_count ).offsetHeight;
+            }
+
             //Need to do a if statement here depending on the dimensions of the image
             if ( img_width > img_height ) {
 
                 //Get the ratio
                 var ratio = img_height / img_width;
-                this.new_width = '100';
+                this.new_width = '300';
                 this.new_height = Math.floor(this.new_width * ratio);
             }
             else if ( img_width < img_height ) {
 
                  //Get the ratio
                 var ratio = img_width / img_height;
-                this.new_height = '100';
+                this.new_height = '300';
                 this.new_width = Math.floor(this.new_height * ratio);
             }
             else if ( img_width == img_height ) {
                 //Set a new width and height for the thumbnail
-                this.new_width = '100';
-                this.new_height = '100';
+                this.new_width = '300';
+                this.new_height = '300';
             }
 
             this.append_new_image();
@@ -195,7 +204,6 @@ define(['../utils/api-caller', 'Backbone'], function(api){
 
             //Take 1 away from the total uploaded property
             this.upload_count--;
-
         },
 
         /**
@@ -236,7 +244,7 @@ define(['../utils/api-caller', 'Backbone'], function(api){
                 imagename = $( target ).attr( 'data-imagename' ),
                 image_id = $( target ).attr( 'data-id' );
 
-            $.ajax({ url: this.site_path + 'AJAX_delete/normal_delete',
+            $.ajax({ url: this.site_path + 'ajax_delete/normal_delete',
                      data: { imagename: imagename },
                      type: 'POST',
                      dataType: 'JSON',
