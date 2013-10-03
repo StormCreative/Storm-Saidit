@@ -19,14 +19,13 @@
                 </div>
                 <?php if(!!$_GET['archive']): ?>
                 <div class="listings-archive">
-                    <p>Archive listing of <?php if(!!$_GET['name']): ?>user: <?php echo Users_model::get_name($_GET['name']); ?><?php endif; ?> <?php if(!!$_GET['category']): ?>category: <?php echo Posts::$tags[$_GET['category']]; ?><?php endif; ?></p>
+                    <p>Archive listing <?php if(!!$_GET['name']): ?>of user: <?php echo Users_model::get_name($_GET['name']); ?><?php endif; ?> <?php if(!!$_GET['category']): ?>of category: <?php echo Posts::$tags[$_GET['category']]; ?><?php endif; ?></p>
                 </div>
                 <?php endif; ?>
                 <?php if(!!$_GET['new_post'] && $_GET['new_post'] == 'true'): ?>
                  <p class="success success-listing">New post added to current suggestions.</p>
                 <?php endif; ?>
                 <?php if($posts_list != false): ?>
-                    
                     <div class="js-infi-scroll">
                     <?php if( !$to_scroll ): ?>
                     <?php if( $show_decide ): ?>
@@ -57,7 +56,6 @@
                 <?php endif; ?>
                 <?php endif; ?>
             </section>
-
         <?php include "assets/includes/aside.php"; ?>
         </div>
     </div>

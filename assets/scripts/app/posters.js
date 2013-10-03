@@ -10,7 +10,7 @@ define(['jquery', '../utils/hogan'], function($, hogan){
         } else {
             action = 'desc';
         }
-
+        
         elem.attr('data-action', action);
 
         var data = {order:action};
@@ -28,6 +28,12 @@ define(['jquery', '../utils/hogan'], function($, hogan){
         set_active(elem);
         set_rating_data('month');
         get_posters({when:true});
+          
+        var recycle = $('.js-posters-rating');
+        recycle.attr('data-action', 'desc');
+        recycle.children().attr('data-action', 'desc');
+        
+
 
         e.preventDefault();
     });
