@@ -34,7 +34,7 @@ class form
         $class = (!!$class ? 'class="'.$class.'"' : "");
 
 
-        return '<form method="'.$method.'" action="'.$action.'" '.$class.'>'."\n";
+        return '<form method="'.$method.'" action="'.$action.'" '.$class.' enctype="multipart/form-data">'."\n";
     }
 
     /**

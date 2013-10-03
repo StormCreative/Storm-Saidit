@@ -26,6 +26,12 @@ class Post extends C_Controller
 
             if($output != false) {
 
+                $images = Image_helper::multi_image_move();
+
+                if( !!$images ) {
+                    Image_model::save_multi( $images, $post->attributes[ 'id' ] );
+                }
+
                 Activity_model::add($_SESSION['user']['id'], 'created new post <a href="'.DIRECTORY.'post/view/'.$output.'">'.$post->title.'</a>');
 
                 header('location: '.DIRECTORY.'?posts=0&new_post=true');
@@ -33,6 +39,8 @@ class Post extends C_Controller
                 $this->addTag('errors', $post->errors);
             }
         }
+
+        $this->setScript( 'post' );
     }
 
     public function view($id)
