@@ -87,6 +87,26 @@ class Post extends C_Controller
         $this->addStyle('comments');
     }
 
+    public function image($image)
+    {
+        $image = basename($image);
+        $filename = PATH.'assets/uploads/images/720/'.$image;
+        $size = @getimagesize($filename);
+        $fp = @fopen($filename, "rb");
+
+        if ($size && $fp) {
+            header("Content-type: {$size['mime']}");
+            header("Content-Length: " . filesize($filename));
+            header("Content-Disposition: attachment; filename=$image");
+            header('Content-Transfer-Encoding: binary');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            fpassthru($fp);
+            exit;
+        }
+
+        header("HTTP/1.0 404 Not Found");
+    }
+
     public function all()
     {
         $posts = new Posts_model();
