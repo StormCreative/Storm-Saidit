@@ -30,20 +30,25 @@
     //padding-top: 1px;
     line-height: 30px;
     font-size: 16px;
-    margin-bottom: -8px;
+
+    margin-top: 3px;
+
+    p {
+        margin: 3px 0 2px 0;
+        line-height: 35px;
+        height: 35px;
+        padding: 2px 0;
+    }
 }
 
 .post-authorised-management {
     width: 91%;
-    height: 30px;
     position: relative;
     clear: both;
     margin-bottom: 0;
 }
 
 .post-authorised-staff {
-    // No idea why its suddenly got margin and needs to go back?
-    margin-top: -12px;
     
 }
 

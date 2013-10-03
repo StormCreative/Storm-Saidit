@@ -1,5 +1,5 @@
 <?php foreach( $posts_list as $post ): ?>
-<div class="post-container">
+<div class="post-container staff_container">
     <article class="post">
         <?php if( !!$post['post']['image_url'] && substr($post['post']['image_url'], 0, 4) == 'http'): ?>
         <img src="<?php echo $post['post']['image_url']; ?>" width="100" class="post__image">
