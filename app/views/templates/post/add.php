@@ -40,9 +40,15 @@
                  </p>
             </div>
 
+            <div class="js-upload-container" data-type="image"></div>
+
             <p><?php echo Form::submit('submit', 'Post', 'form__submit action__btn'); ?></p>
 
         <?php echo Form::end_form(); ?>
         </div>
     </section>
 </div>
+
+<script>
+    var number_of_images = 999;
+</script>

@@ -10,7 +10,7 @@ class AJAX_uploadify
 	public function __Construct ( $uploadify = TRUE )
 	{
 		$this->_uploadify = $uploadify;
-		$this->_image_path = PATH . '_admin/assets/uploads/';
+		$this->_image_path = PATH . 'assets/uploads/';
 
 		$this->save();
 	}
@@ -36,12 +36,22 @@ class AJAX_uploadify
 
 			if ( in_array ( $this->get_ext ( $filename ), $options[ 'file_type' ] ) )
 			{
-				if ( 1 == 2 )
+				if ( LIVE )
 				{
 					$im = new Imagick ( $tempFile );
 					$im->setImageCompressionQuality ( 100 );
-					$im->cropThumbnailImage ( 500, 350 );
+					$im->thumbnailImage ( 500, 350 );
 					$im->writeImage ( $options[ 'dest' ] . $filename );
+
+					$im = new Imagick ( $tempFile );
+					$im->setImageCompressionQuality ( 100 );
+					$im->resizeImage ( 720 );
+					$im->writeImage ( $options[ 'dest' ] . '720/' . $filename );
+
+					$im = new Imagick ( $tempFile );
+					$im->setImageCompressionQuality ( 100 );
+					$im->thumbnailImage ( 270 );
+					$im->writeImage ( $options[ 'dest' ] . '270/' . $filename );
 				}
 				else
 				{
@@ -49,6 +59,16 @@ class AJAX_uploadify
 					$si->load ( $true_tmp_name );
 					$si->resize_crop ( 500, 350 );
 					$si->save ( $options[ 'dest' ] . $filename );
+
+					$si = new simple_image ();
+					$si->load ( $true_tmp_name );
+					$si->resizeToWidth ( 720 );
+					$si->save ( $options[ 'dest' ] . '720/' . $filename );
+
+					$si = new simple_image ();
+					$si->load ( $true_tmp_name );
+					$si->resizeToWidth ( 270 );
+					$si->save ( $options[ 'dest' ] . '270/' . $filename );
 				}
 				
 				$this->handle_return( $filename, $_POST[ 'type' ], $true_name );
