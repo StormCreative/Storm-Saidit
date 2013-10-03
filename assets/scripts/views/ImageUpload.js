@@ -54,8 +54,8 @@ define(['../utils/api-caller', 'Backbone'], function(api){
             $( '.js-upload-container' ).append( '<p class="js-error"><p>' +
                                                 '<div class="js-image-upload-container">' +
                                                     '<input type="hidden" name="normal_uploader" value="1" />' + 
-                                                    '<input type="file" class="js-image-upload" name="image[]" />' +
-                                                    '<span class="action">Upload Image</span>' +
+                                                    '<p><label><span class="action">Upload Image</span></label><input type="file" class="js-image-upload" name="image[]" /></p>' +
+                                                    
                                                 '</div>' +
                                                 '<div class="js-images"></div>' );
 
