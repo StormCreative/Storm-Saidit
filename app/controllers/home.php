@@ -149,9 +149,10 @@ class home extends c_controller
             // If query string of posts is 0 - as it's not being picked up as a string at all
             // We manually set it
             if( $_GET['posts'] == '0' ) {
+
                 $posts_type = 0;
                 $posts->where('posts.status = 0');
-            }   
+            }
 
             // Only if the admin is top level do we show the ability to approve as management only
             // However if archiving is set - then we don't want to have the ability to approve/decline
@@ -164,9 +165,16 @@ class home extends c_controller
                 $accept_status = 1;
                 $decline_status = 2;
             } else {
+
+                if( $_GET['posts'] == '0' ) {
+                    $posts_type = 0;
+                } else {
                 // Turn posts_type to false as we don't want to filter when filtering in the main archive
-                $posts_type = '99';
+                    $posts_type = '99';
+                }
             }
+
+
         }
 
         if( !!$_GET['order'] ) {
@@ -188,6 +196,7 @@ class home extends c_controller
         if( !!$_GET['order_by'] ) {
             
             if( $_GET['order_by'] == 'today' ) {
+
                 $posts->where('DAY('.DB_SUFFIX.'_posts.create_date) = DAY(CURDATE())', null, true);
             } elseif( $_GET['order_by'] == 'week' ) {
 
@@ -232,7 +241,12 @@ class home extends c_controller
         $this->addTag('next_button', $paginater->get_next_btn());
         $this->addTag('back_button', $paginater->get_back_btn());
         $this->addTag('current_page', str_replace(DIRECTORY, '', $_SERVER['REDIRECT_URL']));
+        
         $this->addTag('posts_category', (!!$_POST['posts']['category']?implode(',', $_POST['posts']['category']):''));
+        if(!!$_GET['posts_category']) {
+            $this->addTag('posts_category', $_GET['posts_category']);
+        }
+
         $this->addTag('order_by_string', (!!$_GET['order_by']?'&order_by='.$_GET['order_by']:''));
         $this->addTag('accept_status', $accept_status);
         $this->addTag('decline_status', $decline_status);

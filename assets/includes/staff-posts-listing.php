@@ -20,12 +20,12 @@
                     <?php endif; ?>
                 </div>
                 <div class="post__details--extra-info">
-                    <span class="post__details--author">Submitted by <a href="<?php echo DIRECTORY; ?>?<?php if($posts_type != false): ?>posts=<?php echo $posts_type; ?><?php endif; ?><?php echo $order_by_string; ?>&name=<?php echo $post['post']['authors_id']; ?><?php echo $archive; ?>"><?php echo $post['post']['authors_name']; ?></a> on <?php echo tidy_time_posted($post['post']['create_date']); ?></span>
+                    <span class="post__details--author">Submitted by <a href="<?php echo DIRECTORY; ?>?<?php if($posts_type != '99'): ?>posts=<?php echo $posts_type; ?><?php endif; ?><?php echo $order_by_string; ?>&name=<?php echo $post['post']['authors_id']; ?><?php echo $archive; ?>"><?php echo $post['post']['authors_name']; ?></a> on <?php echo tidy_time_posted($post['post']['create_date']); ?></span>
                     <?php if(!!$post['post']['category']): ?>
                     <span class="post__details--tags"><label>Tags:</label> 
                         <ul>
                             <?php $c=1; foreach(explode(',', $post['post']['category']) as $tag): ?>
-                            <li><a href="<?php echo DIRECTORY; ?>home?<?php if($posts_type != false): ?>posts=<?php echo $posts_type; ?><?php endif; ?><?php echo $order_by_string; ?>&category=<?php echo $tag; ?><?php echo $archive; ?>"><?php echo Posts::$tags[$tag]; ?><?php if($c != count(explode(',', $post['post']['category']))): ?>,<?php endif; ?>&nbsp;</a></li>
+                            <li><a href="<?php echo DIRECTORY; ?>home?<?php if($posts_type != '99'): ?>posts=<?php echo $posts_type; ?><?php endif; ?><?php echo $order_by_string; ?>&category=<?php echo $tag; ?><?php echo $archive; ?>"><?php echo Posts::$tags[$tag]; ?><?php if($c != count(explode(',', $post['post']['category']))): ?>,<?php endif; ?>&nbsp;</a></li>
                             <?php $c++; endforeach; ?>
                         </ul>
                     </span>

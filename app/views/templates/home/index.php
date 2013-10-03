@@ -19,7 +19,7 @@
                 </div>
                 <?php if(!!$_GET['archive']): ?>
                 <div class="listings-archive">
-                    <p>Archive listing <?php if(!!$_GET['name']): ?>of user: <?php echo Users_model::get_name($_GET['name']); ?><?php endif; ?> <?php if(!!$_GET['category']): ?>of category: <?php echo Posts::$tags[$_GET['category']]; ?><?php endif; ?></p>
+                    <p>Archive listing <?php if(!!$_GET['name']): ?>of user: <a href="<?php echo DIRECTORY; ?>?name=<?php echo $_GET['name']; ?>&archive=1"><?php echo Users_model::get_name($_GET['name']); ?></a><?php endif; ?> <?php if(!!$_GET['category']): ?>of category: <a href="<?php echo DIRECTORY; ?>?category=<?php echo $_GET['category']; ?>&archive=1"><?php echo Posts::$tags[$_GET['category']]; ?></a><?php endif; ?></p>
                 </div>
                 <?php endif; ?>
                 <?php if(!!$_GET['new_post'] && $_GET['new_post'] == 'true'): ?>

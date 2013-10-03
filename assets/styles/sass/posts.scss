@@ -17,6 +17,8 @@
     }
 }
 
+
+
 .page-title {
     background: #F7FBFB;
     padding: 5px;
@@ -50,7 +52,7 @@ h1 {
     width: 60%;
     float: left;
 
-    p {
+    .description__title {
         margin-top: 20px;
         a {
             color: #231F20;
@@ -63,7 +65,18 @@ h1 {
             text-decoration: none;
         }
     }
+
+    .submitted-by {
+        a {
+            color: #E44C40 !important;
+        }  
+        a:hover {
+            text-decoration: underline !important;
+        }
+    } 
+
 }
+
 
 .post-entry-rating {
     float: right;

@@ -5,11 +5,11 @@
         <img src="<?php echo $post['image_url']; ?>" width="100" class="image">
         <?php endif; ?>
         <div class="description">
-            <p><a target="_blank" href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a></p>
+            <p class="description__title"><a target="_blank" href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a></p>
             <?php if(!!$post['notes']): ?>
             <p><?php echo $post['notes']; ?></p>
             <?php endif; ?>
-            <p>Submitted by: <a href="<?php echo DIRECTORY; ?>?name=<?php echo $post['authors_id']; ?>&archive=1"><?php echo $post['authors_name']; ?></a> on <?php echo date('jS F Y', strtotime($post['create_date'])); ?></p>
+            <p class="submitted-by">Submitted by: <a href="<?php echo DIRECTORY; ?>?name=<?php echo $post['authors_id']; ?>&archive=1"><?php echo $post['authors_name']; ?></a> on <?php echo date('jS F Y', strtotime($post['create_date'])); ?></p>
 
             <?php if(!!$post['category']): ?>
             <span class="post__details--tags">Tags: 
