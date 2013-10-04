@@ -44,7 +44,7 @@
 
             <div>
                 <div class="file-upload-js images_upload">                         
-                    <div type="button" name="image_upload" data-type="image" id="image_upload"/></div>
+                    <label class="main_label">Upload Image</label><div type="button" name="image_upload" data-type="image" id="image_upload"/></div>
                 </div>
                 <div id="image-list-js"></div>
             </div>
