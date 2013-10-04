@@ -11,7 +11,7 @@
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
-        <?php echo Form::start_form('posts', '', 'POST', 'form'); ?>
+        <?php echo Form::start_form('posts', '', 'POST', 'form', 'js-posts-form'); ?>
             <p>
                 <label for="title" class="main_label">Title of post</label>
                 <input type="text" name="posts[title]">
@@ -49,7 +49,12 @@
                 <div id="image-list-js"></div>
             </div>
 
-            <p class="display_block"><?php echo Form::submit('submit', 'Post', 'form__submit action__btn'); ?></p>
+            <p class="display_block">
+                <?php echo Form::submit('submit', 'Post', 'form__submit action__btn'); ?>
+                <span class="js-ajax-loader hide">
+                    <img src="<?php echo DIRECTORY; ?>assets/images/ajax-loader.gif" />
+                </span>
+            </p>
 
         <?php echo Form::end_form(); ?>
         </div>
