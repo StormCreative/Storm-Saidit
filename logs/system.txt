@@ -101,3 +101,4 @@
 03-10-2013 15:41:07 Core/Routing/Router: Threw exception: Could not find controller "assets" to load
 03-10-2013 17:24:16 Core/Routing/Router: Threw exception: Could not find controller "AJAX_uploadify" to load
 04-10-2013 12:53:12 Core/Routing/Router: Threw exception: Could not find controller "test" to load
+04-10-2013 13:08:24 Core/Routing/Router: Threw exception: Could not find controller "assets" to load
