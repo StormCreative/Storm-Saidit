@@ -56,7 +56,7 @@ require(['../views/scroller', 'menu', 'selectivizr-min', 'image-handler'], funct
     require(['posts']);
 
     $( '#js-posts-form' ).submit( function( e ) {
-        $( '.js-ajax-loader' ).show();
+        $( '.js-ajax-loader' ).removeClass('hide');
     });
     
 });
