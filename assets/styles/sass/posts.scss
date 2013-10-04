@@ -167,7 +167,6 @@ h1 {
 
 .post-images__image {
     background: white;
-
     width: 260px;
     float: left;
     margin: 4px 0 10px 8px;
@@ -175,6 +174,28 @@ h1 {
 
 .post-images__image--download {
     margin: 8px 0 4px 4px;
+}
+
+.uploadify-button {
+    border: 1px solid #ccc;
+    background: #ccc;
+    padding-left: 12px;
+
+    span:after {
+        content: "Upload";
+    }
+}
+
+.post-add-image-list {
+    margin-top: 20px;
+    width: 794px;
+    overflow: hidden;
+
+    div {
+        width: 300px;
+        float: left;
+        margin-right: 10px;
+    }
 }
 
 /** Notifications **/

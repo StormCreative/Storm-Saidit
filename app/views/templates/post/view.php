@@ -29,6 +29,7 @@
             </ul>
         </div>
     </div>
+    <?php if(count($post['image']) > 0): ?>
     <div class="post-images">
         <?php foreach($post['image'] as $image): ?>
         <div class="post-images__image">
@@ -37,6 +38,7 @@
         </div>
         <?php endforeach; ?>
     </div>
+    <?php endif; ?>
     <?php if( !!$comments && count($comments) > 0 ): ?>
     <h3><i class="icon-comment"></i> <?php echo count($comments); ?> Response<?php if(count($comments) > 1): ?>s<?php endif; ?>:</h3>
     <div class="comments">

@@ -57,7 +57,7 @@ define(['../utils/api-caller', 'Backbone'], function(api){
                                                     '<p><label><span class="action">Upload Image</span></label><input type="file" class="js-image-upload" name="image[]" /></p>' +
                                                     
                                                 '</div>' +
-                                                '<div class="js-images"></div>' );
+                                                '<div class="js-images post-add-image-list"></div>' );
 
             //We also need to set one up if the page allows document uploads
             $( '.js-uploads-container' ).append ( '<p class="js-document-error"><p>' +

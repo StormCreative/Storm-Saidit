@@ -41,7 +41,7 @@
             </div>
 
             <div class="js-upload-container" data-type="image"></div>
-            
+
             <div>
                 <div id="image-list-js"></div>
                 
