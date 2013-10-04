@@ -95,9 +95,12 @@ define(['../utils/api-caller', 'Backbone'], function(api){
             if ( validation[0] ) {
 
                 this.image = new Image();
-                this.image.src = data.target.result;
 
-                this.get_new_dimensions();
+                this.image.onload = _.bind( function() {
+                    this.get_new_dimensions( this.image.naturalWidth, this.image.naturalHeight );
+                }, this );
+
+                this.image.src = data.target.result;
             }
             else {
                 //If the validation fails we need to take the file value from the input so it wont upload if the user presses submit
@@ -109,11 +112,14 @@ define(['../utils/api-caller', 'Backbone'], function(api){
             }
         },
 
-        get_new_dimensions: function () {
+        get_new_dimensions: function ( width, height ) {
 
             //Add 1 to the upload count
             this.upload_count++;
             this.container_count++;
+
+            var img_width = width
+                img_height = height;
 
             //We need to append the new image first otherwise getting the height and width of the image is really buggy
             $( this.image ).addClass( 'js-image-' + this.upload_count ).attr( 'id', 'js-image-' + this.upload_count );
@@ -123,8 +129,14 @@ define(['../utils/api-caller', 'Backbone'], function(api){
             this.image_container.append( '<div class="container_' + this.container_count + '"></div>' );
             $( '.container_' + this.container_count ).append( this.image );
             
-            var img_width = $( '.js-image-' + this.upload_count ).width(),
+
+            if( img_width == 0 ) {
+                img_width = $( '.js-image-' + this.upload_count ).width()
+            }
+
+            if( img_height == 0 ) {
                 img_height = $( '.js-image-' + this.upload_count ).height();
+            }
 
             //Need to check the width and height for firefox
             if( img_width == 0 ) {
@@ -134,6 +146,10 @@ define(['../utils/api-caller', 'Backbone'], function(api){
             if( img_height == 0 ) {
                 img_height = document.getElementById( 'js-image-' + this.upload_count ).offsetHeight;
             }
+
+            console.log( img_height );
+            console.log( img_width );
+            //console.log( document.getElementById( 'js-image-' + this.upload_count ).clientWidth );
 
             //Need to do a if statement here depending on the dimensions of the image
             if ( img_width > img_height ) {
@@ -157,7 +173,7 @@ define(['../utils/api-caller', 'Backbone'], function(api){
             }
 
             this.append_new_image();
-            this.fiddle_input ();
+            this.fiddle_input();
         },
 
         /**
@@ -165,11 +181,13 @@ define(['../utils/api-caller', 'Backbone'], function(api){
          * Also need to call the function that adds a delete button that is associated with the image
          */
         append_new_image: function () {
+
              $( '.js-image-' + this.upload_count ).css('width', this.new_width + 'px').css('height', this.new_height + 'px');
              this.append_delete_button();
         },
 
         append_delete_button: function () {
+
             $( '.container_' + this.container_count ).append( '<p class="js-remove-image delete-btn" data-image-number="' + this.container_count + '" style="cursor: pointer;">Delete</p>' );
         },
 
