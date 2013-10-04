@@ -54,7 +54,7 @@ define(['../utils/api-caller', 'Backbone'], function(api){
             $( '.js-upload-container' ).append( '<p class="js-error"><p>' +
                                                 '<div class="js-image-upload-container">' +
                                                     '<input type="hidden" name="normal_uploader" value="1" />' + 
-                                                    '<p><label><span class="action">Upload Image</span></label><input type="file" class="js-image-upload" name="image[]" /></p>' +
+                                                    '<p><label class="main_label"><span class="action">Upload Image</span></label><input type="file" class="js-image-upload" name="image[]" /></p>' +
                                                     
                                                 '</div>' +
                                                 '<div class="js-images post-add-image-list"></div>' );
@@ -170,7 +170,7 @@ define(['../utils/api-caller', 'Backbone'], function(api){
         },
 
         append_delete_button: function () {
-            $( '.container_' + this.container_count ).append( '<p class="js-remove-image" data-image-number="' + this.container_count + '" style="cursor: pointer;">Delete</p>' );
+            $( '.container_' + this.container_count ).append( '<p class="js-remove-image delete-btn" data-image-number="' + this.container_count + '" style="cursor: pointer;">Delete</p>' );
         },
 
         /**
@@ -186,11 +186,12 @@ define(['../utils/api-caller', 'Backbone'], function(api){
 
                 if ( $(input_file_buttons[i]).css( 'display' ) != 'none' ) {
                     $(input_file_buttons[i]).css( 'display', 'none' );
+                    $( input_file_buttons[i] ).parent().hide();
                 }
             }
 
             //Append a new input onto the container so the user still only see one upload button
-            input_file_container.append ( '<input type="file" class="js-image-upload" name="image[]" value="Upload a photo" />' );
+            input_file_container.append ( '<p><label class="main_label"><span class="action">Upload Image</span></label><input type="file" class="js-image-upload" name="image[]" value="Upload a photo" /></p>' );
         },
 
         remove_image: function ( e ) {

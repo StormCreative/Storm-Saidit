@@ -128,7 +128,7 @@ abstract class Activerecord
      * @param optional bool $clean
      */
     public function __Construct($attributes = array(), $clean=false)
-    {
+    {        
         if( count($attributes) > 0 && !$clean ) {
             $this->set_attributes($attributes);
             $this->_clean = $clean;
@@ -756,10 +756,12 @@ abstract class Activerecord
     public function set_up_source_columns()
     {
         foreach ( $this->table()->columns($this->full_table()) as $column ) {
+            
             if( $column != "" ) {
                 $this->columns[] = $this->full_table().'.'.$column;
             }
         }
+
 
         if ($this->_has_image) {
             $image_column = '(SELECT imgname FROM ' . DB_SUFFIX . '_image WHERE id = image_id) as image';

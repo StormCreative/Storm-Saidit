@@ -192,9 +192,45 @@ h1 {
     overflow: hidden;
 
     div {
-        width: 300px;
+        width: 254px;
         float: left;
         margin-right: 10px;
+        overflow: hidden;
+    }
+}
+
+.fallback_img_uploader {
+    width: 254px;
+    float: left;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.delete-btn, .del-image {
+    background: #E44C40; /* Old browsers */
+    border: none;
+    display: block;
+    color: #FFF;
+    font-family: TTRegular;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 6px;
+    text-align: center;
+    width: 80px;
+    text-decoration: none;
+    width: 80px;
+
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+
+    &:hover,
+    &:focus {
+        background: #C1392B; /* Old browsers */
     }
 }
 
@@ -254,7 +290,6 @@ h1 {
 
 .form .form__submit {
     width: 150px;
-    margin-left: 150px;
 }
 
 small {
@@ -271,6 +306,20 @@ small {
         float: left;
     }
 
+}
+
+#image-list-js, .js-upload-container {
+    overflow: hidden;
+}
+
+.display_block {
+    display: block;
+}
+
+
+
+.form input[type=file] {
+    display: inline-block;
 }
 
 .post_tags_inline {

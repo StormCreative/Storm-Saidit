@@ -214,3 +214,27 @@
 02-10-2013 15:34:16 Core/Database/Query: GetAssoc error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month' in 'where clause'
 02-10-2013 15:35:07 Core/Database/Query: GetAssoc error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month' in 'where clause'
 02-10-2013 15:35:07 Core/Database/Query: GetAssoc error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month' in 'where clause'
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist
+04-10-2013 10:44:42 Core/Database/Query: GetAssoc error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.saidit_image' doesn't exist

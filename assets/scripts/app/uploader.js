@@ -128,10 +128,9 @@ define(['jquery', '../utils/uploadify/uploadify.min'], function( $, uploadify ) 
 	function success ( file, data, response ) {
 		
 		var data = $.parseJSON ( data );
-		
 		if ( data.type == 'image' )
 		{
-			image_list.append ( '<p id="' + data.filename + '"><img src="' + site_path + 'assets/uploads/images/' + data.filename + '" title="' + file.name + '" /><input type="hidden" name="multi-image[' + data.filename + '][imgname]" value="' + data.filename + '" /><input type="button" class="btn del-image delete-image-js" data-imagename="' + data.filename + '" data-type="' + data.type + '" value="Delete" /></p>' );
+			image_list.append ( '<p id="' + data.filename + '" class="fallback_img_uploader"><img src="' + site_path + 'assets/uploads/images/' + data.filename + '" title="' + file.name + '" /><input type="hidden" name="multi-image[' + data.filename + '][imgname]" value="' + data.filename + '" /><input type="button" class="btn del-image delete-image-js" data-imagename="' + data.filename + '" data-type="' + data.type + '" value="Delete" /></p>' );
 			$('#imgname').val ( data.filename );
 		}
 		else if ( data.type == 'document' )
