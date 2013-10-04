@@ -83,7 +83,6 @@ h1 {
     -webkit-column-fill: auto;
     -moz-column-count: 3;
     -moz-column-gap: 10px;
-    -moz-column-fill: auto;
     column-count: 3;
     column-gap: 15px;
     column-fill: auto;
@@ -186,8 +185,13 @@ h1 {
     -moz-column-break-inside: avoid;
     column-break-inside: avoid;
     padding: 15px;
+    vertical-align: top;
     padding-bottom: 5px;
     opacity: 1;
+    zoom: 1;
+    width: 100%;
+    *display: inline;
+
     
     -webkit-transition: all .2s ease;
     -moz-transition: all .2s ease;
