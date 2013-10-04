@@ -23,6 +23,8 @@ define(['jquery', '../utils/uploadify/uploadify.min'], function( $, uploadify ) 
 	//Images
 	var image_list = $('#image-list-js');
 	var image_upload = $('#image_upload');
+
+	$( '.js-upload-label' ).removeClass( 'hide' );
 	
 	$(".file-upload-js>div").each(function(e) {
 		

@@ -322,7 +322,14 @@ small {
 }
 
 .display_block {
+    position: relative;
     display: block;
+
+    .js-ajax-loader {
+        position: absolute;
+        left: 180px;
+        top: 4px;
+    }
 }
 
 
