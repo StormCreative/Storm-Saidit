@@ -51,7 +51,7 @@
 
             <p class="display_block">
                 <?php echo Form::submit('submit', 'Post', 'form__submit action__btn'); ?>
-                <span class="js-ajax-loader">
+                <span class="js-ajax-loader hide">
                     <img src="<?php echo DIRECTORY; ?>assets/images/ajax-loader.gif" />
                 </span>
             </p>
