@@ -4,6 +4,9 @@
         <?php if( !!$post['post']['image_url'] && substr($post['post']['image_url'], 0, 4) == 'http'): ?>
         <img src="<?php echo $post['post']['image_url']; ?>" class="post__image">
         <?php endif; ?>
+        <?php if( !!$post['post']['image'][0]['imgname'] ) :?>
+        <img src="<?php echo DIRECTORY; ?>assets/uploads/images/270/<?php echo $post['post']['image'][0]['imgname']; ?>" class="post__image">
+        <?php endif; ?>
         <div class="post__info">
             <p class="post__title">
                 <?php if(!!$post['post']['link']): ?>
