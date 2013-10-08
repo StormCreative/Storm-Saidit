@@ -173,6 +173,21 @@ h1 {
     background: #F7FBFB;
     padding: 8px 10px 0;
     height: auto;
+    overflow: hidden;
+}
+
+.safari .post-images__image {
+    width: 98%;
+}
+
+.ie8 .post-images__image {
+    float: left;
+    width: 30%;
+}
+
+.ie9 .post-images__image {
+    float: left;
+    width: 30%;
 }
 
 .post-images__image {
@@ -183,13 +198,13 @@ h1 {
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
     column-break-inside: avoid;
-    padding: 15px;
+    padding: 10px;
     vertical-align: top;
     padding-bottom: 5px;
     opacity: 1;
     zoom: 1;
-    width: 98%;
     *display: inline;
+
 
     
     -webkit-transition: all .2s ease;
