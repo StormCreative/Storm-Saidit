@@ -29,7 +29,7 @@ requirejs.config({
     }
 });
 
-require(['../views/scroller', 'menu', 'selectivizr-min', 'image-handler'], function(Scroller) {
+require(['../views/scroller', 'menu', 'selectivizr-min', 'image-handler', 'css_browser_selector'], function(Scroller) {
     
     $(".js-back").on('click', function(e) {
         var amount = -1;
