@@ -1,0 +1,4 @@
+[2013-10-08 13:46:49] TestPostTest::testHasOneInstantiates.INFO: see in database "users",{"id":1} [] []
+[2013-10-08 13:46:49] TestPostTest::testHasOneInstantiates.ALERT: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gileswilson_saidit.users' doesn't exist [] []
+[2013-10-08 13:46:49] TestPostTest::testHasOneInstantiates.INFO: # ERROR # [] []
+[2013-10-08 13:46:49] TestPostTest::testHasOneInstantiates.INFO: PASSED [] []
