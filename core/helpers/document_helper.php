@@ -43,9 +43,42 @@ class Document_helper
         }
 
         //Save the record and then return the ID of the row so it can be saved into the parent table
-        if ( $uploads->save( array( 'id' => $_POST[ 'posts' ][ 'uploads_id' ], 'title' => ( !!$doc_title ? $doc_title : $doc_name ), 'name' => !!$new_name ? $new_name : $doc_name ), "posts_id" => $id ) )
-            return $uploads->attributes[ 'id' ];
+        if ( $uploads->save( array( 'id' => $_POST[ 'posts' ][ 'uploads_id' ], 'title' => ( !!$doc_title ? $doc_title : $doc_name ), 'name' => ( !!$new_name ? $new_name : $doc_name ), "posts_id" => $id ) ) ) {
+             return $uploads->attributes[ 'id' ];
+        }
+           
 	}
+
+    public static function save_many( $id = "" )
+    {
+        $uploads = new Uploads_model();
+
+        $name = array_filter( $_POST[ 'upload_name' ][ 'actual' ] );
+        $title = array_filter( $_POST[ 'upload_name' ][ 'user' ] );
+
+        $c = count( $name );
+
+        for( $i = 0; $i < $c; $i++ ) {
+
+            //Move
+            if( !!$_FILES[ 'uploads' ][ 'tmp_name' ][ $i ] ) {
+
+                $fileinfo = pathinfo( !!$name[ $i ] ? $name[ $i ] : $title[ $i ] );
+
+                //Prepare to save the upload
+                //Generate a random name
+                $new_name = random_string ( 10 ) . '.' . $fileinfo[ 'extension' ];
+
+                //Move the file from the temporary location to the assets/upload/documents directory
+                move_uploaded_file( $_FILES[ 'uploads' ][ 'tmp_name' ][ $i ], PATH . 'assets/uploads/documents/' . $new_name );
+            }
+
+            $r = $uploads->save( array( 'id' => $_POST[ 'posts' ][ 'uploads_id' ],
+                                        'title' => ( !!$title[ $i ] ? $title[ $i ] : $name[ $i ] ),
+                                        'name' => ( !!$new_name ? $new_name : $name[ $i ] ),
+                                        "posts_id" => $id ) );
+        }
+    }
 
     public static function save_frontend()
     {

@@ -338,8 +338,8 @@ define(['../utils/api-caller', 'Backbone'], function(api){
                 //We get the document name from the input field
                 //From here we need to append the document name and a delete button 
                 this.document_container.append( '<div>' +
-                                                    '<input type="text" name="upload_name[user]" value="' + this.document_name + '" />' +
-                                                    '<input type="hidden" name="upload_name[actual]" value="' + this.document_name + '" />' +
+                                                    '<input type="text" name="upload_name[user][]" value="' + this.document_name + '" />' +
+                                                    '<input type="hidden" name="upload_name[actual][]" value="' + this.document_name + '" />' +
                                                     ' - <button type="button" class="js-documents-delete">X Remove</button>' +
                                                 '</div>' );
 

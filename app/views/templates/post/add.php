@@ -51,10 +51,10 @@
             <div class="js-uploads-container" data-type="document"></div>
             <?php if ( !!$uploads_id && !!$upload_name ) : ?>
                 <div class="js-existing-upload-container">
-                    <input type="hidden" name="candidates[uploads_id]" value="<?php echo $uploads_id; ?>" />
-                    <input type="text" name="uploads[title]" value="<?php echo $upload_title; ?>" /> - <button type="button" class="js-delete-upload" data-id="<?php echo $uploads_id; ?>" data-upload-name="<?php echo $upload_name; ?>">X Delete</button>
-                    <input type="hidden" name="uploads[id]" value="<?php echo $uploads_id; ?>" />
-                    <input type="hidden" name="uploads[name]" value="<?php echo $upload_name; ?>" />
+                    <input type="hidden" name="posts[uploads_id]" value="<?php echo $uploads_id; ?>" />
+                    <input type="text" name="uploads[title][]" value="<?php echo $upload_title; ?>" /> - <button type="button" class="js-delete-upload" data-id="<?php echo $uploads_id; ?>" data-upload-name="<?php echo $upload_name; ?>">X Delete</button>
+                    <input type="hidden" name="uploads[id][]" value="<?php echo $uploads_id; ?>" />
+                    <input type="hidden" name="uploads[name][]" value="<?php echo $upload_name; ?>" />
                 </div>
             <?php endif; ?>
 

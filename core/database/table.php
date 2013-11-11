@@ -65,7 +65,7 @@ class table
             $method = 'getAssoc';
         }
 
-        echo( '<p>' . $sql . '</p>' );
+        //echo( '<p>' . $sql . '</p>' );
         
         $output = $this->query->{$method}( $sql, $binds );
         

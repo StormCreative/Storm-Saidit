@@ -53,6 +53,8 @@ class Has_many extends Relationships
 
             $query = 'SELECT *'.$image_query.' FROM '.$many_table.' WHERE '.$main_table.'_id = :id';
 
+            //echo( '<p>' . $query . '</p>' );
+
             // Unset the add query for the next loop
             $image_query = "";
 
