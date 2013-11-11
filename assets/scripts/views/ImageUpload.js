@@ -30,7 +30,7 @@ define(['../utils/api-caller', 'Backbone'], function(api){
             //Define some properties for the document upload
             this.document_name;
             this.document_upload_count = !!window.document_count ? window.document_count : 0;
-            this.total_documents_allowed = 1;
+            this.total_documents_allowed = !!window.number_of_documents ? window.number_of_documents : 1;
             this.document_info;
             this.document_container = $( '.js-documents' );
         },
@@ -55,7 +55,6 @@ define(['../utils/api-caller', 'Backbone'], function(api){
                                                 '<div class="js-image-upload-container">' +
                                                     '<input type="hidden" name="normal_uploader" value="1" />' + 
                                                     '<p><label class="main_label"><span class="action">Upload Image</span></label><input type="file" class="js-image-upload" name="image[]" /></p>' +
-                                                    
                                                 '</div>' +
                                                 '<div class="js-images post-add-image-list"></div>' );
 
@@ -63,8 +62,7 @@ define(['../utils/api-caller', 'Backbone'], function(api){
             $( '.js-uploads-container' ).append ( '<p class="js-document-error"><p>' +
                                                   '<div class="js-document-upload-container">' +
                                                       '<input type="hidden" name="normal_uploader" value="1" />' + 
-                                                      '<input type="file" class="js-document-upload" name="uploads[]" />' +
-                                                      '<span class="action">Upload File</span>' +
+                                                      '<p><label class="main_label"><span class="action">Upload File</span></label><input type="file" class="js-document-upload" name="uploads[]" /></p>' +
                                                   '</div>' +
                                                   '<div class="js-documents"></div>' );
         },

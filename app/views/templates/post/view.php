@@ -39,6 +39,15 @@
         <?php endforeach; ?>
     </div>
     <?php endif; ?>
+
+    <?php if( count( $post[ 'uploads' ] ) > 0 ) : ?>
+        <?php foreach( $post[ 'uploads' ] as $upload ) : ?>
+        <p>
+            <a href="<?php echo DIRECTORY; ?>assets/uploads/documents/<?php echo $post[ 'name' ]; ?>"><?php echo $post[ 'title' ]; ?></a>
+        </p>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
     <?php if( !!$comments && count($comments) > 0 ): ?>
     <h3><i class="icon-comment"></i> <?php echo count($comments); ?> Response<?php if(count($comments) > 1): ?>s<?php endif; ?>:</h3>
     <div class="comments">

@@ -32,6 +32,15 @@ class Post extends C_Controller
                     Image_model::save_multi( ( !!$images ? $images : $_POST[ 'multi-image' ] ), $post->attributes[ 'id' ] );
                 }
 
+                //If the user has selected some files to upload run this
+                //Send the $_FILES array to the application controller for the saving to be handled
+                if ( ( !!$_FILES[ "uploads" ] && $_POST[ "upload_name" ] ) || !!$_POST[ "downloads" ] ||!!$_POST[ 'uploads' ][ 'title' ] ) {
+                    $_POST[ "posts" ][ "uploads_id" ] = Document_helper::save( $post->attributes[ 'id' ] );
+                }
+                else {
+                    $_POST[ "posts" ][ "uploads_id" ] = NULL;
+                }
+
                 Activity_model::add($_SESSION['user']['id'], 'created new post <a href="'.DIRECTORY.'post/view/'.$output.'">'.$post->title.'</a>');
 
                 header('location: '.DIRECTORY.'?posts=0&new_post=true');
@@ -78,6 +87,8 @@ class Post extends C_Controller
         $comments = new Comments_model();
 
         $output = $comments->where('comments.posts_id = :id')->order('create_date', 'ASC')->all(array('id' => $id));
+
+        die( print_r( $post->attributes ) );
 
         $this->addTag('post', $post->attributes);
         $this->addTag('comments', $output);

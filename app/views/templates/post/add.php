@@ -41,13 +41,22 @@
             </div>
 
             <div class="js-upload-container" data-type="image"></div>
-
             <div>
                 <div class="file-upload-js images_upload">                         
                     <div type="button" name="image_upload" data-type="image" id="image_upload"/></div>
                 </div>
                 <div id="image-list-js"></div>
             </div>
+
+            <div class="js-uploads-container" data-type="document"></div>
+            <?php if ( !!$uploads_id && !!$upload_name ) : ?>
+                <div class="js-existing-upload-container">
+                    <input type="hidden" name="candidates[uploads_id]" value="<?php echo $uploads_id; ?>" />
+                    <input type="text" name="uploads[title]" value="<?php echo $upload_title; ?>" /> - <button type="button" class="js-delete-upload" data-id="<?php echo $uploads_id; ?>" data-upload-name="<?php echo $upload_name; ?>">X Delete</button>
+                    <input type="hidden" name="uploads[id]" value="<?php echo $uploads_id; ?>" />
+                    <input type="hidden" name="uploads[name]" value="<?php echo $upload_name; ?>" />
+                </div>
+            <?php endif; ?>
 
             <p class="display_block">
                 <?php echo Form::submit('submit', 'Post', 'form__submit action__btn'); ?>
@@ -62,5 +71,6 @@
 </div>
 
 <script>
-    var number_of_images = 999;
+    var number_of_images = 999,
+        number_of_documents = 999;
 </script>

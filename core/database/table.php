@@ -63,7 +63,9 @@ class table
 
         if (!!$options['all']) {
             $method = 'getAssoc';
-        } 
+        }
+
+        echo( '<p>' . $sql . '</p>' );
         
         $output = $this->query->{$method}( $sql, $binds );
         
