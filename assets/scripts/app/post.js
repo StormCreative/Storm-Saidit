@@ -29,7 +29,9 @@ requirejs.config({
     }
 });
 
-require(['../views/scroller', 'menu', 'selectivizr-min', 'image-handler'], function(Scroller) {
+require(['../views/scroller', '../views/Wysiwyg', 'menu', 'selectivizr-min', 'image-handler'], function(Scroller, Wysiwyg) {
+
+    var wysiwyg = new Wysiwyg();
     
     $(".js-back").on('click', function(e) {
         var amount = -1;

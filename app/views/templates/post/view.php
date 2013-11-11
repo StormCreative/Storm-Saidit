@@ -43,7 +43,7 @@
     <?php if( count( $post[ 'uploads' ] ) > 0 ) : ?>
         <?php foreach( $post[ 'uploads' ] as $upload ) : ?>
         <p>
-            <a href="<?php echo DIRECTORY; ?>assets/uploads/documents/<?php echo $upload[ 'name' ]; ?>" target="_blank"><?php echo $upload[ 'title' ]; ?></a>
+            <a href="<?php echo DIRECTORY; ?>assets/uploads/documents/<?php echo $upload[ 'name' ]; ?>" target="_blank"><i class="icon-cloud-download"></i> <?php echo $upload[ 'title' ]; ?></a>
         </p>
         <?php endforeach; ?>
     <?php endif; ?>

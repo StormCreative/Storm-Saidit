@@ -23,7 +23,7 @@
             </p>
             <p>
                 <label for="notes" class="main_label">Notes</label>
-                <textarea name="posts[notes]"></textarea>
+                <textarea name="posts[notes]" class="js-wysiwyg"></textarea>
             </p>
             <!--
             <p><?php echo Form::textfield('title'); ?></p>
