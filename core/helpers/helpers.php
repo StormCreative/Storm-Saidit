@@ -219,7 +219,7 @@ function word_limiter ( $str, $limit = 100, $end_char = '&#8230;' )
         $end_char = '';
 
     //return rtrim ( $matches[0] ) . $end_char;
-    return strip_tags( rtrim ( $matches[0] ) . $end_char );
+    return strip_tags( html_entity_decode( rtrim ( $matches[0] ) ) . $end_char );
 }
 
 /**
