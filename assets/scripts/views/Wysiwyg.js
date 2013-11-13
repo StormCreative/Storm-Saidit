@@ -35,7 +35,7 @@ define(['../utils/hogan', '../utils/wysiwyg/parser_rules/advanced', '../utils/wy
 										  		toolbar:      "wysihtml5-toolbar-" + i, // id of toolbar element
 										  		parserRules:  wysihtml5ParserRules, // defined in parser rules set
 										  		// Array (or single string) of stylesheet urls to be loaded in the editor's iframe
-										  		stylesheets: window.site_path + 'assets/styles/wysiwyg.css',
+										  		stylesheets: window.site_path + 'assets/styles/posts.css',
                                                 useLineBreaks: false
 				});
 

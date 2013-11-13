@@ -335,3 +335,8 @@ small {
 }
 
 
+.wysihtml5-sandbox {
+    width: 66% !important; //use !important to overwrite the wysiwyg generic styles
+    height: 200px !important; //use !important to overwrite the wysiwyg generic styles
+}
+
