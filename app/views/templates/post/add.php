@@ -11,7 +11,7 @@
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
-        <?php echo Form::start_form('posts', '', 'POST', 'form'); ?>
+        <?php echo Form::start_form('posts', '', 'POST', 'form', 'js-posts-form'); ?>
             <p>
                 <label for="title" class="main_label">Title of post</label>
                 <input type="text" name="posts[title]">
@@ -23,7 +23,7 @@
             </p>
             <p>
                 <label for="notes" class="main_label">Notes</label>
-                <textarea name="posts[notes]"></textarea>
+                <textarea name="posts[notes]" class="js-wysiwyg"></textarea>
             </p>
             <!--
             <p><?php echo Form::textfield('title'); ?></p>
@@ -40,9 +40,37 @@
                  </p>
             </div>
 
-            <p><?php echo Form::submit('submit', 'Post', 'form__submit action__btn'); ?></p>
+            <div class="js-upload-container" data-type="image"></div>
+            <div>
+                <div class="file-upload-js images_upload">                         
+                    <div type="button" name="image_upload" data-type="image" id="image_upload"/></div>
+                </div>
+                <div id="image-list-js"></div>
+            </div>
+
+            <div class="js-uploads-container" data-type="document"></div>
+            <?php if ( !!$uploads_id && !!$upload_name ) : ?>
+                <div class="js-existing-upload-container">
+                    <input type="hidden" name="posts[uploads_id]" value="<?php echo $uploads_id; ?>" />
+                    <input type="text" name="uploads[title][]" value="<?php echo $upload_title; ?>" /> - <button type="button" class="js-delete-upload" data-id="<?php echo $uploads_id; ?>" data-upload-name="<?php echo $upload_name; ?>">X Delete</button>
+                    <input type="hidden" name="uploads[id][]" value="<?php echo $uploads_id; ?>" />
+                    <input type="hidden" name="uploads[name][]" value="<?php echo $upload_name; ?>" />
+                </div>
+            <?php endif; ?>
+
+            <p class="display_block">
+                <?php echo Form::submit('submit', 'Post', 'form__submit action__btn'); ?>
+                <span class="js-ajax-loader hide">
+                    <img src="<?php echo DIRECTORY; ?>assets/images/ajax-loader.gif" />
+                </span>
+            </p>
 
         <?php echo Form::end_form(); ?>
         </div>
     </section>
 </div>
+
+<script>
+    var number_of_images = 999,
+        number_of_documents = 999;
+</script>

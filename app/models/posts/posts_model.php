@@ -7,7 +7,7 @@ class Posts_model extends Activerecord
         parent::__Construct($attributes);
 
         $this->has_one = array('authors');
-        $this->has_many = array('comments', 'ratings');
+        $this->has_many = array('comments', 'ratings', 'image', 'uploads');
 
         $this->validates = array( array( "not_empty", "title" ) );
     }

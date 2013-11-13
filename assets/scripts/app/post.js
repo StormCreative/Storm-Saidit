@@ -29,7 +29,9 @@ requirejs.config({
     }
 });
 
-require(['../views/scroller', 'menu', 'selectivizr-min'], function(Scroller) {
+require(['../views/scroller', '../views/Wysiwyg', 'menu', 'selectivizr-min', 'image-handler'], function(Scroller, Wysiwyg) {
+
+    var wysiwyg = new Wysiwyg();
     
     $(".js-back").on('click', function(e) {
         var amount = -1;
@@ -54,5 +56,9 @@ require(['../views/scroller', 'menu', 'selectivizr-min'], function(Scroller) {
     require(['posters']);
 
     require(['posts']);
+
+    $( '#js-posts-form' ).submit( function( e ) {
+        $( '.js-ajax-loader' ).show();
+    });
     
 });

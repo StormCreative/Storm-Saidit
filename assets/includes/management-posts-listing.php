@@ -15,7 +15,7 @@
             <div class="post__details">
                 <div class="post__details--notes">
                     <?php if(!!$post['post']['notes']): ?>
-                    <p><?php echo word_limiter($post['post']['notes'], 20); ?></p>
+                    <p><?php echo word_limiter( $post['post']['notes'], 20); ?></p>
                     <?php endif; ?>
                 </div>
                 <div class="post__details--extra-info">

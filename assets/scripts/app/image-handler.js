@@ -12,12 +12,10 @@ requirejs.config({
 });
 
 if ( window.File && window.FileReader && window.FileList && window.Blob ) {
-    console.log ( 'Non-uploadify uploader loaded' );
     require(['../views/ImageUpload'], function(ImageUpload) {
         var imageupload = new ImageUpload ();
     });
 }
 else {
-    console.log ( 'Uploadify loaded' );
     require([ 'uploader' ]);
 }

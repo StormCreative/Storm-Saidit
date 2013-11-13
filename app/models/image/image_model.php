@@ -11,4 +11,12 @@ class image_model extends activerecord
         $this->has_many = array();
         $this->has_one = "";
     }
+
+    public static function save_multi( $images = array(), $post_id = '' )
+    {
+    	foreach( $images as $image ) {
+    		$image_model = new Image_model();
+    		$image_model->save( array( 'imgname' => $image[ 'imgname' ], 'posts_id' => $post_id ) );
+    	}
+    }
 }

@@ -26,15 +26,15 @@ class form
      * @param  optional        $class
      * @return string
      */
-    public static function start_form( $name, $action, $method="POST", $class="" )
+    public static function start_form( $name, $action, $method="POST", $class="", $id = "" )
     {
         self::$form = $name;
         self::$method = $method;
 
         $class = (!!$class ? 'class="'.$class.'"' : "");
+        $id = ( !!$id ? 'id="' . $id . '"' : '' );
 
-
-        return '<form method="'.$method.'" action="'.$action.'" '.$class.'>'."\n";
+        return '<form method="'.$method.'" action="'.$action.'" '.$class.' ' . $id . ' enctype="multipart/form-data">'."\n";
     }
 
     /**

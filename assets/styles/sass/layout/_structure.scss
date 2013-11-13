@@ -235,6 +235,7 @@ small {
 @import "components/filter-bar";
 @import "Fonts/fonts";
 @import "Fonts/font-awesome";
+@import "components/wysiwyg";
 
 /**** Side Menu ***/
 
@@ -531,4 +532,8 @@ width: 64%;
 .post__details {
 padding-right: 50px;
 }
+}
+
+.hide {
+    display: none;
 }

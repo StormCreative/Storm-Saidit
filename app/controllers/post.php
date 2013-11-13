@@ -8,7 +8,7 @@ class Post extends C_Controller
 
         $this->addStyle('posts');
 
-        Sessions::check_access();
+        //Sessions::check_access();
     }
 
     public function add()
@@ -26,6 +26,21 @@ class Post extends C_Controller
 
             if($output != false) {
 
+                $images = Image_helper::multi_image_move();
+
+                if( !!$images || $_POST[ 'multi-image' ] ) {
+                    Image_model::save_multi( ( !!$images ? $images : $_POST[ 'multi-image' ] ), $post->attributes[ 'id' ] );
+                }
+
+                //If the user has selected some files to upload run this
+                //Send the $_FILES array to the application controller for the saving to be handled
+                if ( ( !!$_FILES[ "uploads" ] && $_POST[ "upload_name" ] ) || !!$_POST[ "downloads" ] || !!$_POST[ 'uploads' ][ 'title' ] ) {
+                    $_POST[ "posts" ][ "uploads_id" ] = Document_helper::save_many( $post->attributes[ 'id' ] );
+                }
+                else {
+                    $_POST[ "posts" ][ "uploads_id" ] = NULL;
+                }
+
                 Activity_model::add($_SESSION['user']['id'], 'created new post <a href="'.DIRECTORY.'post/view/'.$output.'">'.$post->title.'</a>');
 
                 header('location: '.DIRECTORY.'?posts=0&new_post=true');
@@ -33,6 +48,8 @@ class Post extends C_Controller
                 $this->addTag('errors', $post->errors);
             }
         }
+
+        $this->setScript( 'post' );
     }
 
     public function view($id)
@@ -77,6 +94,26 @@ class Post extends C_Controller
         $this->addStyle('jqueryui');
         $this->setScript('post');
         $this->addStyle('comments');
+    }
+
+    public function image($image)
+    {
+        $image = basename($image);
+        $filename = PATH.'assets/uploads/images/720/'.$image;
+        $size = @getimagesize($filename);
+        $fp = @fopen($filename, "rb");
+
+        if ($size && $fp) {
+            header("Content-type: {$size['mime']}");
+            header("Content-Length: " . filesize($filename));
+            header("Content-Disposition: attachment; filename=$image");
+            header('Content-Transfer-Encoding: binary');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            fpassthru($fp);
+            exit;
+        }
+
+        header("HTTP/1.0 404 Not Found");
     }
 
     public function all()

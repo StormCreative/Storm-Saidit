@@ -136,7 +136,6 @@ h1 {
         display: inline-block;
         font-size: 16px;
         text-transform: uppercase;
-        
     }
 
     .main_label {
@@ -155,6 +154,83 @@ h1 {
             color: #E44C40;
             text-decoration: none;
         }
+    }
+}
+
+.post-images {
+    margin-top: 10px;
+    overflow: hidden;
+    background: #F7FBFB;
+    padding: 8px 0 0 2px;
+    height: auto;
+}
+
+.post-images__image {
+    background: white;
+    width: 260px;
+    float: left;
+    margin: 4px 0 10px 8px;
+}
+
+.post-images__image--download {
+    margin: 8px 0 4px 4px;
+}
+
+.uploadify-button {
+    border: 1px solid #ccc;
+    background: #ccc;
+    padding-left: 12px;
+
+    span:after {
+        content: "Upload";
+    }
+}
+
+.post-add-image-list {
+    margin-top: 20px;
+    width: 794px;
+    overflow: hidden;
+
+    div {
+        width: 254px;
+        float: left;
+        margin-right: 10px;
+        overflow: hidden;
+    }
+}
+
+.fallback_img_uploader {
+    width: 254px;
+    float: left;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.delete-btn, .del-image {
+    background: #E44C40; /* Old browsers */
+    border: none;
+    display: block;
+    color: #FFF;
+    font-family: TTRegular;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 6px;
+    text-align: center;
+    width: 80px;
+    text-decoration: none;
+    width: 80px;
+
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+
+    &:hover,
+    &:focus {
+        background: #C1392B; /* Old browsers */
     }
 }
 
@@ -214,7 +290,6 @@ h1 {
 
 .form .form__submit {
     width: 150px;
-    margin-left: 150px;
 }
 
 small {
@@ -233,6 +308,20 @@ small {
 
 }
 
+#image-list-js, .js-upload-container {
+    overflow: hidden;
+}
+
+.display_block {
+    display: block;
+}
+
+
+
+.form input[type=file] {
+    display: inline-block;
+}
+
 .post_tags_inline {
     display: inline-block;
     float: left;
@@ -245,23 +334,10 @@ small {
     }
 }
 
-/* Media Queries */
-@media all and (min-width: 960px) and (max-width: 1024px) {
-
-.rating_switch {
-    right: 115px;
+.js-wysiwyg {
+    min-width: 80% !important; //use !important to overwrite the wysiwyg generic styles
+    height: 200px !important; //use !important to overwrite the wysiwyg generic styles
+    overflow-x: hidden !important;
 }
 
-.management-switch {
-    right: 21px;
-}
 
-.posters_list dt {
-    border: 1px solid red;
-width: 64%;
-}
-
-.post__details {
-padding-right: 50px;
-}
-}

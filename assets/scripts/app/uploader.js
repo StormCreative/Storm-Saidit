@@ -9,9 +9,9 @@
  * 
  * @param array options ( the options to be changed in the uploadify set up )
  */
-define(['jquery'], function($) {
+define(['jquery', '../utils/uploadify/uploadify.min'], function( $, uploadify ) {
 
-	require(['../utils/uploadify/uploadify.min']);
+	//require([]);
 	
 	var feedback = $('#feedback-js');
 	var form = $('#upload-form-js');
@@ -51,7 +51,7 @@ define(['jquery'], function($) {
 		    	'buttonImage'      : settings.buttonImage || '',
 		    	'checkExists'      : settings.checkExists || '',
 		    	'debug'            : settings.debug || false,
-		    	'fileObjName'      : settings.fileObjName || 'Filedata',
+		    	'fileObjName'      : settings.fileObjName || 'image',
 		    	'fileSizeLimit'    : settings.fileSizeLimit || '5mb',
 		    	'fileTypeDesc'     : settings.fileTypeDesc || 'jpg, git or png',
 		    	'fileTypeExts'     : settings.fileTypeExts || '*.jpg; *.jpeg; *.gif; *.png',
@@ -70,7 +70,7 @@ define(['jquery'], function($) {
 		        'requeueErrors'    : settings.requeueErrors || false,
 		        'successTimeout'   : settings.successTimeout || 30,
 		        'swf'              : site_path + 'assets/scripts/utils/uploadify/uploadify.swf',
-		        'uploader'         : site_path + 'admin/AJAX_uploadify',
+		        'uploader'         : site_path + 'ajax_uploadify',
 		        'uploadLimit'      : settings.uploadLimit || 999,
 		        'width'            : settings.width || 120,
 		        'z-index'		   : '1',
@@ -128,10 +128,9 @@ define(['jquery'], function($) {
 	function success ( file, data, response ) {
 		
 		var data = $.parseJSON ( data );
-		
 		if ( data.type == 'image' )
 		{
-			image_list.append ( '<p id="' + data.filename + '"><img src="' + site_path + 'assets/uploads/images/' + data.filename + '" title="' + file.name + '" /><input type="hidden" name="multi-image[' + data.filename + '][imgname]" value="' + data.filename + '" /><input type="button" class="btn del-image delete-image-js" data-imagename="' + data.filename + '" data-type="' + data.type + '" value="Delete" /></p>' );
+			image_list.append ( '<p id="' + data.filename + '" class="fallback_img_uploader"><img src="' + site_path + 'assets/uploads/images/' + data.filename + '" title="' + file.name + '" /><input type="hidden" name="multi-image[' + data.filename + '][imgname]" value="' + data.filename + '" /><input type="button" class="btn del-image delete-image-js" data-imagename="' + data.filename + '" data-type="' + data.type + '" value="Delete" /></p>' );
 			$('#imgname').val ( data.filename );
 		}
 		else if ( data.type == 'document' )
@@ -162,11 +161,9 @@ define(['jquery'], function($) {
 		var imagename = $(target).attr('data-imagename');
 		var type = $(target).attr('data-type');
 		var id = $(target).attr('data-id');
-		
-		var gallery = $(target).attr ('data-gallery');
 
-		$.ajax ({ url: site_path + 'AJAX_uploadify/delete',
-				  data: { imagename: imagename, type: type, id: id, gallery: gallery },
+		$.ajax ({ url: site_path + 'ajax_uploadify/delete',
+				  data: { imagename: imagename, type: type, id: id },
 				  type: 'POST',
 				  dataType: 'JSON',
 				  success: function(data) {
