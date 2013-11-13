@@ -335,12 +335,9 @@ small {
 }
 
 .js-wysiwyg {
+    min-width: 80% !important; //use !important to overwrite the wysiwyg generic styles
+    height: 200px !important; //use !important to overwrite the wysiwyg generic styles
     overflow-x: hidden !important;
 }
 
-.wysihtml5-sandbox {
-    width: 80% !important; //use !important to overwrite the wysiwyg generic styles
-    height: 200px !important; //use !important to overwrite the wysiwyg generic styles
-    
-}
 
